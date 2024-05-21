@@ -172,10 +172,10 @@ traversal_requirements: Dict[str, Dict[str, AWData]] = {
     },
     fish_west: {
         "Ancient Egg Chest":  # one room up and left of save point, vines in top right
-            AWData(AWType.location, [[iname.bubble]]),  # todo: check if you can get here with disc
-        fish_lower:  # bubble to go down, disc or remote to activate switches TODO: Check if passing stalagtites after save is possible with nothing
-            AWData(AWType.region, [[iname.bubble, iname.remote], [iname.bubble, iname.disc]]),
-    },
+            AWData(AWType.location, [[iname.bubble], [iname.disc_hop_hard]]),
+        fish_lower:  # bubble to go down, disc or remote to activate switches, breakspike to pass icicles in first penguin room
+            AWData(AWType.region, [[iname.bubble, iname.remote, iname.can_break_spikes], [iname.bubble, iname.disc]]), 
+    },        
     fish_tube_room: {  # no location access rules because you need bubble wand to get here anyway
         "Friendship Egg Chest":  # the green pipe in the fish tube room
             AWData(AWType.location),  # tight timing with no midair bubble jumps
@@ -186,15 +186,15 @@ traversal_requirements: Dict[str, Dict[str, AWData]] = {
         fish_west:
             AWData(AWType.region, [[iname.bubble]]),  # fish pipe left of the save point
         fish_boss_1:  # disc is required to solve both the windbox puzzle and to cross the whale room
-            AWData(AWType.region, [[iname.disc, iname.can_break_spikes]]),
+            AWData(AWType.region, [[iname.disc]]),
         bobcat_room:
-            AWData(AWType.region, [[iname.top, iname.can_break_spikes]]), 
+            AWData(AWType.region, [[iname.top]]), 
         lname.fish_candle_penguin:
-            AWData(AWType.location, [[iname.disc], [iname.bubble, iname.can_break_spikes]]),
+            AWData(AWType.location, [[iname.disc], [iname.bubble]]),
         "Goodnight Egg Chest":
-            AWData(AWType.location, [[iname.can_defeat_ghost, iname.can_breakspikes], [iname.event_penguin_candle_lit, iname.can_break_spikes]]),
+            AWData(AWType.location, [[iname.can_defeat_ghost], [iname.event_penguin_candle_lit]]),
     },
-    fish_boss_1: {
+    fish_boss_1: {  # the disc required to clear this room's puzzle is implicated in the entrance reqs so it is not duplicated here
         chest_on_spikes_region:  # the one you're supposed to get to after getting the wheel
             AWData(AWType.location, [[iname.bubble_short]]),
         fish_boss_2:
