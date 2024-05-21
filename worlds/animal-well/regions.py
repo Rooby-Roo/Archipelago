@@ -142,7 +142,6 @@ traversal_requirements: Dict[str, Dict[str, AWData]] = {
     },
 
     fish_upper: {
-        # todo, find alternate routes directly into fish_west not through bwand pit. Probably yoyo and top?
         lname.fish_mural_match:  # right at the start, just some platforming
             AWData(AWType.location),
         lname.fish_bunny:
@@ -152,14 +151,16 @@ traversal_requirements: Dict[str, Dict[str, AWData]] = {
         "Mystic Egg Chest":  # avoid the fireball thrower, hit some buttons
             AWData(AWType.location),
         "Great Egg Chest":  # east end of the crane room
-            AWData(AWType.location, [[iname.bubble_short], [iname.disc]]),  # TODO: verify you can do this with just one disc
+            AWData(AWType.location, [[iname.bubble], [iname.disc]]),  # lets talk about whether we wanna call this one disc or disk_hop
         "Normal Egg Chest":  # hidden wall in lower left of first bubble room
             AWData(AWType.location),
         "Dazzle Egg Chest":  # little obstacle course, feels like the bubble jump tutorial?
             AWData(AWType.location, [[iname.bubble_short]]),
         fish_tube_room:  # enter at the save room fish pipe, the rooms with all the fish pipes
             AWData(AWType.region, [[iname.bubble]]),
-        # todo: item in spike room under save room
+        "Sunset Egg Chest":  # break the spikes in the room to the right of the fish warp
+            AWData(AWType.location, [[iname.can_break_spikes_below], [iname.disc_hop]]),
+        
     },
     fish_wand_pit: {
         # fish_upper:  # commented out because not logically relevant
@@ -185,11 +186,13 @@ traversal_requirements: Dict[str, Dict[str, AWData]] = {
         fish_west:
             AWData(AWType.region, [[iname.bubble]]),  # fish pipe left of the save point
         fish_boss_1:  # disc is required to solve both the windbox puzzle and to cross the whale room
-            AWData(AWType.region, [[iname.disc]]),
+            AWData(AWType.region, [[iname.disc, iname.can_break_spikes]]),
         bobcat_room:
-            AWData(AWType.region, [[iname.top]]),
+            AWData(AWType.region, [[iname.top, iname.can_break_spikes]]), 
         lname.fish_candle_penguin:
             AWData(AWType.location, [[iname.disc], [iname.bubble, iname.can_break_spikes]]),
+        "Goodnight Egg Chest":
+            AWData(AWType.location, [[iname.can_defeat_ghost, iname.can_breakspikes], [iname.event_penguin_candle_lit, iname.can_break_spikes]]),
     },
     fish_boss_1: {
         chest_on_spikes_region:  # the one you're supposed to get to after getting the wheel
