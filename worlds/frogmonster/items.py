@@ -13,6 +13,10 @@ class FrogmonsterItemData(NamedTuple):
     count: int = 1
 
 item_data_table = Dict[str, FrogmonsterItemData] = {
+    "Victory": FrogmonsterItemData(
+        type=ItemClassification.progression,
+        category=("Event")
+    ),
     "Dash": FrogmonsterItemData(
         id=BASE_ID + 0,
         type=ItemClassification.progression,

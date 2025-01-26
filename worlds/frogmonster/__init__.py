@@ -2,6 +2,7 @@ from worlds.AutoWorld import WebWorld, World
 from .options import FrogmonsterOptions
 from .items import item_id_table, item_data_table, FrogmonsterItem
 from .locations import location_id_table, location_data_table, FrogmonsterLocation
+from .regions import region_data_table
 
 class FrogmonsterWorld(World):
     """Frogmonster."""

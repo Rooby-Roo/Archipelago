@@ -11,6 +11,9 @@ class FrogmonsterLocationData(NamedTuple):
     id: int = None
 
 location_data_table: Dict[str, FrogmonsterLocationData] = {
+    "Goal": FrogmonsterLocationData(
+        region="Anywhere",
+    ),
     "Dash": FrogmonsterLocationData(
         region="Anywhere",
         id=BASE_ID + 0
