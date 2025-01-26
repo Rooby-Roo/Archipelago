@@ -1,7 +1,7 @@
 from typing import NamedTuple, Dict
 from BaseClasses import Item, ItemClassification
 
-BASE_ID = 0
+BASE_ID = 0  # Starting ID for both Frogmonster items and locations
 
 class FrogmonsterItem(Item):
     game = "Frogmonster"
@@ -10,6 +10,7 @@ class FrogmonsterItemData(NamedTuple):
     id: int = None
     type: ItemClassification = ItemClassification.filler
     category: (str) = None
+    count: int = 1
 
 item_data_table = Dict[str, FrogmonsterItemData] = {
     "Dash": FrogmonsterItemData(
@@ -368,3 +369,5 @@ item_data_table = Dict[str, FrogmonsterItemData] = {
         category=("Spell")
     ),
 }
+
+item_id_table = {name: data.id for name, data in item_data_table.items() if data.id is not None}
