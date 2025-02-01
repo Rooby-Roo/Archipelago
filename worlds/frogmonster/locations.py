@@ -1,6 +1,6 @@
 from typing import NamedTuple, Dict
 
-from .items import BASE_ID
+from __init__ import base_id
 from BaseClasses import Location
 
 class FrogmonsterLocation(Location):
@@ -16,287 +16,287 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     ),
     "Dash": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 0
+        id=base_id + 0
     ),
     "Sticky Hands": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 1
+        id=base_id + 1
     ),
     "Tongue Swing": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 2
+        id=base_id + 2
     ),
     "Runi Key": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 3
+        id=base_id + 3
     ),
     "Glowbug": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 4
+        id=base_id + 4
     ),
     "Frog": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 5
+        id=base_id + 5
     ),
     "Fly": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 6
+        id=base_id + 6
     ),
     "Dragonfly": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 7
+        id=base_id + 7
     ),
     "Eel": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 8
+        id=base_id + 8
     ),
     "Bass": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 9
+        id=base_id + 9
     ),
     "Blue Snack": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 10
+        id=base_id + 10
     ),
     "Purple Snack": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 11
+        id=base_id + 11
     ),
     "Magnet Roach": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 12
+        id=base_id + 12
     ),
     "Mushroll": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 13
+        id=base_id + 13
     ),
     "Mushfrog": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 14
+        id=base_id + 14
     ),
     "Beet": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 15
+        id=base_id + 15
     ),
     "Skater": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 16
+        id=base_id + 16
     ),
     "Soul Frog": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 17
+        id=base_id + 17
     ),
     "River Fish": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 18
+        id=base_id + 18
     ),
     "Bird": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 19
+        id=base_id + 19
     ),
     "Leafbug": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 20
+        id=base_id + 20
     ),
     "Wormy": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 21
+        id=base_id + 21
     ),
     "Minnow": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 22
+        id=base_id + 22
     ),
     "Turtle": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 23
+        id=base_id + 23
     ),
     "Blue Jelly": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 24
+        id=base_id + 24
     ),
     "Roof Snail": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 25
+        id=base_id + 25
     ),
     "Crab": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 26
+        id=base_id + 26
     ),
     "Bridge Frog": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 27
+        id=base_id + 27
     ),
     "Cricket": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 28
+        id=base_id + 28
     ),
     "Spider": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 29
+        id=base_id + 29
     ),
     "Moth": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 30
+        id=base_id + 30
     ),
     "Ammofly": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 31
+        id=base_id + 31
     ),
     "Pecker": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 32
+        id=base_id + 32
     ),
     "Soul Fish": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 33
+        id=base_id + 33
     ),
     "Fog Fly": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 34
+        id=base_id + 34
     ),
     "Cicada": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 35
+        id=base_id + 35
     ),
     "Mantis": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 36
+        id=base_id + 36
     ),
     "Jungle Snack": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 37
+        id=base_id + 37
     ),
     "Gecko": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 38
+        id=base_id + 38
     ),
     "Bee": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 39
+        id=base_id + 39
     ),
     "Mushroom": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 40
+        id=base_id + 40
     ),
     "Tang": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 41
+        id=base_id + 41
     ),
     "Axolotyl": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 42
+        id=base_id + 42
     ),
     "Mite": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 43
+        id=base_id + 43
     ),
     "Health 1": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 44
+        id=base_id + 44
     ),
     "Health 2": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 45
+        id=base_id + 45
     ),
     "Health 3": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 46
+        id=base_id + 46
     ),
     "Health 4": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 47
+        id=base_id + 47
     ),
     "Health 5": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 48
+        id=base_id + 48
     ),
     "Health 6": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 49
+        id=base_id + 49
     ),
     "Mana 1": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 50
+        id=base_id + 50
     ),
     "Mana 2": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 51
+        id=base_id + 51
     ),
     "Mana 3": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 52
+        id=base_id + 52
     ),
     "Mana 4": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 53
+        id=base_id + 53
     ),
     "Mana 5": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 54
+        id=base_id + 54
     ),
     "Mana 6": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 55
+        id=base_id + 55
     ),
     "Reeder": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 56
+        id=base_id + 56
     ),
     "Machine Gun": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 57
+        id=base_id + 57
     ),
     "Weepwood Bow": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 58
+        id=base_id + 58
     ),
     "Finisher": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 59
+        id=base_id + 59
     ),
     "Fire Fruit Juicer": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 60
+        id=base_id + 60
     ),
     "Gatling Gun": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 61
+        id=base_id + 61
     ),
     "Wooden Cannon": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 62
+        id=base_id + 62
     ),
     "Fireball": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 63
+        id=base_id + 63
     ),
     "Mushbomb": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 64
+        id=base_id + 64
     ),
     "Sharap Shot": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 65
+        id=base_id + 65
     ),
     "Beanshot": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 66
+        id=base_id + 66
     ),
     "Zap": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 67
+        id=base_id + 67
     ),
     "Slam": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 68
+        id=base_id + 68
     ),
     "Hive": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 69
+        id=base_id + 69
     ),
     "Puff": FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 70
+        id=base_id + 70
     ),
 }
 

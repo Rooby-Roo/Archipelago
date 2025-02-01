@@ -1,5 +1,5 @@
 from BaseClasses import Region
-from worlds.AutoWorld import WebWorld, World
+from worlds.AutoWorld import WebWorld, World, CollectionState
 from .options import FrogmonsterOptions
 from .items import item_id_table, item_data_table, FrogmonsterItem
 from .locations import location_id_table, location_data_table, FrogmonsterLocation
@@ -14,6 +14,7 @@ class FrogmonsterWorld(World):
     location_name_to_id = location_id_table
     item_name_to_id = item_id_table
     origin_region_name = "Anywhere"
+    base_id = 0  # Starting ID for both Frogmonster items and locations
 
     def create_item(self, name: str) -> FrogmonsterItem:
         return FrogmonsterItem(name, item_data_table[name].type, item_data_table[name].id, self.player)
@@ -32,7 +33,7 @@ class FrogmonsterWorld(World):
             # Create regions.
             region = Region(region, self.player, self.multiworld)
             self.multiworld.regions.append(region)
-            
+
             # Create locations, add locations to regions.
             current_region_locations = {key:val for key,val in location_data_table.items() if val.region == region}
             region.add_locations(current_region_locations, FrogmonsterLocation)
