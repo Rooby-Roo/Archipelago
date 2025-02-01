@@ -1,3 +1,4 @@
+from BaseClasses import Region
 from worlds.AutoWorld import WebWorld, World
 from .options import FrogmonsterOptions
 from .items import item_id_table, item_data_table, FrogmonsterItem
@@ -27,4 +28,11 @@ class FrogmonsterWorld(World):
         self.multiworld.itempool += item_pool
 
     def create_regions(self) -> None:
-        pass
+        for region in region_data_table.keys():
+            # Create regions.
+            region = Region(region, self.player, self.multiworld)
+            self.multiworld.regions.append(region)
+            
+            # Create locations, add locations to regions.
+            current_region_locations = {key:val for key,val in location_data_table.items() if val.region == region}
+            region.add_locations(current_region_locations, FrogmonsterLocation)
