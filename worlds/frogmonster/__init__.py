@@ -27,7 +27,7 @@ class FrogmonsterWorld(World):
         item_pool = []
         for name, item in item_data_table.items():
             if item.id:
-                for i in range(item_data_table[name].count):
+                for i in range(item_data_table[name].qty):
                     item_pool.append(self.create_item(name))
         
         self.multiworld.itempool += item_pool
@@ -42,11 +42,11 @@ class FrogmonsterWorld(World):
 #            print(self.multiworld.regions.region_cache)
 
             # Create locations, add locations to regions.
-            current_region_locations = {key:val for key,val in location_data_table.items() if val.region == region_name}
+            current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
             print(current_region_locations)
             region.add_locations(current_region_locations, FrogmonsterLocation)
 
-    def set_rules(self):
+    def set_rules(self) -> None:
 #        print(self.multiworld.regions.location_cache)
         for location in location_data_table.keys():
             self.multiworld.get_location(location, self.player).access_rule = lambda state: True  # Until I can be bothered to write actual logic

@@ -1,18 +1,18 @@
-from typing import NamedTuple, Dict
+from typing import NamedTuple, Dict, Optional
 
 from BaseClasses import Item, ItemClassification
 from .names import item_names as i
 
-BASE_ID = 0  # Starting ID for both Frogmonster items and locations, moved out of __init__ to avoid circular imports
+BASE_ID = 1  # Starting ID for both Frogmonster items and locations, moved out of __init__ to avoid circular imports
 
 class FrogmonsterItem(Item):
     game = "Frogmonster"
 
 class FrogmonsterItemData(NamedTuple):
-    id: int = None
+    id: Optional[int] = None
     type: ItemClassification = ItemClassification.filler
-    category: (str) = None
-    count: int = 1
+    category: Optional[(str)] = None
+    qty: int = 1
 
 item_data_table: Dict[str, FrogmonsterItemData] = {
 
@@ -35,7 +35,6 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     i.runi_key: FrogmonsterItemData(
         id=BASE_ID + 3,
         type=ItemClassification.progression,
-        category=()
     ),
     i.glowbug: FrogmonsterItemData(
         id=BASE_ID + 4,
