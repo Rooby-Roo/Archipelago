@@ -14,7 +14,6 @@ class FrogmonsterWorld(World):
     location_name_to_id = location_id_table
     item_name_to_id = item_id_table
     origin_region_name = "Anywhere"
-    base_id = 0  # Starting ID for both Frogmonster items and locations
 
     def create_item(self, name: str) -> FrogmonsterItem:
         return FrogmonsterItem(name, item_data_table[name].type, item_data_table[name].id, self.player)

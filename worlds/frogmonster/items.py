@@ -1,8 +1,9 @@
 from typing import NamedTuple, Dict
 
 from BaseClasses import Item, ItemClassification
-from __init__ import base_id
-from .names.item_names import item_names as i
+from .names import item_names as i
+
+BASE_ID = 0  # Starting ID for both Frogmonster items and locations, moved out of __init__ to avoid circular imports
 
 class FrogmonsterItem(Item):
     game = "Frogmonster"
@@ -13,363 +14,363 @@ class FrogmonsterItemData(NamedTuple):
     category: (str) = None
     count: int = 1
 
-item_data_table = Dict[str, FrogmonsterItemData] = {
+item_data_table: Dict[str, FrogmonsterItemData] = {
     i.victory: FrogmonsterItemData(
         type=ItemClassification.progression,
         category=("Event")
     ),
     i.dash: FrogmonsterItemData(
-        id=base_id + 0,
+        id=BASE_ID + 0,
         type=ItemClassification.progression,
         category=("Movement")
     ),
     i.sticky_hands: FrogmonsterItemData(
-        id=base_id + 1,
+        id=BASE_ID + 1,
         type=ItemClassification.progression,
         category=("Movement")
     ),
     i.tongue_swing: FrogmonsterItemData(
-        id=base_id + 2,
+        id=BASE_ID + 2,
         type=ItemClassification.progression,
         category=("Movement")
     ),
     i.runi_key: FrogmonsterItemData(
-        id=base_id + 3,
+        id=BASE_ID + 3,
         type=ItemClassification.progression,
         category=()
     ),
     i.glowbug: FrogmonsterItemData(
-        id=base_id + 4,
+        id=BASE_ID + 4,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.frog: FrogmonsterItemData(
-        id=base_id + 5,
+        id=BASE_ID + 5,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.fly: FrogmonsterItemData(
-        id=base_id + 6,
+        id=BASE_ID + 6,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.dragonfly: FrogmonsterItemData(
-        id=base_id + 7,
+        id=BASE_ID + 7,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.eel: FrogmonsterItemData(
-        id=base_id + 8,
+        id=BASE_ID + 8,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.bass: FrogmonsterItemData(
-        id=base_id + 9,
+        id=BASE_ID + 9,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.blue_snack: FrogmonsterItemData(
-        id=base_id + 10,
+        id=BASE_ID + 10,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.purple_snack: FrogmonsterItemData(
-        id=base_id + 11,
+        id=BASE_ID + 11,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.magnet_roach: FrogmonsterItemData(
-        id=base_id + 12,
+        id=BASE_ID + 12,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.mushroll: FrogmonsterItemData(
-        id=base_id + 13,
+        id=BASE_ID + 13,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.mushfrog: FrogmonsterItemData(
-        id=base_id + 14,
+        id=BASE_ID + 14,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.beet: FrogmonsterItemData(
-        id=base_id + 15,
+        id=BASE_ID + 15,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.skater: FrogmonsterItemData(
-        id=base_id + 16,
+        id=BASE_ID + 16,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.soul_frog: FrogmonsterItemData(
-        id=base_id + 17,
+        id=BASE_ID + 17,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.river_fish: FrogmonsterItemData(
-        id=base_id + 18,
+        id=BASE_ID + 18,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.bird: FrogmonsterItemData(
-        id=base_id + 19,
+        id=BASE_ID + 19,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.leafbug: FrogmonsterItemData(
-        id=base_id + 20,
+        id=BASE_ID + 20,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.wormy: FrogmonsterItemData(
-        id=base_id + 21,
+        id=BASE_ID + 21,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.minnow: FrogmonsterItemData(
-        id=base_id + 22,
+        id=BASE_ID + 22,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.turtle: FrogmonsterItemData(
-        id=base_id + 23,
+        id=BASE_ID + 23,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.blue_jelly: FrogmonsterItemData(
-        id=base_id + 24,
+        id=BASE_ID + 24,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.roof_snail: FrogmonsterItemData(
-        id=base_id + 25,
+        id=BASE_ID + 25,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.crab: FrogmonsterItemData(
-        id=base_id + 26,
+        id=BASE_ID + 26,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.bridge_frog: FrogmonsterItemData(
-        id=base_id + 27,
+        id=BASE_ID + 27,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.cricket: FrogmonsterItemData(
-        id=base_id + 28,
+        id=BASE_ID + 28,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.spider: FrogmonsterItemData(
-        id=base_id + 29,
+        id=BASE_ID + 29,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.moth: FrogmonsterItemData(
-        id=base_id + 30,
+        id=BASE_ID + 30,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.ammofly: FrogmonsterItemData(
-        id=base_id + 31,
+        id=BASE_ID + 31,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.pecker: FrogmonsterItemData(
-        id=base_id + 32,
+        id=BASE_ID + 32,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.soul_fish: FrogmonsterItemData(
-        id=base_id + 33,
+        id=BASE_ID + 33,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.fog_fly: FrogmonsterItemData(
-        id=base_id + 34,
+        id=BASE_ID + 34,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.cicada: FrogmonsterItemData(
-        id=base_id + 35,
+        id=BASE_ID + 35,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.mantis: FrogmonsterItemData(
-        id=base_id + 36,
+        id=BASE_ID + 36,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.jungle_snack: FrogmonsterItemData(
-        id=base_id + 37,
+        id=BASE_ID + 37,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.gecko: FrogmonsterItemData(
-        id=base_id + 38,
+        id=BASE_ID + 38,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.bee: FrogmonsterItemData(
-        id=base_id + 39,
+        id=BASE_ID + 39,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.mushroom: FrogmonsterItemData(
-        id=base_id + 40,
+        id=BASE_ID + 40,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.tang: FrogmonsterItemData(
-        id=base_id + 41,
+        id=BASE_ID + 41,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.axolotyl: FrogmonsterItemData(
-        id=base_id + 42,
+        id=BASE_ID + 42,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.mite: FrogmonsterItemData(
-        id=base_id + 43,
+        id=BASE_ID + 43,
         type=ItemClassification.useful,
         category=("Bug")
     ),
     i.health_1: FrogmonsterItemData(
-        id=base_id + 44,
+        id=BASE_ID + 44,
         type=ItemClassification.useful,
         category=("Health")
     ),
     i.health_2: FrogmonsterItemData(
-        id=base_id + 45,
+        id=BASE_ID + 45,
         type=ItemClassification.useful,
         category=("Health")
     ),
     i.health_3: FrogmonsterItemData(
-        id=base_id + 46,
+        id=BASE_ID + 46,
         type=ItemClassification.useful,
         category=("Health")
     ),
     i.health_4: FrogmonsterItemData(
-        id=base_id + 47,
+        id=BASE_ID + 47,
         type=ItemClassification.useful,
         category=("Health")
     ),
     i.health_5: FrogmonsterItemData(
-        id=base_id + 48,
+        id=BASE_ID + 48,
         type=ItemClassification.useful,
         category=("Health")
     ),
     i.health_6: FrogmonsterItemData(
-        id=base_id + 49,
+        id=BASE_ID + 49,
         type=ItemClassification.useful,
         category=("Health")
     ),
     i.mana_1: FrogmonsterItemData(
-        id=base_id + 50,
+        id=BASE_ID + 50,
         type=ItemClassification.useful,
         category=("Mana")
     ),
     i.mana_2: FrogmonsterItemData(
-        id=base_id + 51,
+        id=BASE_ID + 51,
         type=ItemClassification.useful,
         category=("Mana")
     ),
     i.mana_3: FrogmonsterItemData(
-        id=base_id + 52,
+        id=BASE_ID + 52,
         type=ItemClassification.useful,
         category=("Mana")
     ),
     i.mana_4: FrogmonsterItemData(
-        id=base_id + 53,
+        id=BASE_ID + 53,
         type=ItemClassification.useful,
         category=("Mana")
     ),
     i.mana_5: FrogmonsterItemData(
-        id=base_id + 54,
+        id=BASE_ID + 54,
         type=ItemClassification.useful,
         category=("Mana")
     ),
     i.mana_6: FrogmonsterItemData(
-        id=base_id + 55,
+        id=BASE_ID + 55,
         type=ItemClassification.useful,
         category=("Mana")
     ),
     i.reeder: FrogmonsterItemData(
-        id=base_id + 56,
+        id=BASE_ID + 56,
         type=ItemClassification.progression,
         category=("Gun")
     ),
     i.machine_gun: FrogmonsterItemData(
-        id=base_id + 57,
+        id=BASE_ID + 57,
         type=ItemClassification.progression,
         category=("Gun")
     ),
     i.weepwood_bow: FrogmonsterItemData(
-        id=base_id + 58,
+        id=BASE_ID + 58,
         type=ItemClassification.progression,
         category=("Gun")
     ),
     i.finisher: FrogmonsterItemData(
-        id=base_id + 59,
+        id=BASE_ID + 59,
         type=ItemClassification.progression,
         category=("Gun")
     ),
     i.fire_fruit_juicer: FrogmonsterItemData(
-        id=base_id + 60,
+        id=BASE_ID + 60,
         type=ItemClassification.progression,
         category=("Gun")
     ),
     i.gatling_gun: FrogmonsterItemData(
-        id=base_id + 61,
+        id=BASE_ID + 61,
         type=ItemClassification.progression,
         category=("Gun")
     ),
     i.wooden_cannon: FrogmonsterItemData(
-        id=base_id + 62,
+        id=BASE_ID + 62,
         type=ItemClassification.progression,
         category=("Gun")
     ),
     i.fireball: FrogmonsterItemData(
-        id=base_id + 63,
+        id=BASE_ID + 63,
         type=ItemClassification.useful,
         category=("Spell")
     ),
     i.mushbomb: FrogmonsterItemData(
-        id=base_id + 64,
+        id=BASE_ID + 64,
         type=ItemClassification.useful,
         category=("Spell")
     ),
     i.sharap_shot: FrogmonsterItemData(
-        id=base_id + 65,
+        id=BASE_ID + 65,
         type=ItemClassification.useful,
         category=("Spell")
     ),
-    i.bean: FrogmonsterItemData(
-        id=base_id + 66,
+    i.beans: FrogmonsterItemData(
+        id=BASE_ID + 66,
         type=ItemClassification.useful,
         category=("Spell")
     ),
     i.zap: FrogmonsterItemData(
-        id=base_id + 67,
+        id=BASE_ID + 67,
         type=ItemClassification.useful,
         category=("Spell")
     ),
     i.slam: FrogmonsterItemData(
-        id=base_id + 68,
+        id=BASE_ID + 68,
         type=ItemClassification.useful,
         category=("Spell")
     ),
     i.hive: FrogmonsterItemData(
-        id=base_id + 69,
+        id=BASE_ID + 69,
         type=ItemClassification.useful,
         category=("Spell")
     ),
     i.puff: FrogmonsterItemData(
-        id=base_id + 70,
+        id=BASE_ID + 70,
         type=ItemClassification.useful,
         category=("Spell")
     ),
