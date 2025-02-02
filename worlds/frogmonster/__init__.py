@@ -4,6 +4,8 @@ from .options import FrogmonsterOptions
 from .items import item_id_table, item_data_table, FrogmonsterItem
 from .locations import location_id_table, location_data_table, FrogmonsterLocation
 from .regions import region_data_table
+from .names import item_names as i
+from .names import location_names as l
 
 class FrogmonsterWorld(World):
     """Frogmonster."""
@@ -17,6 +19,9 @@ class FrogmonsterWorld(World):
 
     def create_item(self, name: str) -> FrogmonsterItem:
         return FrogmonsterItem(name, item_data_table[name].type, item_data_table[name].id, self.player)
+    
+    def create_event(self, event: str) -> FrogmonsterItem:
+        return FrogmonsterItem(event, True, None, self.player)
     
     def create_items(self) -> None:
         item_pool = []
@@ -39,4 +44,7 @@ class FrogmonsterWorld(World):
 
     def set_rules(self):
         for location in location_data_table.keys():
-            self.get_location(location).access_rule = lambda state: True  # Until I can be bothered to write actual logic
+            self.multiworld.get_location(location, self.player).access_rule = lambda state: True  # Until I can be bothered to write actual logic
+
+        self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory, self.player))
+        self.multiworld.completion_condition[self.player] = lambda state: state.has(i.victory, self.player)

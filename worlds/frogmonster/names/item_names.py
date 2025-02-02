@@ -1,3 +1,7 @@
+"""
+A list of human-readable names for the items in Frogmonster.
+"""
+
 dash = "Dash"
 sticky_hands = "Sticky Hands"
 tongue_swing = "Tongue Swing"
