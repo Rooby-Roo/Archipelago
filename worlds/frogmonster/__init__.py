@@ -1,5 +1,5 @@
 from BaseClasses import Region
-from worlds.AutoWorld import WebWorld, World, CollectionState
+from worlds.AutoWorld import World
 from .options import FrogmonsterOptions
 from .items import item_id_table, item_data_table, FrogmonsterItem
 from .locations import location_id_table, location_data_table, FrogmonsterLocation
@@ -37,3 +37,7 @@ class FrogmonsterWorld(World):
             # Create locations, add locations to regions.
             current_region_locations = {key:val for key,val in location_data_table.items() if val.region == region}
             region.add_locations(current_region_locations, FrogmonsterLocation)
+
+    def set_rules(self):
+        for location in location_data_table.keys():
+            self.get_location(location).access_rule = lambda state: True  # Until I can be bothered to write actual logic
