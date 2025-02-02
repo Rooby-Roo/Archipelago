@@ -2,299 +2,300 @@ from typing import NamedTuple, Dict
 
 from __init__ import base_id
 from BaseClasses import Location
+from .names.location_names import location_names as l
 
 class FrogmonsterLocation(Location):
-    game = "FrogMonster"
+    game = "Frogmonster"
 
 class FrogmonsterLocationData(NamedTuple):
     region: str
     id: int = None
 
 location_data_table: Dict[str, FrogmonsterLocationData] = {
-    "Goal": FrogmonsterLocationData(
+    l.goal: FrogmonsterLocationData(
         region="Anywhere",
     ),
-    "Dash": FrogmonsterLocationData(
+    l.dash: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 0
     ),
-    "Sticky Hands": FrogmonsterLocationData(
+    l.sticky_hands: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 1
     ),
-    "Tongue Swing": FrogmonsterLocationData(
+    l.tongue_swing: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 2
     ),
-    "Runi Key": FrogmonsterLocationData(
+    l.runi_key: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 3
     ),
-    "Glowbug": FrogmonsterLocationData(
+    l.glowbug: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 4
     ),
-    "Frog": FrogmonsterLocationData(
+    l.frog: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 5
     ),
-    "Fly": FrogmonsterLocationData(
+    l.fly: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 6
     ),
-    "Dragonfly": FrogmonsterLocationData(
+    l.dragonfly: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 7
     ),
-    "Eel": FrogmonsterLocationData(
+    l.eel: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 8
     ),
-    "Bass": FrogmonsterLocationData(
+    l.bass: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 9
     ),
-    "Blue Snack": FrogmonsterLocationData(
+    l.blue_snack: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 10
     ),
-    "Purple Snack": FrogmonsterLocationData(
+    l.purple_snack: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 11
     ),
-    "Magnet Roach": FrogmonsterLocationData(
+    l.magnet_roach: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 12
     ),
-    "Mushroll": FrogmonsterLocationData(
+    l.mushroll: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 13
     ),
-    "Mushfrog": FrogmonsterLocationData(
+    l.mushfrog: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 14
     ),
-    "Beet": FrogmonsterLocationData(
+    l.beet: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 15
     ),
-    "Skater": FrogmonsterLocationData(
+    l.skater: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 16
     ),
-    "Soul Frog": FrogmonsterLocationData(
+    l.soul_frog: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 17
     ),
-    "River Fish": FrogmonsterLocationData(
+    l.river_fish: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 18
     ),
-    "Bird": FrogmonsterLocationData(
+    l.bird: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 19
     ),
-    "Leafbug": FrogmonsterLocationData(
+    l.leafbug: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 20
     ),
-    "Wormy": FrogmonsterLocationData(
+    l.wormy: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 21
     ),
-    "Minnow": FrogmonsterLocationData(
+    l.minnow: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 22
     ),
-    "Turtle": FrogmonsterLocationData(
+    l.turtle: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 23
     ),
-    "Blue Jelly": FrogmonsterLocationData(
+    l.blue_jelly: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 24
     ),
-    "Roof Snail": FrogmonsterLocationData(
+    l.roof_snail: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 25
     ),
-    "Crab": FrogmonsterLocationData(
+    l.crab: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 26
     ),
-    "Bridge Frog": FrogmonsterLocationData(
+    l.bridge_frog: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 27
     ),
-    "Cricket": FrogmonsterLocationData(
+    l.cricket: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 28
     ),
-    "Spider": FrogmonsterLocationData(
+    l.spider: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 29
     ),
-    "Moth": FrogmonsterLocationData(
+    l.moth: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 30
     ),
-    "Ammofly": FrogmonsterLocationData(
+    l.ammofly: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 31
     ),
-    "Pecker": FrogmonsterLocationData(
+    l.pecker: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 32
     ),
-    "Soul Fish": FrogmonsterLocationData(
+    l.soul_fish: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 33
     ),
-    "Fog Fly": FrogmonsterLocationData(
+    l.fog_fly: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 34
     ),
-    "Cicada": FrogmonsterLocationData(
+    l.cicada: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 35
     ),
-    "Mantis": FrogmonsterLocationData(
+    l.mantis: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 36
     ),
-    "Jungle Snack": FrogmonsterLocationData(
+    l.jungle_snack: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 37
     ),
-    "Gecko": FrogmonsterLocationData(
+    l.gecko: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 38
     ),
-    "Bee": FrogmonsterLocationData(
+    l.bee: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 39
     ),
-    "Mushroom": FrogmonsterLocationData(
+    l.mushroom: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 40
     ),
-    "Tang": FrogmonsterLocationData(
+    l.tang: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 41
     ),
-    "Axolotyl": FrogmonsterLocationData(
+    l.axolotyl: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 42
     ),
-    "Mite": FrogmonsterLocationData(
+    l.mite: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 43
     ),
-    "Health 1": FrogmonsterLocationData(
+    l.health_1: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 44
     ),
-    "Health 2": FrogmonsterLocationData(
+    l.health_2: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 45
     ),
-    "Health 3": FrogmonsterLocationData(
+    l.health_3: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 46
     ),
-    "Health 4": FrogmonsterLocationData(
+    l.health_4: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 47
     ),
-    "Health 5": FrogmonsterLocationData(
+    l.health_5: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 48
     ),
-    "Health 6": FrogmonsterLocationData(
+    l.health_6: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 49
     ),
-    "Mana 1": FrogmonsterLocationData(
+    l.mana_1: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 50
     ),
-    "Mana 2": FrogmonsterLocationData(
+    l.mana_2: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 51
     ),
-    "Mana 3": FrogmonsterLocationData(
+    l.mana_3: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 52
     ),
-    "Mana 4": FrogmonsterLocationData(
+    l.mana_4: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 53
     ),
-    "Mana 5": FrogmonsterLocationData(
+    l.mana_5: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 54
     ),
-    "Mana 6": FrogmonsterLocationData(
+    l.mana_6: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 55
     ),
-    "Reeder": FrogmonsterLocationData(
+    l.reeder: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 56
     ),
-    "Machine Gun": FrogmonsterLocationData(
+    l.machine_gun: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 57
     ),
-    "Weepwood Bow": FrogmonsterLocationData(
+    l.weepwood_bow: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 58
     ),
-    "Finisher": FrogmonsterLocationData(
+    l.finisher: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 59
     ),
-    "Fire Fruit Juicer": FrogmonsterLocationData(
+    l.fire_fruit_juicer: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 60
     ),
-    "Gatling Gun": FrogmonsterLocationData(
+    l.gatling_gun: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 61
     ),
-    "Wooden Cannon": FrogmonsterLocationData(
+    l.wooden_cannon: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 62
     ),
-    "Fireball": FrogmonsterLocationData(
+    l.fireball: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 63
     ),
-    "Mushbomb": FrogmonsterLocationData(
+    l.mushbomb: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 64
     ),
-    "Sharap Shot": FrogmonsterLocationData(
+    l.sharap_shot: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 65
     ),
-    "Beanshot": FrogmonsterLocationData(
+    l.beanshot: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 66
     ),
-    "Zap": FrogmonsterLocationData(
+    l.zap: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 67
     ),
-    "Slam": FrogmonsterLocationData(
+    l.slam: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 68
     ),
-    "Hive": FrogmonsterLocationData(
+    l.hive: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 69
     ),
-    "Puff": FrogmonsterLocationData(
+    l.puff: FrogmonsterLocationData(
         region="Anywhere",
         id=base_id + 70
     ),
