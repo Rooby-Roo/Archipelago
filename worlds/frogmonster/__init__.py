@@ -21,7 +21,7 @@ class FrogmonsterWorld(World):
         return FrogmonsterItem(name, item_data_table[name].type, item_data_table[name].id, self.player)
     
     def create_event(self, event: str) -> FrogmonsterItem:
-        return FrogmonsterItem(event, True, None, self.player)
+        return FrogmonsterItem(event, item_data_table[event].type, None, self.player)
     
     def create_items(self) -> None:
         item_pool = []
@@ -33,18 +33,23 @@ class FrogmonsterWorld(World):
         self.multiworld.itempool += item_pool
 
     def create_regions(self) -> None:
-        for region in region_data_table.keys():
+        for region_name in region_data_table.keys():
             # Create regions.
-            region = Region(region, self.player, self.multiworld)
+#            print(f"Region name: {region_name}")
+            region = Region(region_name, self.player, self.multiworld)
+#            print(region)
             self.multiworld.regions.append(region)
+#            print(self.multiworld.regions.region_cache)
 
             # Create locations, add locations to regions.
-            current_region_locations = {key:val for key,val in location_data_table.items() if val.region == region}
+            current_region_locations = {key:val for key,val in location_data_table.items() if val.region == region_name}
+            print(current_region_locations)
             region.add_locations(current_region_locations, FrogmonsterLocation)
 
     def set_rules(self):
+#        print(self.multiworld.regions.location_cache)
         for location in location_data_table.keys():
             self.multiworld.get_location(location, self.player).access_rule = lambda state: True  # Until I can be bothered to write actual logic
 
-        self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory, self.player))
+        self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory))
         self.multiworld.completion_condition[self.player] = lambda state: state.has(i.victory, self.player)

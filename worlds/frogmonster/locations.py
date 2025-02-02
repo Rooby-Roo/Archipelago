@@ -12,9 +12,8 @@ class FrogmonsterLocationData(NamedTuple):
     id: int = None
 
 location_data_table: Dict[str, FrogmonsterLocationData] = {
-    l.goal: FrogmonsterLocationData(
-        region="Anywhere",
-    ),
+
+    # Locations
     l.dash: FrogmonsterLocationData(
         region="Anywhere",
         id=BASE_ID + 0
@@ -298,6 +297,11 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.puff: FrogmonsterLocationData(
         region="Anywhere",
         id=BASE_ID + 70
+    ),
+
+    # Events
+    l.goal: FrogmonsterLocationData(
+        region="Anywhere",
     ),
 }
 

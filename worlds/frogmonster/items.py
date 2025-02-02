@@ -15,10 +15,8 @@ class FrogmonsterItemData(NamedTuple):
     count: int = 1
 
 item_data_table: Dict[str, FrogmonsterItemData] = {
-    i.victory: FrogmonsterItemData(
-        type=ItemClassification.progression,
-        category=("Event")
-    ),
+
+    # Items
     i.dash: FrogmonsterItemData(
         id=BASE_ID + 0,
         type=ItemClassification.progression,
@@ -373,6 +371,16 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
         id=BASE_ID + 70,
         type=ItemClassification.useful,
         category=("Spell")
+    ),
+    i.coins: FrogmonsterItemData(
+        id=BASE_ID + 71,
+        type=ItemClassification.filler,
+    ),
+    
+    # Events
+    i.victory: FrogmonsterItemData(
+        type=ItemClassification.progression,
+        category=("Event")
     ),
 }
 
