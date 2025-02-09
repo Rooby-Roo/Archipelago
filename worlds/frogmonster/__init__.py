@@ -23,6 +23,9 @@ class FrogmonsterWorld(World):
     def create_event(self, event: str) -> FrogmonsterItem:
         return FrogmonsterItem(event, item_data_table[event].type, None, self.player)
     
+    def get_filler_item_name(self) -> str:
+        return i.coins
+    
     def create_items(self) -> None:
         item_pool = []
         for name, item in item_data_table.items():

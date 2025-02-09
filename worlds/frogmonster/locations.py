@@ -9,7 +9,7 @@ class FrogmonsterLocation(Location):
 
 class FrogmonsterLocationData(NamedTuple):
     region: str
-    id: int = None
+    id: int | None = None
 
 location_data_table: Dict[str, FrogmonsterLocationData] = {
 
@@ -298,6 +298,335 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         region="Anywhere",
         id=BASE_ID + 70
     ),
+    l.bug_slot_1: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 71
+    ),
+    l.bug_slot_2: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 72
+    ),
+    l.bug_slot_3: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 73
+    ),
+    l.bug_slot_4: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 74
+    ),
+    l.bug_slot_5: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 75
+    ),
+    l.bug_slot_6: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 76
+    ),
+    l.bug_slot_7: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 77
+    ),
+    l.metal_ore_1: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 78
+    ),
+    l.metal_ore_2: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 79
+    ),
+    l.metal_ore_3: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 80
+    ),
+    l.metal_ore_4: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 81
+    ),
+    l.metal_ore_5: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 82
+    ),
+    l.metal_ore_6: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 83
+    ),
+    l.metal_ore_7: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 84
+    ),
+    l.metal_ore_8: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 85
+    ),
+    l.metal_ore_9: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 86
+    ),
+    l.metal_ore_10: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 87
+    ),
+    l.metal_ore_11: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 88
+    ),
+    l.metal_ore_12: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 89
+    ),
+    l.metal_ore_13: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 90
+    ),
+    l.metal_ore_14: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 91
+    ),
+    l.metal_ore_15: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 92
+    ),
+    l.metal_ore_16: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 93
+    ),
+    l.metal_ore_17: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 94
+    ),
+    l.metal_ore_18: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 95
+    ),
+    l.metal_ore_19: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 96
+    ),
+    l.eel_trophy: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 97
+    ),
+    l.eye_fragment: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 98
+    ),
+    l.key_1: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 99
+    ),
+    l.key_2: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 100
+    ),
+    l.key_3: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 101
+    ),
+    l.smooth_stone_1: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 102
+    ),
+    l.smooth_stone_2: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 103
+    ),
+    l.smooth_stone_3: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 104
+    ),
+    l.smooth_stone_4: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 105
+    ),
+    l.smooth_stone_5: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 106
+    ),
+    l.smooth_stone_6: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 107
+    ),
+    l.smooth_stone_7: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 108
+    ),
+    l.smooth_stone_8: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 109
+    ),
+    l.smooth_stone_9: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 110
+    ),
+    l.smooth_stone_10: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 111
+    ),
+    l.smooth_stone_11: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 112
+    ),
+    l.smooth_stone_12: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 113
+    ),
+    l.square_rock_1: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 114
+    ),
+    l.square_rock_2: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 115
+    ),
+    l.square_rock_3: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 116
+    ),
+    l.square_rock_4: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 117
+    ),
+    l.square_rock_5: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 118
+    ),
+    l.square_rock_6: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 119
+    ),
+    l.square_rock_7: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 120
+    ),
+    l.square_rock_8: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 121
+    ),
+    l.square_rock_9: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 122
+    ),
+    l.square_rock_10: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 123
+    ),
+    l.dark_pebble_1: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 124
+    ),
+    l.dark_pebble_2: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 125
+    ),
+    l.dark_pebble_3: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 126
+    ),
+    l.dark_pebble_4: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 127
+    ),
+    l.dark_pebble_5: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 128
+    ),
+    l.dark_pebble_6: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 129
+    ),
+    l.dark_pebble_7: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 130
+    ),
+    l.dark_pebble_8: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 131
+    ),
+    l.sparkling_gem_1: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 132
+    ),
+    l.sparkling_gem_2: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 133
+    ),
+    l.sparkling_gem_3: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 134
+    ),
+    l.sparkling_gem_4: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 135
+    ),
+    l.sparkling_gem_5: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 136
+    ),
+    l.sparkling_gem_6: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 137
+    ),
+    l.seedling_myzand_ugrade: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 138
+    ),
+    l.reeder_myzand_upgrade: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 139
+    ),
+    l.machine_gun_myzand_upgrade: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 140
+    ),
+    l.weepwood_bow_myzand_upgrade: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 141
+    ),
+    l.finisher_myzand_upgrade: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 142
+    ),
+    l.fire_fruit_juicer_myzand_upgrade: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 143
+    ),
+    l.gatling_gun_myzand_upgrade: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 144
+    ),
+    l.wooden_cannon_myzand_upgrade: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 145
+    ),
+    l.yellow_forest_puzzle: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 146
+    ),
+    l.city_puzzle_1: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 147
+    ),
+    l.city_puzzle_2: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 148
+    ),
+    l.mansion_puzzle_1: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 149
+    ),
+    l.mansion_puzzle_2: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 150
+    ),
+    l.fog_garden_puzzle_1: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 151
+    ),
+    l.fog_garden_puzzle_2: FrogmonsterLocationData(
+        region="Anywhere",
+        id=BASE_ID + 152
+    ),
+    # Coin chests to be added when they are documented
 
     # Events
     l.goal: FrogmonsterLocationData(
