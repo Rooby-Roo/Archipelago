@@ -76,6 +76,7 @@ class FrogmonsterWorld(World):
     
     def write_spoiler(self, spoiler_handle: TextIO) -> None:
         if self.options.shuffle_bug_effects:
+            spoiler_handle.write("\n")
             spoiler_handle.write(f"{self.multiworld.get_player_name(self.player)}'s Shuffled Bug Effects:\n")
             for bug, effect in self.shuffled_bug_effects.items():
                 bug_name = every_bug[bug]
