@@ -236,66 +236,68 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
         type=ItemClassification.useful,
         category=("Bug")
     ),
-    i.health_1: FrogmonsterItemData(
+    i.health: FrogmonsterItemData(
         id=BASE_ID + 44,
         type=ItemClassification.useful,
-        category=("Health")
+        category=("Health"),
+        qty=6
     ),
-    i.health_2: FrogmonsterItemData(
-        id=BASE_ID + 45,
-        type=ItemClassification.useful,
-        category=("Health")
-    ),
-    i.health_3: FrogmonsterItemData(
-        id=BASE_ID + 46,
-        type=ItemClassification.useful,
-        category=("Health")
-    ),
-    i.health_4: FrogmonsterItemData(
-        id=BASE_ID + 47,
-        type=ItemClassification.useful,
-        category=("Health")
-    ),
-    i.health_5: FrogmonsterItemData(
-        id=BASE_ID + 48,
-        type=ItemClassification.useful,
-        category=("Health")
-    ),
-    i.health_6: FrogmonsterItemData(
-        id=BASE_ID + 49,
-        type=ItemClassification.useful,
-        category=("Health")
-    ),
-    i.mana_1: FrogmonsterItemData(
+#    i.health_2: FrogmonsterItemData(
+#        id=BASE_ID + 45,
+#        type=ItemClassification.useful,
+#        category=("Health")
+#    ),
+#    i.health_3: FrogmonsterItemData(
+#        id=BASE_ID + 46,
+#        type=ItemClassification.useful,
+#        category=("Health")
+#    ),
+#    i.health_4: FrogmonsterItemData(
+#        id=BASE_ID + 47,
+#        type=ItemClassification.useful,
+#        category=("Health")
+#    ),
+#    i.health_5: FrogmonsterItemData(
+#        id=BASE_ID + 48,
+#        type=ItemClassification.useful,
+#        category=("Health")
+#    ),
+#    i.health_6: FrogmonsterItemData(
+#        id=BASE_ID + 49,
+#        type=ItemClassification.useful,
+#        category=("Health")
+#    ),
+    i.mana: FrogmonsterItemData(
         id=BASE_ID + 50,
         type=ItemClassification.useful,
-        category=("Mana")
+        category=("Mana"),
+        qty=6
     ),
-    i.mana_2: FrogmonsterItemData(
-        id=BASE_ID + 51,
-        type=ItemClassification.useful,
-        category=("Mana")
-    ),
-    i.mana_3: FrogmonsterItemData(
-        id=BASE_ID + 52,
-        type=ItemClassification.useful,
-        category=("Mana")
-    ),
-    i.mana_4: FrogmonsterItemData(
-        id=BASE_ID + 53,
-        type=ItemClassification.useful,
-        category=("Mana")
-    ),
-    i.mana_5: FrogmonsterItemData(
-        id=BASE_ID + 54,
-        type=ItemClassification.useful,
-        category=("Mana")
-    ),
-    i.mana_6: FrogmonsterItemData(
-        id=BASE_ID + 55,
-        type=ItemClassification.useful,
-        category=("Mana")
-    ),
+#    i.mana_2: FrogmonsterItemData(
+#        id=BASE_ID + 51,
+#        type=ItemClassification.useful,
+#        category=("Mana")
+#    ),
+#    i.mana_3: FrogmonsterItemData(
+#        id=BASE_ID + 52,
+#        type=ItemClassification.useful,
+#        category=("Mana")
+#    ),
+#    i.mana_4: FrogmonsterItemData(
+#        id=BASE_ID + 53,
+#        type=ItemClassification.useful,
+#        category=("Mana")
+#    ),
+#    i.mana_5: FrogmonsterItemData(
+#        id=BASE_ID + 54,
+#        type=ItemClassification.useful,
+#        category=("Mana")
+#    ),
+#    i.mana_6: FrogmonsterItemData(
+#        id=BASE_ID + 55,
+#        type=ItemClassification.useful,
+#        category=("Mana")
+#    ),
     i.reeder: FrogmonsterItemData(
         id=BASE_ID + 56,
         type=ItemClassification.progression,
@@ -371,136 +373,138 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
         type=ItemClassification.useful,
         category=("Spell")
     ),
-    i.bug_slot_1: FrogmonsterItemData(
+    i.bug_slot: FrogmonsterItemData(
         id=BASE_ID + 71,
         type=ItemClassification.useful,
-        category=("Bug Slot")
+        category=("Bug Slot"),
+        qty=7
     ),
-    i.bug_slot_2: FrogmonsterItemData(
-        id=BASE_ID + 72,
-        type=ItemClassification.useful,
-        category=("Bug Slot")
-    ),
-    i.bug_slot_3: FrogmonsterItemData(
-        id=BASE_ID + 73,
-        type=ItemClassification.useful,
-        category=("Bug Slot")
-    ),
-    i.bug_slot_4: FrogmonsterItemData(
-        id=BASE_ID + 74,
-        type=ItemClassification.useful,
-        category=("Bug Slot")
-    ),
-    i.bug_slot_5: FrogmonsterItemData(
-        id=BASE_ID + 75,
-        type=ItemClassification.useful,
-        category=("Bug Slot")
-    ),
-    i.bug_slot_6: FrogmonsterItemData(
-        id=BASE_ID + 76,
-        type=ItemClassification.useful,
-        category=("Bug Slot")
-    ),
-    i.bug_slot_7: FrogmonsterItemData(
-        id=BASE_ID + 77,
-        type=ItemClassification.useful,
-        category=("Bug Slot")
-    ),
-    i.metal_ore_1: FrogmonsterItemData(
+#    i.bug_slot_2: FrogmonsterItemData(
+#        id=BASE_ID + 72,
+#        type=ItemClassification.useful,
+#        category=("Bug Slot")
+#    ),
+#    i.bug_slot_3: FrogmonsterItemData(
+#        id=BASE_ID + 73,
+#        type=ItemClassification.useful,
+#        category=("Bug Slot")
+#    ),
+#    i.bug_slot_4: FrogmonsterItemData(
+#        id=BASE_ID + 74,
+#        type=ItemClassification.useful,
+#        category=("Bug Slot")
+#    ),
+#    i.bug_slot_5: FrogmonsterItemData(
+#        id=BASE_ID + 75,
+#        type=ItemClassification.useful,
+#        category=("Bug Slot")
+#    ),
+#    i.bug_slot_6: FrogmonsterItemData(
+#        id=BASE_ID + 76,
+#        type=ItemClassification.useful,
+#        category=("Bug Slot")
+#    ),
+#    i.bug_slot_7: FrogmonsterItemData(
+#        id=BASE_ID + 77,
+#        type=ItemClassification.useful,
+#        category=("Bug Slot")
+#    ),
+    i.metal_ore: FrogmonsterItemData(
         id=BASE_ID + 78,
         type=ItemClassification.useful,
-        category=("Metal Ore")
+        category=("Metal Ore"),
+        qty=19
     ),
-    i.metal_ore_2: FrogmonsterItemData(
-        id=BASE_ID + 79,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_3: FrogmonsterItemData(
-        id=BASE_ID + 80,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_4: FrogmonsterItemData(
-        id=BASE_ID + 81,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_5: FrogmonsterItemData(
-        id=BASE_ID + 82,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_6: FrogmonsterItemData(
-        id=BASE_ID + 83,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_7: FrogmonsterItemData(
-        id=BASE_ID + 84,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_8: FrogmonsterItemData(
-        id=BASE_ID + 85,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_9: FrogmonsterItemData(
-        id=BASE_ID + 86,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_10: FrogmonsterItemData(
-        id=BASE_ID + 87,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_11: FrogmonsterItemData(
-        id=BASE_ID + 88,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_12: FrogmonsterItemData(
-        id=BASE_ID + 89,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_13: FrogmonsterItemData(
-        id=BASE_ID + 90,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_14: FrogmonsterItemData(
-        id=BASE_ID + 91,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_15: FrogmonsterItemData(
-        id=BASE_ID + 92,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_16: FrogmonsterItemData(
-        id=BASE_ID + 93,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_17: FrogmonsterItemData(
-        id=BASE_ID + 94,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_18: FrogmonsterItemData(
-        id=BASE_ID + 95,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
-    i.metal_ore_19: FrogmonsterItemData(
-        id=BASE_ID + 96,
-        type=ItemClassification.useful,
-        category=("Metal Ore")
-    ),
+#    i.metal_ore_2: FrogmonsterItemData(
+#        id=BASE_ID + 79,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_3: FrogmonsterItemData(
+#        id=BASE_ID + 80,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_4: FrogmonsterItemData(
+#        id=BASE_ID + 81,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_5: FrogmonsterItemData(
+#        id=BASE_ID + 82,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_6: FrogmonsterItemData(
+#        id=BASE_ID + 83,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_7: FrogmonsterItemData(
+#        id=BASE_ID + 84,
+#        type=ItemClassification.useful,
+#       category=("Metal Ore")
+#    ),
+#    i.metal_ore_8: FrogmonsterItemData(
+#        id=BASE_ID + 85,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_9: FrogmonsterItemData(
+#        id=BASE_ID + 86,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_10: FrogmonsterItemData(
+#        id=BASE_ID + 87,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_11: FrogmonsterItemData(
+#        id=BASE_ID + 88,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_12: FrogmonsterItemData(
+#        id=BASE_ID + 89,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_13: FrogmonsterItemData(
+#        id=BASE_ID + 90,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_14: FrogmonsterItemData(
+#        id=BASE_ID + 91,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_15: FrogmonsterItemData(
+#        id=BASE_ID + 92,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_16: FrogmonsterItemData(
+#        id=BASE_ID + 93,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_17: FrogmonsterItemData(
+#        id=BASE_ID + 94,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_18: FrogmonsterItemData(
+#        id=BASE_ID + 95,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
+#    i.metal_ore_19: FrogmonsterItemData(
+#        id=BASE_ID + 96,
+#        type=ItemClassification.useful,
+#        category=("Metal Ore")
+#    ),
     i.eel_trophy: FrogmonsterItemData(
         id=BASE_ID + 97,
         type=ItemClassification.useful,
@@ -509,201 +513,206 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
         id=BASE_ID + 98,
         type=ItemClassification.useful,
     ),
-    i.key_1: FrogmonsterItemData(
+    i.key: FrogmonsterItemData(
         id=BASE_ID + 99,
         type=ItemClassification.useful,
-        category=("Key")
+        category=("Key"),
+        qty=3
     ),
-    i.key_2: FrogmonsterItemData(
-        id=BASE_ID + 100,
-        type=ItemClassification.useful,
-        category=("Key")
-    ),
-    i.key_3: FrogmonsterItemData(
-        id=BASE_ID + 101,
-        type=ItemClassification.useful,
-        category=("Key")
-    ),
-    i.smooth_stone_1: FrogmonsterItemData(
+#    i.key_2: FrogmonsterItemData(
+#        id=BASE_ID + 100,
+#        type=ItemClassification.useful,
+#        category=("Key")
+#    ),
+#    i.key_3: FrogmonsterItemData(
+#        id=BASE_ID + 101,
+#        type=ItemClassification.useful,
+#        category=("Key")
+#    ),
+    i.smooth_stone: FrogmonsterItemData(
         id=BASE_ID + 102,
         type=ItemClassification.useful,
-        category=("Relic")
+        category=("Relic"),
+        qty=12
     ),
-    i.smooth_stone_2: FrogmonsterItemData(
-        id=BASE_ID + 103,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.smooth_stone_3: FrogmonsterItemData(
-        id=BASE_ID + 104,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.smooth_stone_4: FrogmonsterItemData(
-        id=BASE_ID + 105,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.smooth_stone_5: FrogmonsterItemData(
-        id=BASE_ID + 106,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.smooth_stone_6: FrogmonsterItemData(
-        id=BASE_ID + 107,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.smooth_stone_7: FrogmonsterItemData(
-        id=BASE_ID + 108,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.smooth_stone_8: FrogmonsterItemData(
-        id=BASE_ID + 109,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.smooth_stone_9: FrogmonsterItemData(
-        id=BASE_ID + 110,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.smooth_stone_10: FrogmonsterItemData(
-        id=BASE_ID + 111,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.smooth_stone_11: FrogmonsterItemData(
-        id=BASE_ID + 112,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.smooth_stone_12: FrogmonsterItemData(
-        id=BASE_ID + 113,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.square_rock_1: FrogmonsterItemData(
+#    i.smooth_stone_2: FrogmonsterItemData(
+#        id=BASE_ID + 103,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.smooth_stone_3: FrogmonsterItemData(
+#        id=BASE_ID + 104,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.smooth_stone_4: FrogmonsterItemData(
+#        id=BASE_ID + 105,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.smooth_stone_5: FrogmonsterItemData(
+#        id=BASE_ID + 106,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.smooth_stone_6: FrogmonsterItemData(
+#        id=BASE_ID + 107,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.smooth_stone_7: FrogmonsterItemData(
+#        id=BASE_ID + 108,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.smooth_stone_8: FrogmonsterItemData(
+#        id=BASE_ID + 109,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.smooth_stone_9: FrogmonsterItemData(
+#        id=BASE_ID + 110,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.smooth_stone_10: FrogmonsterItemData(
+#        id=BASE_ID + 111,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.smooth_stone_11: FrogmonsterItemData(
+#        id=BASE_ID + 112,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.smooth_stone_12: FrogmonsterItemData(
+#        id=BASE_ID + 113,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+    i.square_rock: FrogmonsterItemData(
         id=BASE_ID + 114,
         type=ItemClassification.useful,
-        category=("Relic")
+        category=("Relic"),
+        qty=10
     ),
-    i.square_rock_2: FrogmonsterItemData(
-        id=BASE_ID + 115,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.square_rock_3: FrogmonsterItemData(
-        id=BASE_ID + 116,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.square_rock_4: FrogmonsterItemData(
-        id=BASE_ID + 117,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.square_rock_5: FrogmonsterItemData(
-        id=BASE_ID + 118,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.square_rock_6: FrogmonsterItemData(
-        id=BASE_ID + 119,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.square_rock_7: FrogmonsterItemData(
-        id=BASE_ID + 120,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.square_rock_8: FrogmonsterItemData(
-        id=BASE_ID + 121,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.square_rock_9: FrogmonsterItemData(
-        id=BASE_ID + 122,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.square_rock_10: FrogmonsterItemData(
-        id=BASE_ID + 123,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.dark_pebble_1: FrogmonsterItemData(
+#    i.square_rock_2: FrogmonsterItemData(
+#        id=BASE_ID + 115,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.square_rock_3: FrogmonsterItemData(
+#        id=BASE_ID + 116,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.square_rock_4: FrogmonsterItemData(
+#        id=BASE_ID + 117,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.square_rock_5: FrogmonsterItemData(
+#        id=BASE_ID + 118,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.square_rock_6: FrogmonsterItemData(
+#        id=BASE_ID + 119,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.square_rock_7: FrogmonsterItemData(
+#        id=BASE_ID + 120,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.square_rock_8: FrogmonsterItemData(
+#        id=BASE_ID + 121,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.square_rock_9: FrogmonsterItemData(
+#        id=BASE_ID + 122,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.square_rock_10: FrogmonsterItemData(
+#        id=BASE_ID + 123,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+    i.dark_pebble: FrogmonsterItemData(
         id=BASE_ID + 124,
         type=ItemClassification.useful,
-        category=("Relic")
+        category=("Relic"),
+        qty=8
     ),
-    i.dark_pebble_2: FrogmonsterItemData(
-        id=BASE_ID + 125,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.dark_pebble_3: FrogmonsterItemData(
-        id=BASE_ID + 126,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.dark_pebble_4: FrogmonsterItemData(
-        id=BASE_ID + 127,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.dark_pebble_5: FrogmonsterItemData(
-        id=BASE_ID + 128,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.dark_pebble_6: FrogmonsterItemData(
-        id=BASE_ID + 129,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.dark_pebble_7: FrogmonsterItemData(
-        id=BASE_ID + 130,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.dark_pebble_8: FrogmonsterItemData(
-        id=BASE_ID + 131,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.sparkling_gem_1: FrogmonsterItemData(
+#    i.dark_pebble_2: FrogmonsterItemData(
+#        id=BASE_ID + 125,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.dark_pebble_3: FrogmonsterItemData(
+#        id=BASE_ID + 126,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.dark_pebble_4: FrogmonsterItemData(
+#        id=BASE_ID + 127,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.dark_pebble_5: FrogmonsterItemData(
+#        id=BASE_ID + 128,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.dark_pebble_6: FrogmonsterItemData(
+#        id=BASE_ID + 129,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.dark_pebble_7: FrogmonsterItemData(
+#        id=BASE_ID + 130,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.dark_pebble_8: FrogmonsterItemData(
+#        id=BASE_ID + 131,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+    i.sparkling_gem: FrogmonsterItemData(
         id=BASE_ID + 132,
         type=ItemClassification.useful,
-        category=("Relic")
+        category=("Relic"),
+        qty=6
     ),
-    i.sparkling_gem_2: FrogmonsterItemData(
-        id=BASE_ID + 133,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.sparkling_gem_3: FrogmonsterItemData(
-        id=BASE_ID + 134,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.sparkling_gem_4: FrogmonsterItemData(
-        id=BASE_ID + 135,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.sparkling_gem_5: FrogmonsterItemData(
-        id=BASE_ID + 136,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
-    i.sparkling_gem_6: FrogmonsterItemData(
-        id=BASE_ID + 137,
-        type=ItemClassification.useful,
-        category=("Relic")
-    ),
+#    i.sparkling_gem_2: FrogmonsterItemData(
+#        id=BASE_ID + 133,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.sparkling_gem_3: FrogmonsterItemData(
+#        id=BASE_ID + 134,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.sparkling_gem_4: FrogmonsterItemData(
+#        id=BASE_ID + 135,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.sparkling_gem_5: FrogmonsterItemData(
+#        id=BASE_ID + 136,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
+#    i.sparkling_gem_6: FrogmonsterItemData(
+#        id=BASE_ID + 137,
+#        type=ItemClassification.useful,
+#        category=("Relic")
+#    ),
     i.seedling_myzand_ugrade: FrogmonsterItemData(
         id=BASE_ID + 138,
         type=ItemClassification.progression,
