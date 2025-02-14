@@ -6,6 +6,7 @@ from .locations import location_id_table, location_data_table, FrogmonsterLocati
 from .regions import region_data_table
 from .names import item_names as i
 from .names import location_names as l
+from .data import every_bug_without_mushroom
 
 class FrogmonsterWorld(World):
     """Frogmonster."""
@@ -46,7 +47,7 @@ class FrogmonsterWorld(World):
 
             # Create locations, add locations to regions.
             current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
-            print(current_region_locations)
+#            print(current_region_locations)
             region.add_locations(current_region_locations, FrogmonsterLocation)
 
     def set_rules(self) -> None:
@@ -56,3 +57,17 @@ class FrogmonsterWorld(World):
 
         self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory))
         self.multiworld.completion_condition[self.player] = lambda state: state.has(i.victory, self.player)
+
+    def fill_slot_data(self):
+        slot_data = {}
+
+        # Handling option: Shuffle Bug-Eating Effects
+        bugs = [x[0] for x in every_bug_without_mushroom]
+        shuffled_effects = bugs.copy()
+        if self.options.shuffle_bug_effects:
+            self.random.shuffle(shuffled_effects)
+        shuffled_bugs = dict(zip(bugs, shuffled_effects))
+        shuffled_bugs[36] = 36  # Mushroom is not shuffled but the client still expects this, it is always 36 and must be added back in manually.
+        slot_data["shuffled_bug_effects"] = shuffled_bugs
+
+        return slot_data
