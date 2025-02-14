@@ -1,6 +1,6 @@
 from typing import Any, TextIO
 
-from BaseClasses import Region, MultiWorld
+from BaseClasses import Region
 from worlds.AutoWorld import World
 from .options import FrogmonsterOptions
 from .items import item_id_table, item_data_table, FrogmonsterItem
@@ -20,7 +20,7 @@ class FrogmonsterWorld(World):
     item_name_to_id = item_id_table
     origin_region_name = "Anywhere"
 
-    shuffled_bug_effects: dict[int, int] = {}  # should these be in an __init__? Instinct says yes, but other worlds don't seem to do this.
+    shuffled_bug_effects: dict[int, int]
 
     def create_item(self, name: str) -> FrogmonsterItem:
         return FrogmonsterItem(name, item_data_table[name].type, item_data_table[name].id, self.player)

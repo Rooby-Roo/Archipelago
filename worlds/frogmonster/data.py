@@ -1,6 +1,6 @@
 from .names import item_names as i
 
-every_bug_without_mushroom = {  # Bug names paired with their effect IDs (NOT Item IDs), to be used by client if Shuffle Bug-Eating Effects is on.
+every_bug_without_mushroom = {  # Bug names paired with their effect IDs (NOT Item IDs), to be used by client and spoiler log if Shuffle Bug-Eating Effects is on.
     1:  i.glowbug,
     2:  i.frog,
     3:  i.fly,
