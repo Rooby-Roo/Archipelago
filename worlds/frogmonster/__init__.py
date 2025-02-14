@@ -20,7 +20,7 @@ class FrogmonsterWorld(World):
     item_name_to_id = item_id_table
     origin_region_name = "Anywhere"
 
-    shuffled_bugs: dict[int, int] = {}  # should these be in an __init__? Instinct says yes, but other worlds don't seem to do this.
+    shuffled_bug_effects: dict[int, int] = {}  # should these be in an __init__? Instinct says yes, but other worlds don't seem to do this.
 
     def create_item(self, name: str) -> FrogmonsterItem:
         return FrogmonsterItem(name, item_data_table[name].type, item_data_table[name].id, self.player)
@@ -48,7 +48,7 @@ class FrogmonsterWorld(World):
             self.random.shuffle(shuffled_effects)
         shuffled_bugs = dict(zip(bugs, shuffled_effects))
         shuffled_bugs[36] = 36  # Mushroom is not shuffled but the client still expects this, it is always 36 and must be added back in manually.
-        self.shuffled_bugs = shuffled_bugs
+        self.shuffled_bug_effects = shuffled_bugs
 
     def create_regions(self) -> None:
         for region_name in region_data_table.keys():
@@ -70,14 +70,14 @@ class FrogmonsterWorld(World):
     def fill_slot_data(self) -> dict[str, Any]:
         slot_data: dict[str, Any] = {}
 
-        slot_data["shuffled_bug_effects"] = self.shuffled_bugs
+        slot_data["shuffled_bug_effects"] = self.shuffled_bug_effects
 
         return slot_data
     
     def write_spoiler(self, spoiler_handle: TextIO) -> None:
         if self.options.shuffle_bug_effects:
             spoiler_handle.write(f"{self.multiworld.get_player_name(self.player)}'s Shuffled Bug Effects:\n")
-            for bug, effect in self.shuffled_bugs.items():
+            for bug, effect in self.shuffled_bug_effects.items():
                 bug_name = every_bug[bug]
                 effect_name = every_bug[effect]
                 spoiler_handle.write(f"{bug_name}: {effect_name}\n")
