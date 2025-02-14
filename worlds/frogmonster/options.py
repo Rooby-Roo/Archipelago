@@ -9,4 +9,3 @@ class ShuffleBugEffects(Toggle):
 class FrogmonsterOptions(PerGameCommonOptions):
     shuffle_bug_effects: ShuffleBugEffects
     start_inventory_from_pool: StartInventoryPool
-    pass

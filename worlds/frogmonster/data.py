@@ -36,6 +36,7 @@ every_bug_without_mushroom = [  # Bug names paired with their effect IDs (NOT It
     (33, i.mantis),
     (34, i.jungle_snack),
     (35, i.gecko),
+    # 36 is mushroom 
     (37, i.bee),
     (38, i.tang),
     (39, i.axolotyl),
