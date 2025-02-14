@@ -1,3 +1,5 @@
+from typing import Any
+
 from BaseClasses import Region
 from worlds.AutoWorld import World
 from .options import FrogmonsterOptions
@@ -13,7 +15,7 @@ class FrogmonsterWorld(World):
 
     game = "Frogmonster"
     options: FrogmonsterOptions
-    options_dataclass: FrogmonsterOptions  # one of these days someone will teach me the difference between options and options_dataclass
+    options_dataclass = FrogmonsterOptions
     location_name_to_id = location_id_table
     item_name_to_id = item_id_table
     origin_region_name = "Anywhere"
@@ -58,8 +60,8 @@ class FrogmonsterWorld(World):
         self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory))
         self.multiworld.completion_condition[self.player] = lambda state: state.has(i.victory, self.player)
 
-    def fill_slot_data(self):
-        slot_data = {}
+    def fill_slot_data(self) -> dict[str, Any]:
+        slot_data: dict[str, Any] = {}
 
         # Handling option: Shuffle Bug-Eating Effects
         bugs = [x[0] for x in every_bug_without_mushroom]
