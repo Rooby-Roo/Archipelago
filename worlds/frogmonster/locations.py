@@ -274,7 +274,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         region="Anywhere",
         id=BASE_ID + 64
     ),
-    l.sharap_shot: FrogmonsterLocationData(
+    l.sharp_shot: FrogmonsterLocationData(
         region="Anywhere",
         id=BASE_ID + 65
     ),

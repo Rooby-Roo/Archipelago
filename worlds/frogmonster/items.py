@@ -343,7 +343,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
         type=ItemClassification.useful,
         category=("Spell")
     ),
-    i.sharap_shot: FrogmonsterItemData(
+    i.sharp_shot: FrogmonsterItemData(
         id=BASE_ID + 65,
         type=ItemClassification.useful,
         category=("Spell")
