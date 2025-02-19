@@ -2,7 +2,8 @@ from dataclasses import dataclass
 from Options import Toggle, PerGameCommonOptions, StartInventoryPool
 
 class ShuffleBugEffects(Toggle):
-    """Randomizes the temporary effect gained when eating any bug other than Mushroom."""
+    """Randomizes the temporary effect gained when eating any bug other than Mushroom.
+    CURRENTLY NOT IMPLEMENTED IN THE CLIENT."""
     display_name = "Shuffle Bug-Eating Effects"
 
 @dataclass

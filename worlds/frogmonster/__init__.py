@@ -8,7 +8,7 @@ from .locations import location_id_table, location_data_table, FrogmonsterLocati
 from .regions import region_data_table
 from .names import item_names as i
 from .names import location_names as l
-from .data import every_bug_without_mushroom, every_bug
+from .data import every_bug
 
 class FrogmonsterWorld(World):
     """Frogmonster."""
@@ -42,7 +42,7 @@ class FrogmonsterWorld(World):
 
     def generate_early(self) -> None:
         # Handling option: Shuffle Bug-Eating Effects
-        bugs = list(every_bug_without_mushroom.keys())
+        bugs = [bug.bug_id for bug in every_bug if bug.name != i.mushroom]  
         shuffled_effects = bugs.copy()
         if self.options.shuffle_bug_effects:
             self.random.shuffle(shuffled_effects)
