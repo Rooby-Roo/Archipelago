@@ -1,6 +1,6 @@
 from typing import Any, TextIO
 
-from BaseClasses import Region
+from BaseClasses import Region, LocationProgressType
 from worlds.AutoWorld import World
 from .options import FrogmonsterOptions
 from .items import item_id_table, item_data_table, FrogmonsterItem
@@ -59,6 +59,11 @@ class FrogmonsterWorld(World):
             # Create locations, add locations to regions.
             current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
             region.add_locations(current_region_locations, FrogmonsterLocation)
+        
+        # Exclude or prioritize locations according to locations.py.
+        for location in location_data_table.items():
+            if location[1].progress_type != LocationProgressType.DEFAULT:
+                self.multiworld.get_location(location[0], self.player).progress_type = location[1].progress_type
 
     def set_rules(self) -> None:
         for location in location_data_table.keys():

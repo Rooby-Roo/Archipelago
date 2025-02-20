@@ -1,6 +1,6 @@
 from typing import NamedTuple, Dict
 
-from BaseClasses import Location
+from BaseClasses import Location, LocationProgressType
 from .names import location_names as l
 from .items import BASE_ID
 
@@ -10,6 +10,7 @@ class FrogmonsterLocation(Location):
 class FrogmonsterLocationData(NamedTuple):
     region: str
     id: int | None = None
+    progress_type: LocationProgressType = LocationProgressType.DEFAULT
 
 location_data_table: Dict[str, FrogmonsterLocationData] = {
 
@@ -556,7 +557,8 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     ),
     l.sparkling_gem_4: FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 135
+        id=BASE_ID + 135,
+        progress_type=LocationProgressType.EXCLUDED # Possible to permanently miss this if you kill Supo, force excluded for now.
     ),
     l.sparkling_gem_5: FrogmonsterLocationData(
         region="Anywhere",
