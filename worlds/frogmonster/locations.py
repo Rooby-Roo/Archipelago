@@ -317,11 +317,13 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     ),
     l.bug_slot_5: FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 75
+        id=BASE_ID + 75,
+        progress_type=LocationProgressType.EXCLUDED # 30 bugs potentially being required is kinda miserable. Excluded for now.
     ),
     l.bug_slot_6: FrogmonsterLocationData(
         region="Anywhere",
-        id=BASE_ID + 76
+        id=BASE_ID + 76,
+        progress_type=LocationProgressType.EXCLUDED # 40 bugs potentially being required is kinda miserable. Excluded for now.
     ),
     l.bug_slot_7: FrogmonsterLocationData(
         region="Anywhere",
