@@ -20,7 +20,9 @@ class FrogmonsterWorld(World):
     item_name_to_id = item_id_table
     origin_region_name = "Anywhere"
 
+    # Options, to be sent to slot data.
     shuffled_bug_effects: dict[int, int]
+    shop_multiplier: float
 
     def create_item(self, name: str) -> FrogmonsterItem:
         return FrogmonsterItem(name, item_data_table[name].type, item_data_table[name].id, self.player)
@@ -76,6 +78,7 @@ class FrogmonsterWorld(World):
         slot_data: dict[str, Any] = {}
 
         slot_data["shuffled_bug_effects"] = self.shuffled_bug_effects
+        slot_data["shop_multiplier"] = float(self.options.shop_multiplier / 100) # Convert to decimal for client
 
         return slot_data
     
