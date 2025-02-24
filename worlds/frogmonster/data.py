@@ -60,6 +60,11 @@ class CombatType(NamedTuple):
     want: list[str] = []
     tags: list[str] = []
 
+def score_undefined():
+    raise NotImplementedError("A combat has not been scored yet.")
+
+X = score_undefined()
+
 combat_data = [
     CombatType(name=c.outskirts_arena_1,       score_easy=X, score_normal=X, score_hard=0, score_very_hard=0,),
     CombatType(name=c.very_lost_swamp_general, score_easy=X, score_normal=X, score_hard=0, score_very_hard=0,),
