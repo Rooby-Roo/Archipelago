@@ -25,10 +25,13 @@ myzand_1 = "Myzand 1"
 myzand_2 = "Myzand 2"
 
 outskirts_arena_1 = "Outskirts Arena 1"  # Actually both of them - Hard
+very_lost_swamp_general = "Very Lost Swamp General Combat"  # Normal
+very_lost_swamp_arena_1 = "Very Lost Swamp Arena 1"  # Normal
 yellow_forest_arena_1 = "Yellow Forest Arena 1"  # To Town - Hard
 yellow_forest_arena_2 = "Yellow Forest Arena 2"  # To Marvin's - Very Hard
 green_sea_arena_1 = "Green Sea Arena 1"  # Hard
 green_sea_arena_2 = "Green Sea Arena 2"  # Hard
+green_sea_arena_3 = "Green Sea Arena 3"  # Behind Key: Impossible
 old_road_general = "Old Road General Combat"  # Hard
 old_road_arena_1 = "Old Road Arena 1"  # After first Save - Very Hard
 old_road_arena_2 = "Old Road Arena 2"  # Immediately before Valda - Very Hard
