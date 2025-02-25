@@ -767,4 +767,21 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
 
 item_id_table = {name: data.id for name, data in item_data_table.items() if data.id is not None}
 
-item_name_groups = {key: {name for name, data in item_data_table.items() if data.category == key} for key in set(data.category for data in item_data_table.values())}
+item_name_groups = {
+    "Bugs": {name for name, data in item_data_table.items() if data.category == ("Bug")},
+    "Guns": {name for name, data in item_data_table.items() if data.category == ("Gun")},
+    "Spells": {name for name, data in item_data_table.items() if data.category == ("Spell")},
+    "Gun Upgrades": {name for name, data in item_data_table.items() if data.category == ("Upgrade")},
+    # Aliases
+    "Shotgun": {i.reeder},
+    "Machine Gun": {i.machine_gun},
+    "Bow": {i.weepwood_bow},
+    "Flamethrower": {i.fire_fruit_juicer},
+    "Cannon": {i.wooden_cannon},
+    "Pistol Myzand Upgrade": {i.seedling_myzand_upgrade},
+    "Shotgun Myzand Upgrade": {i.reeder_myzand_upgrade},
+    "Machine Gun Myzand Upgrade": {i.machine_gun_myzand_upgrade},
+    "Bow Myzand Upgrade": {i.weepwood_bow_myzand_upgrade},
+    "Flamethrower Myzand Upgrade": {i.fire_fruit_juicer_myzand_upgrade},
+    "Cannon Myzand Upgrade": {i.wooden_cannon_myzand_upgrade},
+}
