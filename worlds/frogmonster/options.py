@@ -10,6 +10,10 @@ class GameDifficulty(Choice):
     option_very_hard = 4
     default = 2
 
+class ExcludePuzzles(Toggle):
+    """When enabled, puzzles and their rewards will be excluded. This includes the chest in the Estate pool."""
+    display_name = "Exclude Puzzles"
+
 class StartWithGear(Toggle):
     """When enabled, Blue in Lost Swamp will always give you a gun, and you will always find a spell at the Fireball location."""
     display_name = "Start With Gear"
@@ -32,6 +36,8 @@ class ShopMultiplier(Range):
 class FrogmonsterOptions(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
     game_difficulty: GameDifficulty
+#    exclude_puzzles: ExcludePuzzles
+#    start_with_gear: StartWithGear
     shuffle_bug_effects: ShuffleBugEffects
     shop_multiplier: ShopMultiplier
 
