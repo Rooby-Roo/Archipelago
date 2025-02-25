@@ -1,4 +1,5 @@
 from typing import NamedTuple
+from enum import Enum
 from .names import item_names as i
 from .names import combat_names as c
 
@@ -59,6 +60,12 @@ class CombatType(NamedTuple):
     need: list[str] = []
     want: list[str] = []
     tags: list[str] = []
+
+class Difficulty(Enum):
+    EASY = 0
+    NORMAL = 1
+    HARD = 2
+    VERY_HARD = 3
 
 def score_undefined():
     raise NotImplementedError("A combat has not been scored yet.")
