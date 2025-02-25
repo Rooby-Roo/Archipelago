@@ -1,5 +1,14 @@
 from dataclasses import dataclass
-from Options import Toggle, Range, PerGameCommonOptions, StartInventoryPool
+from Options import Toggle, Range, Choice, PerGameCommonOptions, StartInventoryPool
+
+class GameDifficulty(Choice):
+    """Determines expected player skill. A harder difficulty means you will be expected to go further in the game with less resources."""
+    display_name = "Game Difficulty"
+    option_easy = 1
+    option_normal = 2
+    option_hard = 3
+    option_very_hard = 4
+    default = 2
 
 class ShuffleBugEffects(Toggle):
     """Randomizes the temporary effect gained when eating any bug other than Mushroom.
@@ -17,6 +26,7 @@ class ShopMultiplier(Range):
 @dataclass
 class FrogmonsterOptions(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
+    game_difficulty: GameDifficulty
     shuffle_bug_effects: ShuffleBugEffects
     shop_multiplier: ShopMultiplier
 
