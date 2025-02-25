@@ -37,7 +37,7 @@ class FrogmonsterOptions(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
     game_difficulty: GameDifficulty
 #    exclude_puzzles: ExcludePuzzles
-#    start_with_gear: StartWithGear
+#    i_hate_seedling: StartWithGear
     shuffle_bug_effects: ShuffleBugEffects
     shop_multiplier: ShopMultiplier
 
