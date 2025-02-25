@@ -57,9 +57,9 @@ class CombatType(NamedTuple):
     score_normal: int
     score_hard: int
     score_very_hard: int
-    need: list[str] = []
-    want: list[str] = []
-    tags: list[str] = []
+    need: list[str] | None = None
+    want: list[str] | None = None
+    tags: list[str] | None = None
 
 class Difficulty(Enum):
     EASY = 0

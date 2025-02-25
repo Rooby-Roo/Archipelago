@@ -60,6 +60,7 @@ mana_4 = "Mana 4"
 mana_5 = "Mana 5"
 mana_6 = "Mana 6"
 mana = "Mana Upgrade"
+seedling = "Seedling"  # not an AP item, but name is used for some rules
 reeder = "Reeder"
 machine_gun = "Machine Gun"
 weepwood_bow = "Weepwood Bow"
