@@ -1,11 +1,6 @@
-from typing import Callable, TYPE_CHECKING
-
 from BaseClasses import CollectionState
 from .data import combat_data, Difficulty
 from .names import item_names as i
-
-if TYPE_CHECKING:
-    from . import FrogmonsterWorld
 
 def get_custom_rules() -> None:
 
