@@ -48,7 +48,7 @@ every_bug = [
     BugType(name=i.bee,            bug_id=37, slot_cost=3),
     BugType(name=i.tang,           bug_id=38, slot_cost=3),
     BugType(name=i.axolotyl,       bug_id=39, slot_cost=3),
-    BugType(name=i.mite,           bug_id=40, slot_cost=2)
+    BugType(name=i.mite,           bug_id=40, slot_cost=2),
 ]
 
 class CombatType(NamedTuple):
