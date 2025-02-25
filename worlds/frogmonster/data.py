@@ -87,6 +87,7 @@ combat_data = [
     CombatType(name=c.old_road_arena_1,        score_easy=X, score_normal=X, score_hard=X, score_very_hard=0,),
     CombatType(name=c.old_road_arena_2,        score_easy=X, score_normal=X, score_hard=X, score_very_hard=0,),
     CombatType(name=c.under_city_arena_1,      score_easy=X, score_normal=0, score_hard=0, score_very_hard=0, tags=["swarm"]),
+    CombatType(name=c.forest_floor_general,    score_easy=X, score_normal=0, score_hard=0, score_very_hard=0,),
     CombatType(name=c.forest_floor_arena_1,    score_easy=X, score_normal=X, score_hard=0, score_very_hard=0,),
     CombatType(name=c.old_wood_general,        score_easy=X, score_normal=X, score_hard=0, score_very_hard=0,),
     CombatType(name=c.hive_general,            score_easy=X, score_normal=X, score_hard=X, score_very_hard=0,),
