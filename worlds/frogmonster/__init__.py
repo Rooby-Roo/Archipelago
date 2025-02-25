@@ -3,8 +3,8 @@ from typing import Any, TextIO
 from BaseClasses import Region, LocationProgressType
 from worlds.AutoWorld import World
 from .options import FrogmonsterOptions
-from .items import item_id_table, item_data_table, FrogmonsterItem
-from .locations import location_id_table, location_data_table, FrogmonsterLocation
+from .items import item_id_table, item_data_table, item_name_groups, FrogmonsterItem
+from .locations import location_id_table, location_data_table, location_name_groups, FrogmonsterLocation
 from .regions import region_data_table
 from .names import item_names as i
 from .names import location_names as l
@@ -19,6 +19,8 @@ class FrogmonsterWorld(World):
     location_name_to_id = location_id_table
     item_name_to_id = item_id_table
     origin_region_name = "Anywhere"
+    location_name_groups = location_name_groups
+    item_name_groups = item_name_groups
 
     # Options, to be sent to slot data.
     shuffled_bug_effects: dict[int, int]

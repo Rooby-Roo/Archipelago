@@ -761,9 +761,10 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     
     # Events
     i.victory: FrogmonsterItemData(
-        type=ItemClassification.progression,
-        category=("Event")
+        type=ItemClassification.progression
     ),
 }
 
 item_id_table = {name: data.id for name, data in item_data_table.items() if data.id is not None}
+
+item_name_groups = {key: {name for name, data in item_data_table.items() if data.category == key} for key in set(data.category for data in item_data_table.values())}

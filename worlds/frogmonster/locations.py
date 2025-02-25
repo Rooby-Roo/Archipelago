@@ -11,6 +11,7 @@ class FrogmonsterLocationData(NamedTuple):
     region: str
     id: int | None = None
     progress_type: LocationProgressType = LocationProgressType.DEFAULT
+    groups: list[str] = []
 
 location_data_table: Dict[str, FrogmonsterLocationData] = {
 
@@ -639,3 +640,15 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
 }
 
 location_id_table = {name: data.id for name, data in location_data_table.items() if data.id is not None}
+
+location_name_groups = {
+    "Puzzles": {
+        l.yellow_forest_puzzle,
+        l.city_puzzle_1,
+        l.city_puzzle_2,
+        l.mansion_puzzle_1,
+        l.mansion_puzzle_2,
+        l.fog_garden_puzzle_1,
+        l.fog_garden_puzzle_2
+    }
+}
