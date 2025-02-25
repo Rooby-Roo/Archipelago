@@ -7,7 +7,7 @@ def get_custom_rules() -> None:
     def can_fight(name: str, difficulty: Difficulty, player: int) -> bool:
         score, need, want, tags = get_combat_data(name, difficulty)
 
-    def get_combat_data(name: str, difficulty: Difficulty) -> tuple[int, list[str], list[str], list[str]]:
+    def get_combat_data(name: str, difficulty: Difficulty) -> tuple[int, list[str] | None, list[str] | None, list[str] | None]:
         for combat in combat_data:
             if combat.name == name:
                 if difficulty == Difficulty.EASY:
@@ -23,8 +23,11 @@ def get_custom_rules() -> None:
         raise ValueError(f"Combat {name} not found in data.py. Something is wrong with the Frogmonster world.")
 
     def can_burn(state: CollectionState, player: int) -> bool:
-        return state.has(i.fire_fruit_juicer, player) or (state.has(i.fireball, player) and state.has(i.cicada, player)) or (state.has(i.gatling_gun, player) and state.has(i.gatling_gun_myzand_upgrade, player) and state.has(i.metal_ore, player, 14))  # 14 ore here since logic necessitates that you do not have flamethrower here
-
+        return (state.has(i.fire_fruit_juicer, player) or 
+                state.has_all([i.fireball, i.cicada], player) or 
+                (state.has_all([i.gatling_gun, i.gatling_gun_myzand_upgrade], player) and state.has(i.metal_ore, player, 14))
+        )       # 14 ore here since if we're testing this, you don't have fire fruit, and thus can't waste ore on it
+    
     def has_level_2_gun(gun: str, state: CollectionState, player: int) -> bool:
         return state.has(gun, player) and state.has(get_gun_upgrade_from_gun(gun), player) and state.has(i.metal_ore, player, 16)
 
