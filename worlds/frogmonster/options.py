@@ -10,6 +10,11 @@ class GameDifficulty(Choice):
     option_very_hard = 4
     default = 2
 
+class StartWithGear(Toggle):
+    """When enabled, Blue in Lost Swamp will always give you a gun, and you will always find a spell at the Fireball location."""
+    display_name = "Start With Gear"
+    # does nothing at the moment, to be implemented later
+
 class ShuffleBugEffects(Toggle):
     """Randomizes the temporary effect gained when eating any bug other than Mushroom.
     CURRENTLY NOT IMPLEMENTED IN THE CLIENT."""
