@@ -33,7 +33,7 @@ def get_custom_rules() -> None:
 
     def get_gun_upgrade_from_gun(gun: str) -> str:
         return {
-            i.seedling: i.seedling_myzand_ugrade,
+            i.seedling: i.seedling_myzand_upgrade,
             i.reeder: i.reeder_myzand_upgrade,
             i.machine_gun: i.machine_gun_myzand_upgrade,
             i.weepwood_bow: i.weepwood_bow_myzand_upgrade,

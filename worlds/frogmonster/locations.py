@@ -571,7 +571,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         region="Anywhere",
         id=BASE_ID + 137
     ),
-    l.seedling_myzand_ugrade: FrogmonsterLocationData(
+    l.seedling_myzand_upgrade: FrogmonsterLocationData(
         region="Anywhere",
         id=BASE_ID + 138
     ),

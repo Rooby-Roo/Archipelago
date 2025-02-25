@@ -713,7 +713,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
 #        type=ItemClassification.useful,
 #        category=("Relic")
 #    ),
-    i.seedling_myzand_ugrade: FrogmonsterItemData(
+    i.seedling_myzand_upgrade: FrogmonsterItemData(
         id=BASE_ID + 138,
         type=ItemClassification.progression,
         category=("Upgrade")
