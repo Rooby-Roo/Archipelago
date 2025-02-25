@@ -24,6 +24,7 @@ brothers = "Oosk and Dord"
 myzand_1 = "Myzand 1"
 myzand_2 = "Myzand 2"
 
+marvin_arena_1 = "Marvin Arena 1"  # Normal
 outskirts_arena_1 = "Outskirts Arena 1"  # Actually both of them - Hard
 very_lost_swamp_general = "Very Lost Swamp General Combat"  # Normal
 very_lost_swamp_arena_1 = "Very Lost Swamp Arena 1"  # Normal
