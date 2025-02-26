@@ -15,7 +15,7 @@ every_bug = [  # Regions values are noncomprehensive. Regions are excluded if th
     BugType(name=i.fly,            bug_id=3,  slot_cost=2, regions=["Lost Swamp"]),
     BugType(name=i.dragonfly,      bug_id=4,  slot_cost=2, regions=["Lost Swamp"]),
     BugType(name=i.eel,            bug_id=5,  slot_cost=2, regions=["Lost Swamp"]),  # Requires Dash or Frog. Eel requires Groth defeat
-    BugType(name=i.bass,           bug_id=6,  slot_cost=1, regions=["Lost Swamp"]),  # Where?
+    BugType(name=i.bass,           bug_id=6,  slot_cost=1, regions=["Lost Swamp"]),  # Blue's Cabin
     BugType(name=i.blue_snack,     bug_id=7,  slot_cost=3, regions=["Marvin's Domain", "Bins' Machine"]),
     BugType(name=i.purple_snack,   bug_id=8,  slot_cost=4, regions=["Marvin's Domain"]),	
     BugType(name=i.magnet_roach,   bug_id=9,  slot_cost=1, regions=["Yellow Forest", "Ridge"]),  # For sale, or eatable during Runi fight
@@ -58,9 +58,9 @@ class CombatType(NamedTuple):
     score_normal: int
     score_hard: int
     score_very_hard: int
-    need: list[str] | None = None
-    want: list[str] | None = None
-    tags: list[str] | None = None
+    need: list[str] = []
+    want: list[str] = []
+    tags: list[str] = []
 
 class Difficulty(Enum):
     EASY = 0
@@ -109,7 +109,7 @@ combat_data = [
     CombatType(name=c.foraz,                   score_easy=X, score_normal=X, score_hard=X, score_very_hard=X,),
     CombatType(name=c.hedgeward,               score_easy=X, score_normal=X, score_hard=X, score_very_hard=X,),
     CombatType(name=c.runi,                    score_easy=X, score_normal=X, score_hard=X, score_very_hard=X,),
-    CombatType(name=c.barge,                   score_easy=X, score_normal=X, score_hard=X, score_very_hard=X, need=["burn"]),
+    CombatType(name=c.barge,                   score_easy=X, score_normal=X, score_hard=X, score_very_hard=X,),
     CombatType(name=c.door_crab,               score_easy=X, score_normal=X, score_hard=X, score_very_hard=X,),
     CombatType(name=c.lazaro,                  score_easy=X, score_normal=X, score_hard=X, score_very_hard=X,),
     CombatType(name=c.zythida,                 score_easy=X, score_normal=X, score_hard=X, score_very_hard=X, need=[i.tongue_swing],),

@@ -637,6 +637,9 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.goal: FrogmonsterLocationData(
         region="Anywhere",
     ),
+    l.workshop_access: FrogmonsterLocationData(
+        region="Anywhere",
+    ),
 }
 
 location_id_table = {name: data.id for name, data in location_data_table.items() if data.id is not None}

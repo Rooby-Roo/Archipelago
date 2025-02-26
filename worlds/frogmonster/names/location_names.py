@@ -162,5 +162,4 @@ coin_chest_2 = "Very Lost Swamp: Outskirts Entrance"
 # I don't have all the coin chests documented so if you know of one, tell me about it so I can get it listed here
 
 goal = "Defeat Myzand"
-
-# FIND ME: Yellow Forest: Above Cromb's Shop - Green Sea: After Boss (Spiderweb)
+workshop_access = "Can Use Workshop"

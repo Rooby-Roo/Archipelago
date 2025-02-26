@@ -161,3 +161,4 @@ wooden_cannon_myzand_upgrade = "Wooden Cannon Myzand Upgrade"
 coins = "Coins"
 
 victory = "Victory"
+workshop_key = "Workshop Key"

@@ -74,6 +74,7 @@ class FrogmonsterWorld(World):
             self.multiworld.get_location(location, self.player).access_rule = lambda state: True  # Until I can be bothered to write actual logic
 
         self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory))
+        self.multiworld.get_location(l.workshop_access, self.player).place_locked_item(self.create_event(i.workshop_key))
         self.multiworld.completion_condition[self.player] = lambda state: state.has(i.victory, self.player)
 
     def fill_slot_data(self) -> dict[str, Any]:
