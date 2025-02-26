@@ -17,18 +17,16 @@ def get_custom_rules() -> None:
         score, need, want, tags = get_combat_data(name, difficulty)
 
         for item in need:
-            if item == "burn":
-                if not can_burn(state, player):
-                    return False
-            elif not state.has(item, player):
+            if not state.has(item, player):
                 return False
             
         if state.has(i.dash, player):
             score -= 10
 
         if score <= 0:
-            return True  # we check this multiple times through this formula, since each layer is more computationally expensive than the last.
+            return True  # we check this here to offer an early eject, since dash is so powerful and will simplify a lot of combats.
         
+        # Handling: Fight-specific utilities
         for item in want:
             if state.has(item, player):
                 score -= 5
@@ -39,14 +37,17 @@ def get_custom_rules() -> None:
                         score -= 5
                 case "swarm":  # fight is primarily large quantities of small monsters. Weapons that spray are preferred.
                     first_one_best = True
-                    for swarm_answer in [i.machine_gun, i.gatling_gun, i.fire_fruit_juicer, i.zap]:
+                    swarm_answers = [i.machine_gun, i.gatling_gun, i.zap]
+                    if "underwater" not in tags:
+                        swarm_answers.append(i.fire_fruit_juicer)  # standalone ffj cannot work underwater. Only gun with this property. 
+                    for swarm_answer in swarm_answers:
                         if state.has(swarm_answer, player):
                             if first_one_best:
                                 score -= 5
                                 first_one_best = False
                             else:
                                 score -= 2
-                    for heavy_swarm_answer in [i.machine_gun, i.weepwood_bow, i.fire_fruit_juicer, i.gatling_gun]:
+                    for heavy_swarm_answer in [item for item in [i.machine_gun, i.weepwood_bow, i.fire_fruit_juicer, i.gatling_gun] if state.has(item, player)]:  # comprehension to pre-check the level 1 gun types before getting into the slightly costly has_2 function
                         if has_level_2_gun(heavy_swarm_answer, state, player):
                             if first_one_best:
                                 score -= 5
@@ -65,6 +66,27 @@ def get_custom_rules() -> None:
                 case _:
                     raise ValueError(f"Tag {item} is not handled for in the fight logic. Something is wrong with the Frogmonster world.")
         
+        # Handling: Guns
+        guns = state.count_group("Guns", player)
+        # is this something I should make hashable? It feels small enough that this might be faster than setting up a dict.
+        if guns == 1:
+            score -= 8  # First gun is 8 points
+        elif guns == 2:
+            score -= 15 # Second is 7
+        elif guns == 3:
+            score -= 20 # Third is 5
+        elif guns == 4:
+            score -= 23 # Fourth is 3
+        elif guns == 5:
+            score -= 26 # Fifth is 3
+        elif guns >  5:
+            score -= 28 # Sixth is 2. Last gun unlikely to be useful given your coverage at this point.
+
+        if can_upgrade(state, player):
+            ores = state.count(i.metal_ore, player)
+            max_ores = max(ores, guns)
+            score -= (3 * max_ores)  # technically this is operating on the assumption that you're not going to go down both upgrade paths on most guns. It's all skill estimations so idc
+
         if score <= 0:
             return True
         
@@ -96,8 +118,8 @@ def get_custom_rules() -> None:
     
     def can_burn_underwater(state: CollectionState, player: int) -> bool:
         return (state.has_all([i.fireball, i.cicada], player) or
-                (state.has(i.fire_fruit_juicer, player) and state.has(i.metal_ore, player, 16)) or
-                (state.has_all([i.gatling_gun, i.gatling_gun_myzand_upgrade], player) and state.has(i.metal_ore, player, 16))
+                (state.has(i.fire_fruit_juicer, player) and state.has(i.metal_ore, player, 14)) or
+                (state.has_all([i.gatling_gun, i.gatling_gun_myzand_upgrade], player) and state.has(i.metal_ore, player, 14))
         )
     
     def has_level_2_gun(gun: str, state: CollectionState, player: int) -> bool:

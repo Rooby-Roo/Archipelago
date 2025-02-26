@@ -67,6 +67,7 @@ class Difficulty(Enum):
     NORMAL = 1
     HARD = 2
     VERY_HARD = 3
+    HYPOTHETICALLY_POSSIBLE = 4  # Would like to implement this sometime.
 
 def score_undefined():
     raise NotImplementedError("A combat has not been scored yet.")
