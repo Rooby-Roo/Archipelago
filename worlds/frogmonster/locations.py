@@ -640,6 +640,18 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.workshop_access: FrogmonsterLocationData(
         region="Anywhere",
     ),
+    l.sell_smooth_stones: FrogmonsterLocationData(
+        region="City"
+    ),
+    l.sell_square_rocks: FrogmonsterLocationData(
+        region="Yellow Forest"
+    ),
+    l.sell_dark_pebbles: FrogmonsterLocationData(
+        region="Forest Floor"
+    ),
+    l.sell_sparkling_gems: FrogmonsterLocationData(
+        region="City"
+    )
 }
 
 location_id_table = {name: data.id for name, data in location_data_table.items() if data.id is not None}

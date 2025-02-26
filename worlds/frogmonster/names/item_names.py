@@ -162,3 +162,7 @@ coins = "Coins"
 
 victory = "Victory"
 workshop_key = "Workshop Key"
+sell_smooth_stones = "Access to Dort"
+sell_square_rocks = "Access to Cromb"
+sell_dark_pebbles = "Access to Journ"
+sell_sparkling_gems = "Access to Wren"

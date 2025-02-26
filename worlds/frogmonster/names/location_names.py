@@ -163,3 +163,7 @@ coin_chest_2 = "Very Lost Swamp: Outskirts Entrance"
 
 goal = "Defeat Myzand"
 workshop_access = "Can Use Workshop"
+sell_smooth_stones = "Access to Dort"
+sell_square_rocks = "Access to Cromb"
+sell_dark_pebbles = "Access to Journ"
+sell_sparkling_gems = "Access to Wren"
