@@ -149,6 +149,10 @@ def get_custom_rules() -> None:
                 state.has(i.dash, player) and
                 (state.has(i.fire_fruit_juicer, player) or has_level_2_gun(i.gatling_gun, state, player))
             )
+        elif difficulty == Difficulty.VERY_HARD:
+            return (
+                state.has(i.fire_fruit_juicer, player) or has_level_2_gun(i.gatling_gun, state, player)
+            )
         else:
             raise ValueError(f"Difficutly {difficulty} is not a valid type. Something is wrong with the Frogmonster world.")
     def get_combat_data(name: str, difficulty: Difficulty) -> tuple[int, list[str], list[str], list[str]]:
