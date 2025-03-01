@@ -120,3 +120,21 @@ combat_data = [
     CombatType(name=c.myzand_1,                score_easy=X, score_normal=X, score_hard=X, score_very_hard=X,),
     CombatType(name=c.myzand_2,                score_easy=X, score_normal=X, score_hard=X, score_very_hard=X,),
 ]
+
+secret_synergies = {
+    i.fireball: i.cicada,
+    i.beans: i.mushfrog,
+    i.mushbomb: i.blue_jelly,
+    i.hive: i.dragonfly,
+    i.puff: i.moth,
+    i.sharp_shot: i.axolotyl,
+    i.zap: i.eel,
+    i.slam: i.turtle
+}
+
+tanky_bugs = (
+    i.turtle,
+    i.blue_snack,
+    i.beet,
+    i.moth
+)

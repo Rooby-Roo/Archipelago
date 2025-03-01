@@ -238,7 +238,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     ),
     i.health: FrogmonsterItemData(
         id=BASE_ID + 44,
-        type=ItemClassification.useful,
+        type=ItemClassification.progression,
         category=("Health"),
         qty=6
     ),
@@ -269,7 +269,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
 #    ),
     i.mana: FrogmonsterItemData(
         id=BASE_ID + 50,
-        type=ItemClassification.useful,
+        type=ItemClassification.progression,
         category=("Mana"),
         qty=6
     ),

@@ -1,5 +1,5 @@
 from BaseClasses import CollectionState
-from .data import combat_data, Difficulty
+from .data import combat_data, Difficulty, secret_synergies, tanky_bugs
 from .names import item_names as i
 from .names import combat_names as c
 
@@ -21,7 +21,7 @@ def get_custom_rules() -> None:
                 return False
             
         if state.has(i.dash, player):
-            score -= 10
+            score -= 15
 
         if score <= 0:
             return True  # we check this here to offer an early eject, since dash is so powerful and will simplify a lot of combats.
@@ -67,34 +67,90 @@ def get_custom_rules() -> None:
                     raise ValueError(f"Tag {item} is not handled for in the fight logic. Something is wrong with the Frogmonster world.")
         
         # Handling: Guns
-        guns = state.count_group("Guns", player)
+        guns = state.count_group_unique("Guns", player)
         # is this something I should make hashable? It feels small enough that this might be faster than setting up a dict.
-        if guns == 1:
-            score -= 8  # First gun is 8 points
-        elif guns == 2:
-            score -= 15 # Second is 7
-        elif guns == 3:
-            score -= 20 # Third is 5
-        elif guns == 4:
-            score -= 23 # Fourth is 3
-        elif guns == 5:
-            score -= 26 # Fifth is 3
-        elif guns >  5:
-            score -= 28 # Sixth is 2. Last gun unlikely to be useful given your coverage at this point.
+        gun_scores = {
+            0: 0,
+            1: 8,   # 8
+            2: 15,  # 7
+            3: 20,  # 5
+            4: 23,  # 3
+            5: 26,  # 3
+            6: 28,  # 2
+            7: 30,  # 2
+        }
+        score -= gun_scores.get(guns, 0)
 
         if can_upgrade(state, player):
             ores = state.count(i.metal_ore, player)
             max_ores = max(ores, guns)
-            score -= (3 * max_ores)  # technically this is operating on the assumption that you're not going to go down both upgrade paths on most guns. It's all skill estimations so idc
+            score -= (4 * max_ores)  # technically this is operating on the assumption that you're not going to go down both upgrade paths on most guns. It's all skill estimations so idc
 
+        # Handling: Spells
+        spells = state.count_group_unique("Spells", player)
+        good_heal_spells = [i.fireball, i.beans, i.puff]
+        if "swarm" in tags:
+            good_heal_spells.append(i.zap)
+        for spell in good_heal_spells:
+            if state.has(spell, player):
+                score -= 4
+                break
+        spell_scores = {
+            0: 0,
+            1: 7,
+            2: 10,
+            3: 12,
+            4: 13,
+            5: 14,
+            6: 15,
+            7: 15,
+            8: 15
+        }
+        score -= spell_scores.get(spells, 0)
+
+        # Handling: Spell Synergies
+        for spell, bug in secret_synergies.items():
+            if state.has_all([spell, bug], player):
+                score -= 3
+        
+        # Handling: Health and Mana
+        hp = state.count(i.health, player)
+        mp = state.count(i.mana, player)
+        if hp >= 3:
+            if hp >= 6:
+                score -= 10
+            score -= 5
+        if mp >= 3 and state.has_group("Spells", player, 1):
+            if mp >= 6:
+                score -= 6
+            score -= 3
+        
         if score <= 0:
             return True
-        
-        raise NotImplementedError("Robby isn't done with can_fight, go yell at him.")
+        else:
+            return False
+
     
     def can_fight_barge(difficulty: Difficulty, state: CollectionState, player: int):
-        raise NotImplementedError
-
+        if difficulty == Difficulty.EASY:
+            return (
+                state.has_all([i.dash, i.fire_fruit_juicer], player) and 
+                state.has_group_unique("Guns", player, 2) and
+                (state.has_any(tanky_bugs, player) or state.has(i.health, 3))
+            )
+        elif difficulty == Difficulty.NORMAL:
+            return (
+                state.has_all([i.dash, i.fire_fruit_juicer], player) and 
+                state.has_group_unique("Guns", player, 2) and
+                (state.has_any(tanky_bugs, player) or state.has(i.health, 3))
+            )
+        elif difficulty == Difficulty.HARD:
+            return (
+                state.has(i.dash, player) and
+                (state.has(i.fire_fruit_juicer, player) or has_level_2_gun(i.gatling_gun, state, player))
+            )
+        else:
+            raise ValueError(f"Difficutly {difficulty} is not a valid type. Something is wrong with the Frogmonster world.")
     def get_combat_data(name: str, difficulty: Difficulty) -> tuple[int, list[str], list[str], list[str]]:
         for combat in combat_data:
             if combat.name == name:
