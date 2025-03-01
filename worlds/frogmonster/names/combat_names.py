@@ -39,8 +39,24 @@ old_road_arena_2 = "Old Road Arena 2"  # Immediately before Valda - Very Hard
 under_city_arena_1 = "Under City Arena 1"  # Campfire + Scorpions - Normal
 forest_floor_general = "Forest Floor General Combat"  # Normal
 forest_floor_arena_1 = "Forest Floor Arena 1"  # Toros before Chroma - Hard
+treetops_general = "Treetops General Combat"
+treetops_arena_1 = "Treetops Arena 1"  # in front of key door
 old_wood_general = "Old Wood General Combat"  # Hard
+old_wood_arena_1 = "Old Wood Arena 1"  # At start
+old_wood_arena_2 = "Old Wood Arena 2"  # With Jumpers
+estate_general = "Estate General Combat"
+fog_garden_arena_1 = "Fog Garden Arena 1"  # first tri split
+fog_garden_arena_2 = "Fog Garden Arena 2"  # Behind Key
+well_general = "Well General Combat"
+thickness_general = "Thickness General Combat"
+thickness_arena_1 = "Thickness Arena 1"
 hive_general = "Hive General Combat"  # Very Hard
+ridge_general = "Ridge General Combat"
+moridonos_general = "Moridono's Domain General Combat"
+moridonos_arena_1 = "Moridono's Domain Arena 1"  # Worms
+moridonos_arena_2 = "Moridono's Domain Arena 2"  # Drills
+moridonos_arena_3 = "Moridono's Domain Arena 3"  # Droppers
+moridonos_arena_4 = "Moridono's Domain Arena 4"  # Rocket Turtles
 
 # Easy: Analogous item pickups
 # Normal: Some restrictions
