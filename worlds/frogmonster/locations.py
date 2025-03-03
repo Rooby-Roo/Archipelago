@@ -1,6 +1,6 @@
-from typing import NamedTuple, Dict
+from typing import NamedTuple, Dict, Callable
 
-from BaseClasses import Location, LocationProgressType
+from BaseClasses import Location, LocationProgressType, CollectionState
 from .names import location_names as l
 from .names import region_names as r
 from .items import BASE_ID
@@ -12,6 +12,7 @@ class FrogmonsterLocationData(NamedTuple):
     region: str
     id: int | None = None
     progress_type: LocationProgressType = LocationProgressType.DEFAULT
+    access_rule: Callable[[CollectionState], bool] = lambda state: True
     groups: list[str] = []
 
 location_data_table: Dict[str, FrogmonsterLocationData] = {

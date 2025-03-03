@@ -48,12 +48,15 @@ class FrogmonsterWorld(World):
     def create_regions(self) -> None:
         for region_name in region_data_table.keys():
             # Create regions.
-            region = Region(region_name, self.player, self.multiworld)
-            self.multiworld.regions.append(region)
+            if region_name != "Bug":
+                region = Region(region_name, self.player, self.multiworld)
+                self.multiworld.regions.append(region)
 
-            # Create locations, add locations to regions.
-            current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
-            region.add_locations(current_region_locations, FrogmonsterLocation)
+                # Create locations, add locations to regions.
+                current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
+                region.add_locations(current_region_locations, FrogmonsterLocation)
+        # Add access connections for bugs. 
+        raise NotImplementedError("TODO: Bugs.")
 
     def create_items(self) -> None:
         item_pool = []
@@ -65,8 +68,8 @@ class FrogmonsterWorld(World):
         self.multiworld.itempool += item_pool
 
     def set_rules(self) -> None:
-        for location in location_data_table.keys():
-            self.multiworld.get_location(location, self.player).access_rule = lambda state: True  # Until I can be bothered to write actual logic
+        for location in location_data_table.items():
+            self.multiworld.get_location(location[0], self.player).access_rule = location[1].access_rule  # Until I can be bothered to write actual logic
 
         self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory))
         self.multiworld.get_location(l.workshop_access, self.player).place_locked_item(self.create_event(i.workshop_key))
