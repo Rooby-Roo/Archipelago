@@ -162,7 +162,3 @@ coins = "Coins"
 
 victory = "Victory"
 workshop_key = "Workshop Key"
-sell_smooth_stones = "Can Sell Smooth Stones"
-sell_square_rocks = "Can Sell Square Rocks"
-sell_dark_pebbles = "Can Sell Dark Pebbles"
-sell_sparkling_gems = "Can Sell Sparkling Gems"

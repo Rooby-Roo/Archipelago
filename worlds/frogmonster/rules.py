@@ -19,7 +19,9 @@ def get_custom_rules() -> None:
         for item in need:
             if not state.has(item, player):
                 return False
-            
+        return True
+    
+        # Yes this is unreachable but I need to completely rework this, so we're basically ignoring combat difficulty for now
         if state.has(i.dash, player):
             score -= 15
 
