@@ -34,15 +34,6 @@ class FrogmonsterWorld(World):
     
     def get_filler_item_name(self) -> str:
         return i.coins
-    
-    def create_items(self) -> None:
-        item_pool = []
-        for name, item in item_data_table.items():
-            if item.id:
-                for i in range(item_data_table[name].qty):
-                    item_pool.append(self.create_item(name))
-        
-        self.multiworld.itempool += item_pool
 
     def generate_early(self) -> None:
         # Handling option: Shuffle Bug-Eating Effects
@@ -63,11 +54,15 @@ class FrogmonsterWorld(World):
             # Create locations, add locations to regions.
             current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
             region.add_locations(current_region_locations, FrogmonsterLocation)
+
+    def create_items(self) -> None:
+        item_pool = []
+        for name, item in item_data_table.items():
+            if item.id:
+                for _ in range(item_data_table[name].qty):
+                    item_pool.append(self.create_item(name))
         
-        # Exclude or prioritize locations according to locations.py.
-        for location in location_data_table.items():
-            if location[1].progress_type != LocationProgressType.DEFAULT:
-                self.multiworld.get_location(location[0], self.player).progress_type = location[1].progress_type
+        self.multiworld.itempool += item_pool
 
     def set_rules(self) -> None:
         for location in location_data_table.keys():
@@ -76,6 +71,11 @@ class FrogmonsterWorld(World):
         self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory))
         self.multiworld.get_location(l.workshop_access, self.player).place_locked_item(self.create_event(i.workshop_key))
         self.multiworld.completion_condition[self.player] = lambda state: state.has(i.victory, self.player)
+
+        # Exclude or prioritize locations according to locations.py. This will be overridden by any YAML declarations.
+        for location in location_data_table.items():
+            if location[1].progress_type != LocationProgressType.DEFAULT:
+                self.multiworld.get_location(location[0], self.player).progress_type = location[1].progress_type
 
     def fill_slot_data(self) -> dict[str, Any]:
         slot_data: dict[str, Any] = {}
