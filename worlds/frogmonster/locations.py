@@ -34,10 +34,12 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.tongue_swing: FrogmonsterLocationData(
         region=r.forest_floor,
         id=BASE_ID + 2,
+        access_rule=lambda player, difficulty, state: can_fight_all([c.forest_floor_arena_1, c.chroma], player, difficulty, state)
     ),
     l.runi_key: FrogmonsterLocationData(
         region=r.well,
-        id=BASE_ID + 3
+        id=BASE_ID + 3,
+        access_rule=lambda player, difficulty, state: can_fight_all([c.well_general, c.dekula], player, difficulty, state)
     ),
     l.glowbug: FrogmonsterLocationData(
         region="Bug",
