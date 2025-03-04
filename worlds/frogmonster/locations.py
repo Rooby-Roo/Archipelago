@@ -1,4 +1,4 @@
-from typing import NamedTuple, Dict, Callable, cast, TYPE_CHECKING
+from typing import NamedTuple, Dict, Callable
 
 from BaseClasses import Location, LocationProgressType, CollectionState
 from .names import item_names as i
@@ -8,10 +8,6 @@ from .names import combat_names as c
 from .items import BASE_ID
 from .rules import can_fight, can_fight_all, can_burn
 from .data import Difficulty
-
-if TYPE_CHECKING:
-    state = cast(CollectionState, state)
-
 
 class FrogmonsterLocation(Location):
     game = "Frogmonster"
@@ -260,7 +256,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.mana_6: FrogmonsterLocationData(
         region=r.treetops,
         id=BASE_ID + 55,
-        access_rule=lambda player, dif, state: can_fight(c.treetops_arena_1, player, dif, statae) and state.has_all([i.sticky_hands, i.tongue_swing], player)
+        access_rule=lambda player, dif, state: can_fight(c.treetops_arena_1, player, dif, state) and state.has_all([i.sticky_hands, i.tongue_swing], player)
     ),
     l.reeder: FrogmonsterLocationData(
         region=r.lost_swamp,
