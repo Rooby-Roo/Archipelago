@@ -761,12 +761,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     
     # Events
     i.victory: FrogmonsterItemData(),
-    i.workshop_key: FrogmonsterItemData(),
-    i.sell_smooth_stones: FrogmonsterItemData(),
-    i.sell_square_rocks: FrogmonsterItemData(),
-    i.sell_dark_pebbles: FrogmonsterItemData(),
-    i.sell_sparkling_gems: FrogmonsterItemData(),
-    
+    i.workshop_key: FrogmonsterItemData(),    
 
 }
 
