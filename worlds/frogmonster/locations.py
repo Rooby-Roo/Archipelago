@@ -3,7 +3,10 @@ from typing import NamedTuple, Dict, Callable
 from BaseClasses import Location, LocationProgressType, CollectionState
 from .names import location_names as l
 from .names import region_names as r
+from .names import combat_names as c
 from .items import BASE_ID
+from .rules import can_fight, can_fight_all
+from .data import Difficulty
 
 class FrogmonsterLocation(Location):
     game = "Frogmonster"
@@ -12,7 +15,7 @@ class FrogmonsterLocationData(NamedTuple):
     region: str
     id: int | None = None
     progress_type: LocationProgressType = LocationProgressType.DEFAULT
-    access_rule: Callable[[CollectionState], bool] = lambda state: True
+    access_rule: Callable[[int, Difficulty, CollectionState], bool] = lambda player, difficulty, state: True
     groups: list[str] = []
 
 location_data_table: Dict[str, FrogmonsterLocationData] = {
@@ -20,15 +23,17 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     # Locations
     l.dash: FrogmonsterLocationData(
         region=r.marvins,
-        id=BASE_ID + 0
+        id=BASE_ID + 0,
+        access_rule=lambda player, difficulty, state: can_fight(c.marvin, player, difficulty, state)
     ),
     l.sticky_hands: FrogmonsterLocationData(
         region=r.outskirts,
-        id=BASE_ID + 1
+        id=BASE_ID + 1,
+        access_rule=lambda player, difficulty, state: can_fight_all([c.outskirts_arena_1, c.snake], player, difficulty, state)
     ),
     l.tongue_swing: FrogmonsterLocationData(
         region=r.forest_floor,
-        id=BASE_ID + 2
+        id=BASE_ID + 2,
     ),
     l.runi_key: FrogmonsterLocationData(
         region=r.well,

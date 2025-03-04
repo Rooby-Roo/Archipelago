@@ -1,9 +1,11 @@
+from typing import Iterable
+
 from BaseClasses import CollectionState
 from .data import combat_data, Difficulty, secret_synergies, tanky_bugs
 from .names import item_names as i
 from .names import combat_names as c
 
-def can_fight(name: str, difficulty: Difficulty, state: CollectionState, player: int) -> bool:
+def can_fight(name: str, player: int, difficulty: Difficulty, state: CollectionState) -> bool:
 
     # First, handle some fights that really can't rely on the default calculations.
     weird_fights = {
@@ -130,6 +132,11 @@ def can_fight(name: str, difficulty: Difficulty, state: CollectionState, player:
     else:
         return False
 
+def can_fight_all(names: Iterable[str], player: int, difficulty: Difficulty, state: CollectionState) -> bool:
+    for name in names:
+        if not can_fight(name, player, difficulty, state):
+            return False
+    return True
 
 def can_fight_barge(difficulty: Difficulty, state: CollectionState, player: int):
     if difficulty == Difficulty.EASY:

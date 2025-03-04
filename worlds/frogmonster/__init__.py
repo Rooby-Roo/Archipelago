@@ -1,4 +1,5 @@
 from typing import Any, TextIO
+from functools import partial
 
 from BaseClasses import Region, LocationProgressType
 from worlds.AutoWorld import World
@@ -8,7 +9,7 @@ from .locations import location_id_table, location_data_table, location_name_gro
 from .regions import region_data_table
 from .names import item_names as i
 from .names import location_names as l
-from .data import every_bug
+from .data import every_bug, Difficulty
 
 class FrogmonsterWorld(World):
     """Frogmonster."""
@@ -45,6 +46,9 @@ class FrogmonsterWorld(World):
         shuffled_bugs[36] = 36  # Mushroom is not shuffled but the client still expects this, it is always 36 and must be added back in manually.
         self.shuffled_bug_effects = shuffled_bugs
 
+        # Handling option: Game Difficulty
+        self.difficulty = Difficulty(self.options.game_difficulty)
+
     def create_regions(self) -> None:
         for region_name in region_data_table.keys():
             # Create regions.
@@ -69,7 +73,7 @@ class FrogmonsterWorld(World):
 
     def set_rules(self) -> None:
         for location in location_data_table.items():
-            self.multiworld.get_location(location[0], self.player).access_rule = location[1].access_rule  # Until I can be bothered to write actual logic
+            self.multiworld.get_location(location[0], self.player).access_rule = partial(location[1].access_rule, self.player, self.difficulty)
 
         self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory))
         self.multiworld.get_location(l.workshop_access, self.player).place_locked_item(self.create_event(i.workshop_key))
