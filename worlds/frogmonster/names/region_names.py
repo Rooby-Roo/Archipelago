@@ -27,3 +27,5 @@ temple = "Temple"
 quarry = "Quarry"
 under_under_city = "Under Under City"
 myzand = "Myzand's Forest"
+
+anywhere = "Anywhere"

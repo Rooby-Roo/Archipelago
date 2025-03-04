@@ -9,6 +9,7 @@ from .locations import location_id_table, location_data_table, location_name_gro
 from .regions import region_data_table
 from .names import item_names as i
 from .names import location_names as l
+from .names import region_names as r
 from .data import every_bug, Difficulty
 
 class FrogmonsterWorld(World):
@@ -19,7 +20,7 @@ class FrogmonsterWorld(World):
     options_dataclass = FrogmonsterOptions
     location_name_to_id = location_id_table
     item_name_to_id = item_id_table
-    origin_region_name = "Anywhere"
+    origin_region_name = r.anywhere
     location_name_groups = location_name_groups
     item_name_groups = item_name_groups
 

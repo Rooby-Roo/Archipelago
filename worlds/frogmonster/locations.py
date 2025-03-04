@@ -643,10 +643,10 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
 
     # Events
     l.goal: FrogmonsterLocationData(
-        region="Anywhere",
+        region=r.anywhere,
     ),
     l.workshop_access: FrogmonsterLocationData(
-        region="Anywhere",
+        region=r.anywhere,
     ),
 }
 
