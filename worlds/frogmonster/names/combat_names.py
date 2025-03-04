@@ -62,6 +62,8 @@ moridonos_arena_1 = "Moridono's Domain Arena 1"  # Worms
 moridonos_arena_2 = "Moridono's Domain Arena 2"  # Drills
 moridonos_arena_3 = "Moridono's Domain Arena 3"  # Droppers
 moridonos_arena_4 = "Moridono's Domain Arena 4"  # Rocket Turtles
+under_under_city_general = "Under Under City General Combat"
+under_under_city_arena_1 = "Under Under City Arena 1"
 
 # Easy: Analogous item pickups
 # Normal: Some restrictions
