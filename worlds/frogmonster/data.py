@@ -37,7 +37,7 @@ every_bug = [  # Regions values are noncomprehensive. Regions are excluded if th
     BugType(name=i.cricket,        bug_id=25, slot_cost=3, regions=["City"]),
     BugType(name=i.spider,         bug_id=26, slot_cost=2, regions=["Old Road"]),
     BugType(name=i.moth,           bug_id=27, slot_cost=2, regions=["Old Road"]),
-    BugType(name=i.ammofly,        bug_id=28, slot_cost=2, regions=["Treetops, Old Wood"]),
+    BugType(name=i.ammofly,        bug_id=28, slot_cost=2, regions=["Treetops, Old Wood"]),  # after arena 1, before big door
     BugType(name=i.pecker,         bug_id=29, slot_cost=3, regions=["Thickness", "Moridono's Domain"]),  # verify these
     BugType(name=i.soul_fish,      bug_id=30, slot_cost=1, regions=["Anywhere"]),  # Death possible in water in Lost Swamp, so anywhere.
     BugType(name=i.fog_fly,        bug_id=31, slot_cost=3, regions=["Fog Fly", "Temple"]),

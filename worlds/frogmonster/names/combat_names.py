@@ -57,6 +57,7 @@ moridonos_arena_1 = "Moridono's Domain Arena 1"  # Worms
 moridonos_arena_2 = "Moridono's Domain Arena 2"  # Drills
 moridonos_arena_3 = "Moridono's Domain Arena 3"  # Droppers
 moridonos_arena_4 = "Moridono's Domain Arena 4"  # Rocket Turtles
+deep_arena_1 = "Deep Arena 1"  # Swarms of chompers, last arena before 
 
 # Easy: Analogous item pickups
 # Normal: Some restrictions

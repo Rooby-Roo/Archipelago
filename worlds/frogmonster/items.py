@@ -533,7 +533,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
         id=BASE_ID + 102,
         type=ItemClassification.filler,
         category=("Relic"),
-        qty=12
+        qty=11
     ),
 #    i.smooth_stone_2: FrogmonsterItemData(
 #        id=BASE_ID + 103,
