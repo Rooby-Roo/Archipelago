@@ -69,6 +69,9 @@ deep_arena_1 = "Deep Arena 1"  # Swarms of chompers
 reef_general = "Reef General Combat"
 reef_arena_1 = "Reef Arena 1"  # Whaleshark
 rootden_general = "Rootden General Combat"
+quarry_general = "Quarry General Combat"
+quarry_arena_1 = "Quarry Arena 1"
+temple_general = "Temple General Combat"
 
 # Easy: Analogous item pickups
 # Normal: Some restrictions
