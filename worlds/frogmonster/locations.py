@@ -451,10 +451,10 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         region=r.old_road,
         id=BASE_ID + 107
     ),
-    l.smooth_stone_7: FrogmonsterLocationData(
-        region=r.well,
-        id=BASE_ID + 108
-    ),
+#    l.smooth_stone_7: FrogmonsterLocationData(
+#        region=r.well,
+#        id=BASE_ID + 108
+#    ), So this just doesn't exist???
     l.smooth_stone_8: FrogmonsterLocationData(
         region=r.forest_floor,
         id=BASE_ID + 109
