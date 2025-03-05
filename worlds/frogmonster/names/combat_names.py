@@ -64,7 +64,11 @@ moridonos_arena_3 = "Moridono's Domain Arena 3"  # Droppers
 moridonos_arena_4 = "Moridono's Domain Arena 4"  # Rocket Turtles
 under_under_city_general = "Under Under City General Combat"
 under_under_city_arena_1 = "Under Under City Arena 1"
-deep_arena_1 = "Deep Arena 1"  # Swarms of chompers, last arena before 
+deep_general = "Deep General Combat"
+deep_arena_1 = "Deep Arena 1"  # Swarms of chompers
+reef_general = "Reef General Combat"
+reef_arena_1 = "Reef Arena 1"  # Whaleshark
+rootden_general = "Rootden General Combat"
 
 # Easy: Analogous item pickups
 # Normal: Some restrictions
