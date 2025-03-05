@@ -1,9 +1,13 @@
 from typing import NamedTuple, Dict, Callable
 
 from BaseClasses import Location, LocationProgressType, CollectionState
+from .names import item_names as i
 from .names import location_names as l
 from .names import region_names as r
+from .names import combat_names as c
 from .items import BASE_ID
+from .rules import can_fight, can_fight_all, can_burn
+from .data import Difficulty
 
 class FrogmonsterLocation(Location):
     game = "Frogmonster"
@@ -12,7 +16,7 @@ class FrogmonsterLocationData(NamedTuple):
     region: str
     id: int | None = None
     progress_type: LocationProgressType = LocationProgressType.DEFAULT
-    access_rule: Callable[[CollectionState], bool] = lambda state: True
+    access_rule: Callable[[int, Difficulty, CollectionState], bool] = lambda player, dif, state: True
     groups: list[str] = []
 
 location_data_table: Dict[str, FrogmonsterLocationData] = {
@@ -20,19 +24,23 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     # Locations
     l.dash: FrogmonsterLocationData(
         region=r.marvins,
-        id=BASE_ID + 0
+        id=BASE_ID + 0,
+        access_rule=lambda player, dif, state: can_fight(c.marvin, player, dif, state)
     ),
     l.sticky_hands: FrogmonsterLocationData(
         region=r.outskirts,
-        id=BASE_ID + 1
+        id=BASE_ID + 1,
+        access_rule=lambda player, dif, state: can_fight_all([c.outskirts_arena_1, c.snake], player, dif, state)
     ),
     l.tongue_swing: FrogmonsterLocationData(
         region=r.forest_floor,
-        id=BASE_ID + 2
+        id=BASE_ID + 2,
+        access_rule=lambda player, dif, state: can_fight_all([c.forest_floor_arena_1, c.chroma], player, dif, state)
     ),
     l.runi_key: FrogmonsterLocationData(
         region=r.well,
-        id=BASE_ID + 3
+        id=BASE_ID + 3,
+        access_rule=lambda player, dif, state: can_fight_all([c.well_general, c.dekula], player, dif, state)
     ),
     l.glowbug: FrogmonsterLocationData(
         region="Bug",
@@ -196,35 +204,41 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     ),
     l.health_1: FrogmonsterLocationData(
         region=r.outskirts,
-        id=BASE_ID + 44
+        id=BASE_ID + 44,
+        access_rule=lambda player, dif, state: can_fight(c.snake, player, dif, state)
     ),
     l.health_2: FrogmonsterLocationData(
         region=r.very_lost_swamp,
-        id=BASE_ID + 45
+        id=BASE_ID + 45,
+        access_rule=lambda player, dif, state: can_fight(c.yanoy, player, dif, state)
     ),
     l.health_3: FrogmonsterLocationData(
         region=r.hive,
-        id=BASE_ID + 46
+        id=BASE_ID + 46,
+        access_rule=lambda player, dif, state: can_fight_all([c.foraz, c.hive_general], player, dif, state)
     ),
     l.health_4: FrogmonsterLocationData(
-        region=r.yellow_forest,
-        id=BASE_ID + 47
+        region=r.yellow_forest_town,
+        id=BASE_ID + 47,
     ),
     l.health_5: FrogmonsterLocationData(
-        region=r.yellow_forest,
-        id=BASE_ID + 48
+        region=r.yellow_forest_town,
+        id=BASE_ID + 48,
     ),
     l.health_6: FrogmonsterLocationData(
         region=r.thickness,
-        id=BASE_ID + 49
+        id=BASE_ID + 49,
+        access_rule=lambda player, dif, state: can_fight_all([c.thickness_arena_1, c.djumbo], player, dif, state) and state.can_reach(r.city)
     ),
     l.mana_1: FrogmonsterLocationData(
-        region=r.yellow_forest,
-        id=BASE_ID + 50
+        region=r.limbs_arena,
+        id=BASE_ID + 50,
+        access_rule=lambda player, dif, state: can_fight(c.limbs, player, dif, state)
     ),
     l.mana_2: FrogmonsterLocationData(
         region=r.thickness,
-        id=BASE_ID + 51
+        id=BASE_ID + 51,
+        access_rule=lambda player, dif, state: can_fight_all([c.djumbo, c.thickness_arena_1], player, dif, state)
     ),
     l.mana_3: FrogmonsterLocationData(
         region="UNKNOWN",
@@ -235,12 +249,14 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         id=BASE_ID + 53
     ),
     l.mana_5: FrogmonsterLocationData(
-        region=r.city,
-        id=BASE_ID + 54
+        region=r.workshop,
+        id=BASE_ID + 54,
+        access_rule=lambda player, dif, state: can_fight(c.xoto, player, dif, state) and state.has_all([i.dash, i.sticky_hands], player)
     ),
     l.mana_6: FrogmonsterLocationData(
         region=r.treetops,
-        id=BASE_ID + 55
+        id=BASE_ID + 55,
+        access_rule=lambda player, dif, state: can_fight(c.treetops_arena_1, player, dif, state) and state.has_all([i.sticky_hands, i.tongue_swing], player)
     ),
     l.reeder: FrogmonsterLocationData(
         region=r.lost_swamp,
@@ -252,23 +268,31 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     ),
     l.weepwood_bow: FrogmonsterLocationData(
         region=r.very_lost_swamp,
-        id=BASE_ID + 58
+        id=BASE_ID + 58,
+        access_rule=lambda player, dif, state: can_fight(c.yanoy, player, dif, state)
     ),
     l.finisher: FrogmonsterLocationData(
-        region=r.yellow_forest,
-        id=BASE_ID + 59
+        region=r.yellow_forest_town,
+        id=BASE_ID + 59,
+        access_rule=lambda player, dif, state: state.has(i.eel_trophy, player)
     ),
     l.fire_fruit_juicer: FrogmonsterLocationData(
         region=r.old_road,
-        id=BASE_ID + 60
+        id=BASE_ID + 60,
+        access_rule= lambda player, dif, state: can_fight(c.valda, player, dif, state) and (
+            (can_burn(state, player) and can_fight(c.old_road_general)) or
+            can_fight_all([c.old_road_arena_1, c.old_road_arena_2], player, dif, state)
+        )
     ),
     l.gatling_gun: FrogmonsterLocationData(
         region=r.cicada_cove,
-        id=BASE_ID + 61
+        id=BASE_ID + 61,
+        access_rule= lambda player, dif, state: can_fight(c.tymbal, player, dif, state)  # You can get this earlier by killing supo, but don't 
     ),
     l.wooden_cannon: FrogmonsterLocationData(
         region=r.fog_garden,
-        id=BASE_ID + 62
+        id=BASE_ID + 62,
+        access_rule= lambda player, dif, state: can_fight_all([c.fog_garden_arena_1, c.hedgeward], player, dif, state)
     ),
     l.fireball: FrogmonsterLocationData(
         region=r.lost_swamp,
@@ -283,53 +307,64 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         id=BASE_ID + 65
     ),
     l.beans: FrogmonsterLocationData(
-        region=r.yellow_forest,
+        region=r.yellow_forest_town,
         id=BASE_ID + 66
     ),
     l.zap: FrogmonsterLocationData(
-        region=r.green_sea,
-        id=BASE_ID + 67
+        region=r.green_sea_key,
+        id=BASE_ID + 67,
+        access_rule=lambda player, dif, state: can_fight(c.green_sea_arena_3, player, dif, state)
     ),
     l.slam: FrogmonsterLocationData(
-        region=r.fog_garden,
-        id=BASE_ID + 68
+        region=r.fog_garden_key,
+        id=BASE_ID + 68,
+        access_rule=lambda player, dif, state: can_fight(c.fog_garden_arena_2, player, dif, state)
     ),
     l.hive: FrogmonsterLocationData(
         region=r.hive,
-        id=BASE_ID + 69
+        id=BASE_ID + 69,
+        access_rule=lambda player, dif, state: can_fight(c.hive_general, player, dif, state) and state.has(i.tongue_swing, player) and state.can_reach(r.city)
     ),
     l.puff: FrogmonsterLocationData(
-        region=r.treetops,
-        id=BASE_ID + 70
+        region=r.treetops_key,
+        id=BASE_ID + 70,
+        access_rule=lambda player, dif, state: can_fight(c.treetops_arena_2, player, dif, state)
     ),
     l.bug_slot_1: FrogmonsterLocationData(
         region=r.yellow_forest,
-        id=BASE_ID + 71
+        id=BASE_ID + 71,
+        access_rule=lambda player, dif, state: can_fight(c.placeholder, player, dif, state)
     ),
     l.bug_slot_2: FrogmonsterLocationData(
         region=r.lost_swamp,
-        id=BASE_ID + 72
+        id=BASE_ID + 72,
+        access_rule=lambda player, dif, state: can_fight(c.groth, player, dif, state)
     ),
     l.bug_slot_3: FrogmonsterLocationData(
         region=r.city,
-        id=BASE_ID + 73
+        id=BASE_ID + 73,
+        access_rule=lambda player, dif, state: state.has_group_unique("Bugs", player, 10)
     ),
     l.bug_slot_4: FrogmonsterLocationData(
         region=r.city,
-        id=BASE_ID + 74
+        id=BASE_ID + 74,
+        access_rule=lambda player, dif, state: state.has_group_unique("Bugs", player, 20)
     ),
     l.bug_slot_5: FrogmonsterLocationData(
         region=r.city,
         id=BASE_ID + 75,
+        access_rule=lambda player, dif, state: state.has_group_unique("Bugs", player, 30)
     ),
     l.bug_slot_6: FrogmonsterLocationData(
         region=r.city,
         id=BASE_ID + 76,
+        access_rule=lambda player, dif, state: state.has_group_unique("Bugs", player, 40),
         progress_type=LocationProgressType.EXCLUDED # 40 bugs potentially being required is kinda miserable. Excluded for now.
     ),
     l.bug_slot_7: FrogmonsterLocationData(
         region=r.cicada_cove,
-        id=BASE_ID + 77
+        id=BASE_ID + 77,
+        access_rule=lambda player, dif, state: can_fight(c.tymbal, player, dif, state)
     ),
     l.metal_ore_1: FrogmonsterLocationData(
         region=r.lost_swamp,
@@ -341,35 +376,44 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     ),
     l.metal_ore_3: FrogmonsterLocationData(
         region=r.very_lost_swamp,
-        id=BASE_ID + 80
+        id=BASE_ID + 80,
+        access_rule=lambda player, dif, state: can_fight(c.very_lost_swamp_arena_1, player, dif, state)
     ),
     l.metal_ore_4: FrogmonsterLocationData(
-        region=r.yellow_forest,
+        region=r.yellow_forest_town,
         id=BASE_ID + 81
     ),
     l.metal_ore_5: FrogmonsterLocationData(
         region=r.under_city,
-        id=BASE_ID + 82
+        id=BASE_ID + 82,
+        access_rule=lambda player, dif, state: state.has(i.dash, player)
     ),
     l.metal_ore_6: FrogmonsterLocationData(
-        region=r.well,
-        id=BASE_ID + 83
+        region=r.old_road,
+        id=BASE_ID + 83,
+        access_rule=lambda player, dif, state: (
+            can_fight(c.old_road_arena_1, player, dif, state) or
+            can_fight_all([c.old_road_arena_2, c.valda] and can_burn(player))
+        )
     ),
     l.metal_ore_7: FrogmonsterLocationData(
         region=r.well,
-        id=BASE_ID + 84
+        id=BASE_ID + 84,
+        access_rule=lambda player, dif, state: can_fight(c.well_general, player, dif, state)
     ),
     l.metal_ore_8: FrogmonsterLocationData(
         region=r.very_lost_swamp,
-        id=BASE_ID + 85
+        id=BASE_ID + 85,
+        access_rule=lambda player, dif, state: can_fight(c.very_lost_swamp_general, player, dif, state) and state.can_reach(r.city)
     ),
     l.metal_ore_9: FrogmonsterLocationData(
         region=r.fog_garden,
-        id=BASE_ID + 86
+        id=BASE_ID + 86,
+        access_rule=lambda player, dif, state: can_fight(c.fog_garden_arena_2, player, dif, state) and state.has(i.key, player, 3)
     ),
     l.metal_ore_10: FrogmonsterLocationData(
         region=r.treetops,
-        id=BASE_ID + 87
+        id=BASE_ID + 87 # "UNKNOWN"
     ),
     l.metal_ore_11: FrogmonsterLocationData(
         region=r.cicada_cove,
@@ -377,46 +421,53 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     ),
     l.metal_ore_12: FrogmonsterLocationData(
         region=r.under_under_city,
-        id=BASE_ID + 89
+        id=BASE_ID + 89,
+        access_rule=lambda player, dif, state: can_burn(state, player) and can_fight(c.under_under_city_arena_1, player, dif, state)
     ),
     l.metal_ore_13: FrogmonsterLocationData(
         region=r.moridonos,
-        id=BASE_ID + 90
+        id=BASE_ID + 90,
+        access_rule=lambda player, dif, state: can_fight_all([c.moridonos_arena_1, c.moridonos_arena_2], player, dif, state)
     ),
     l.metal_ore_14: FrogmonsterLocationData(
-        region=r.quarry,
+        region=r.quarry, # "UNKNOWN"
         id=BASE_ID + 91
     ),
     l.metal_ore_15: FrogmonsterLocationData(
-        region=r.rootden,
+        region=r.rootden, # "UNKNOWN"
         id=BASE_ID + 92
     ),
     l.metal_ore_16: FrogmonsterLocationData(
-        region=r.deep,
+        region=r.deep, # "UNKNOWN"
         id=BASE_ID + 93
     ),
     l.metal_ore_17: FrogmonsterLocationData(
         region=r.outskirts,
-        id=BASE_ID + 94
+        id=BASE_ID + 94,
+        progress_type=LocationProgressType.EXCLUDED  # Purple Bosses not supported by client yet
     ),
     l.metal_ore_18: FrogmonsterLocationData(
         region=r.forest_floor,
-        id=BASE_ID + 95
+        id=BASE_ID + 95,
+        progress_type=LocationProgressType.EXCLUDED  # Purple Bosses not supported by client yet
     ),
     l.metal_ore_19: FrogmonsterLocationData(
         region=r.old_road,
-        id=BASE_ID + 96
+        id=BASE_ID + 96,
+        progress_type=LocationProgressType.EXCLUDED  # Purple Bosses not supported by client yet
     ),
     l.eel_trophy: FrogmonsterLocationData(
-        region=r.green_sea,
-        id=BASE_ID + 97
+        region=r.eel_arena,
+        id=BASE_ID + 97,
+        access_rule=lambda player, dif, state: can_fight(c.eels, player, dif, state)
     ),
     l.eye_fragment: FrogmonsterLocationData(
         region=r.ridge,
-        id=BASE_ID + 98
+        id=BASE_ID + 98,
+        access_rule=lambda player, dif, state: state.has_group_unique("Upgrade", player, 6)
     ),
     l.key_1: FrogmonsterLocationData(
-        region=r.yellow_forest,
+        region=r.yellow_forest_town,
         id=BASE_ID + 99
     ),
     l.key_2: FrogmonsterLocationData(
@@ -444,7 +495,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         id=BASE_ID + 105
     ),
     l.smooth_stone_5: FrogmonsterLocationData(
-        region=r.green_sea,
+        region=r.green_sea_after,
         id=BASE_ID + 106
     ),
     l.smooth_stone_6: FrogmonsterLocationData(
@@ -476,7 +527,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         id=BASE_ID + 113
     ),
     l.square_rock_1: FrogmonsterLocationData(
-        region=r.yellow_forest,
+        region=r.yellow_forest_side,
         id=BASE_ID + 114
     ),
     l.square_rock_2: FrogmonsterLocationData(
@@ -484,7 +535,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         id=BASE_ID + 115
     ),
     l.square_rock_3: FrogmonsterLocationData(
-        region=r.green_sea,
+        region=r.green_sea_key,
         id=BASE_ID + 116
     ),
     l.square_rock_4: FrogmonsterLocationData(
@@ -552,7 +603,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         id=BASE_ID + 132
     ),
     l.sparkling_gem_2: FrogmonsterLocationData(
-        region=r.yellow_forest,
+        region=r.yellow_forest_town,
         id=BASE_ID + 133
     ),
     l.sparkling_gem_3: FrogmonsterLocationData(
@@ -605,7 +656,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         id=BASE_ID + 145
     ),
     l.yellow_forest_puzzle: FrogmonsterLocationData(
-        region=r.yellow_forest,
+        region=r.yellow_forest_town,
         id=BASE_ID + 146
     ),
     l.city_puzzle_1: FrogmonsterLocationData(
@@ -636,10 +687,10 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
 
     # Events
     l.goal: FrogmonsterLocationData(
-        region="Anywhere",
+        region=r.anywhere,
     ),
     l.workshop_access: FrogmonsterLocationData(
-        region="Anywhere",
+        region=r.anywhere,
     ),
 }
 
