@@ -457,7 +457,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         progress_type=LocationProgressType.EXCLUDED  # Purple Bosses not supported by client yet
     ),
     l.eel_trophy: FrogmonsterLocationData(
-        region=r.eel_arena,
+        region=r.green_sea_after,
         id=BASE_ID + 97,
         access_rule=lambda player, dif, state: can_fight(c.eels, player, dif, state)
     ),
