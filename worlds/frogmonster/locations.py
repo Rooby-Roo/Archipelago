@@ -675,7 +675,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.fire_fruit_juicer_myzand_upgrade: FrogmonsterLocationData(
         region=r.ridge,
         id=BASE_ID + 143,
-        access_rule=lambda, player, dif, state: can_fight(c.brothers, player, dif, state)
+        access_rule=lambda player, dif, state: can_fight(c.brothers, player, dif, state)
     ),
     l.gatling_gun_myzand_upgrade: FrogmonsterLocationData(
         region=r.rootden,
