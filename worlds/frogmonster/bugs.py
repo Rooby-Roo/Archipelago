@@ -34,14 +34,14 @@ every_bug = [  # Regions values are noncomprehensive. Regions are excluded if th
     BugType(name=i.wormy,          bug_id=18, slot_cost=2, regions=[r.workshop]),
     BugType(name=i.minnow,         bug_id=19, slot_cost=2, regions=[r.green_sea]),
     BugType(name=i.turtle,         bug_id=20, slot_cost=2, regions=[r.green_sea]),
-    BugType(name=i.blue_jelly,     bug_id=21, slot_cost=3, regions=[r.green_sea, r.deep]),  # Green Sea location is Behind Key Door	
-    BugType(name=i.roof_snail,     bug_id=22, slot_cost=2, regions=[r.city]),
-    BugType(name=i.crab,           bug_id=23, slot_cost=0, regions=[r.lost_swamp]),
-    BugType(name=i.bridge_frog,    bug_id=24, slot_cost=0, regions=[r.city]),
-    BugType(name=i.cricket,        bug_id=25, slot_cost=3, regions=[r.city]),
-    BugType(name=i.spider,         bug_id=26, slot_cost=2, regions=[r.old_road]),
-    BugType(name=i.moth,           bug_id=27, slot_cost=2, regions=[r.old_road]),
-    BugType(name=i.ammofly,        bug_id=28, slot_cost=2, regions=[r.treetops, r.old_wood]),  # after arena 1, before big door
+    BugType(name=i.blue_jelly,     bug_id=21, slot_cost=3, regions=[r.green_sea_key, r.deep]),  # Green Sea location is Behind Key Door	
+    BugType(name=i.roof_snail,     bug_id=22, slot_cost=2, regions=[(r.city, None)]),
+    BugType(name=i.crab,           bug_id=23, slot_cost=0, regions=[(r.lost_swamp, None)]),
+    BugType(name=i.bridge_frog,    bug_id=24, slot_cost=0, regions=[(r.city, None)]),
+    BugType(name=i.cricket,        bug_id=25, slot_cost=3, regions=[(r.city, None)]),
+    BugType(name=i.spider,         bug_id=26, slot_cost=2, regions=[(r.old_road, lambda player, dif, state: can_fight(c.old_road_general, player, dif, state))]),
+    BugType(name=i.moth,           bug_id=27, slot_cost=2, regions=[(r.old_road, None)]),
+    BugType(name=i.ammofly,        bug_id=28, slot_cost=2, regions=[(r.treetops, lambda player, dif, state: can_fight(c.treetops_arena_1, player, dif, state)), (r.old_wood, None)]),  # after arena 1, before big door
     BugType(name=i.pecker,         bug_id=29, slot_cost=3, regions=[r.thickness, r.moridonos]),  # verify these
     BugType(name=i.soul_fish,      bug_id=30, slot_cost=1, regions=[r.anywhere]),  # Death possible in water in Lost Swamp, so anywhere.
     BugType(name=i.fog_fly,        bug_id=31, slot_cost=3, regions=[r.fog_garden, r.temple]),
