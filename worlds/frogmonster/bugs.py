@@ -27,10 +27,10 @@ every_bug = [  # Regions values are noncomprehensive. Regions are excluded if th
     BugType(name=i.mushfrog,       bug_id=11, slot_cost=1, regions=[(r.marvins, None), (r.treetops, None)]),
     BugType(name=i.beet,           bug_id=12, slot_cost=3, regions=[r.outskirts, r.ridge, r.forest_floor]),
     BugType(name=i.skater,         bug_id=13, slot_cost=2, regions=[r.very_lost_swamp, r.forest_floor]),
-    BugType(name=i.soul_frog,      bug_id=14, slot_cost=1, regions=[r.anywhere]),
-    BugType(name=i.river_fish,     bug_id=15, slot_cost=1, regions=[r.yellow_forest]),
-    BugType(name=i.bird,           bug_id=16, slot_cost=1, regions=[r.yellow_forest]),
-    BugType(name=i.leafbug,        bug_id=17, slot_cost=3, regions=[r.yellow_forest]),
+    BugType(name=i.soul_frog,      bug_id=14, slot_cost=1, regions=[(r.anywhere, None)]),
+    BugType(name=i.river_fish,     bug_id=15, slot_cost=1, regions=[(r.yellow_forest, None)]),
+    BugType(name=i.bird,           bug_id=16, slot_cost=1, regions=[(r.yellow_forest, None)]),
+    BugType(name=i.leafbug,        bug_id=17, slot_cost=3, regions=[(r.yellow_forest, None)]),
     BugType(name=i.wormy,          bug_id=18, slot_cost=2, regions=[r.workshop]),
     BugType(name=i.minnow,         bug_id=19, slot_cost=2, regions=[r.green_sea]),
     BugType(name=i.turtle,         bug_id=20, slot_cost=2, regions=[r.green_sea]),
@@ -43,15 +43,15 @@ every_bug = [  # Regions values are noncomprehensive. Regions are excluded if th
     BugType(name=i.moth,           bug_id=27, slot_cost=2, regions=[(r.old_road, None)]),
     BugType(name=i.ammofly,        bug_id=28, slot_cost=2, regions=[(r.treetops, lambda player, dif, state: can_fight(c.treetops_arena_1, player, dif, state)), (r.old_wood, None)]),  # after arena 1, before big door
     BugType(name=i.pecker,         bug_id=29, slot_cost=3, regions=[r.thickness, r.moridonos]),  # verify these
-    BugType(name=i.soul_fish,      bug_id=30, slot_cost=1, regions=[r.anywhere]),  # Death possible in water in Lost Swamp, so anywhere.
+    BugType(name=i.soul_fish,      bug_id=30, slot_cost=1, regions=[(r.anywhere, None)]),  # Death possible in water in Lost Swamp, so anywhere.
     BugType(name=i.fog_fly,        bug_id=31, slot_cost=3, regions=[r.fog_garden, r.temple]),
-    BugType(name=i.cicada,         bug_id=32, slot_cost=2, regions=[r.cicada_cove]),
-    BugType(name=i.mantis,         bug_id=33, slot_cost=2, regions=[r.forest_floor]),
-    BugType(name=i.jungle_snack,   bug_id=34, slot_cost=2, regions=[r.forest_floor, r.rootden]),
+    BugType(name=i.cicada,         bug_id=32, slot_cost=2, regions=[(r.cicada_cove, None)]),
+    BugType(name=i.mantis,         bug_id=33, slot_cost=2, regions=[(r.forest_floor, None)]),
+    BugType(name=i.jungle_snack,   bug_id=34, slot_cost=2, regions=[(r.forest_floor, None)]),
     BugType(name=i.gecko,          bug_id=35, slot_cost=2, regions=[r.forest_floor]),
-    BugType(name=i.mushroom,       bug_id=36, slot_cost=3, regions=[r.moridonos]),
-    BugType(name=i.bee,            bug_id=37, slot_cost=3, regions=[r.hive]),
+    BugType(name=i.mushroom,       bug_id=36, slot_cost=3, regions=[(r.moridonos, None)]),
+    BugType(name=i.bee,            bug_id=37, slot_cost=3, regions=[(r.hive, lambda player, dif, state: can_fight(c.hive_general, player, dif, state))]),
     BugType(name=i.tang,           bug_id=38, slot_cost=3, regions=[r.reef]),
     BugType(name=i.axolotyl,       bug_id=39, slot_cost=3, regions=[r.quarry]),
-    BugType(name=i.mite,           bug_id=40, slot_cost=2, regions=[r.ridge]),
+    BugType(name=i.mite,           bug_id=40, slot_cost=2, regions=[r.ridge, lambda player, dif, state: can_fight(c.brothers, player, dif, state)]),
 ]
