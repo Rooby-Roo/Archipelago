@@ -43,163 +43,163 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         access_rule=lambda player, dif, state: can_fight_all([c.well_general, c.dekula], player, dif, state)
     ),
     l.glowbug: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 4
     ),
     l.frog: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 5
     ),
     l.fly: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 6
     ),
     l.dragonfly: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 7
     ),
     l.eel: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 8
     ),
     l.bass: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 9
     ),
     l.blue_snack: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 10
     ),
     l.purple_snack: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 11
     ),
     l.magnet_roach: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 12
     ),
     l.mushroll: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 13
     ),
     l.mushfrog: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 14
     ),
     l.beet: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 15
     ),
     l.skater: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 16
     ),
     l.soul_frog: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 17
     ),
     l.river_fish: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 18
     ),
     l.bird: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 19
     ),
     l.leafbug: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 20
     ),
     l.wormy: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 21
     ),
     l.minnow: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 22
     ),
     l.turtle: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 23
     ),
     l.blue_jelly: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 24
     ),
     l.roof_snail: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 25
     ),
     l.crab: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 26
     ),
     l.bridge_frog: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 27
     ),
     l.cricket: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 28
     ),
     l.spider: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 29
     ),
     l.moth: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 30
     ),
     l.ammofly: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 31
     ),
     l.pecker: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 32
     ),
     l.soul_fish: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 33
     ),
     l.fog_fly: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 34
     ),
     l.cicada: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 35
     ),
     l.mantis: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 36
     ),
     l.jungle_snack: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 37
     ),
     l.gecko: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 38
     ),
     l.bee: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 39
     ),
     l.mushroom: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 40
     ),
     l.tang: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 41
     ),
     l.axolotyl: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 42
     ),
     l.mite: FrogmonsterLocationData(
-        region="Bug",
+        region=r.bug,
         id=BASE_ID + 43
     ),
     l.health_1: FrogmonsterLocationData(
@@ -280,7 +280,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         region=r.old_road,
         id=BASE_ID + 60,
         access_rule= lambda player, dif, state: can_fight(c.valda, player, dif, state) and (
-            (can_burn(state, player) and can_fight(c.old_road_general)) or
+            (can_burn(state, player) and can_fight(c.old_road_general, player, dif, state)) or
             can_fight_all([c.old_road_arena_1, c.old_road_arena_2], player, dif, state)
         )
     ),
@@ -343,22 +343,22 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.bug_slot_3: FrogmonsterLocationData(
         region=r.city,
         id=BASE_ID + 73,
-        access_rule=lambda player, dif, state: state.has_group_unique("Bugs", player, 10)
+        access_rule=lambda player, dif, state: state.has_group_unique("Bug", player, 10)
     ),
     l.bug_slot_4: FrogmonsterLocationData(
         region=r.city,
         id=BASE_ID + 74,
-        access_rule=lambda player, dif, state: state.has_group_unique("Bugs", player, 20)
+        access_rule=lambda player, dif, state: state.has_group_unique("Bug", player, 20)
     ),
     l.bug_slot_5: FrogmonsterLocationData(
         region=r.city,
         id=BASE_ID + 75,
-        access_rule=lambda player, dif, state: state.has_group_unique("Bugs", player, 30)
+        access_rule=lambda player, dif, state: state.has_group_unique("Bug", player, 30)
     ),
     l.bug_slot_6: FrogmonsterLocationData(
         region=r.city,
         id=BASE_ID + 76,
-        access_rule=lambda player, dif, state: state.has_group_unique("Bugs", player, 40),
+        access_rule=lambda player, dif, state: state.has_group_unique("Bug", player, 40),
         progress_type=LocationProgressType.EXCLUDED # 40 bugs potentially being required is kinda miserable. Excluded for now.
     ),
     l.bug_slot_7: FrogmonsterLocationData(
@@ -422,7 +422,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.metal_ore_12: FrogmonsterLocationData(
         region=r.under_under_city,
         id=BASE_ID + 89,
-        access_rule=lambda player, dif, state: can_burn(state, player) and can_fight(c.under_under_city_arena_1, player, dif, state)
+        access_rule=lambda player, dif, state: can_burn(state, player) and can_fight(c.under_under_arena_1, player, dif, state)
     ),
     l.metal_ore_13: FrogmonsterLocationData(
         region=r.moridonos,
@@ -464,7 +464,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.eye_fragment: FrogmonsterLocationData(
         region=r.runi_arena,
         id=BASE_ID + 98,
-        access_rule=lambda player, dif, state: state.has_group_unique("Upgrade", player, 6)
+        access_rule=lambda player, dif, state: state.has_group_unique("Gun Upgrade", player, 6)
     ),
     l.key_1: FrogmonsterLocationData(
         region=r.yellow_forest_town,

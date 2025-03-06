@@ -43,3 +43,4 @@ under_under_city_lower = "Under Under City Below Barge"
 myzand = "Myzand's Forest"
 
 anywhere = "Anywhere"
+bug = "Bug"

@@ -53,15 +53,19 @@ class FrogmonsterWorld(World):
     def create_regions(self) -> None:
         for region_name in region_data_table.keys():
             # Create regions.
-            if region_name != "Bug":
+            if region_name:
                 region = Region(region_name, self.player, self.multiworld)
                 self.multiworld.regions.append(region)
 
                 # Create locations, add locations to regions.
                 current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
+                print(current_region_locations)
                 region.add_locations(current_region_locations, FrogmonsterLocation)
         # Add access connections for bugs. 
-        raise NotImplementedError("TODO: Bugs.")
+#        raise NotImplementedError("TODO: Bugs.")
+        # Connect Anywhere to every region (for now.)
+        anywhere = self.multiworld.get_region("Anywhere", self.player)
+        anywhere.add_exits(region_data_table.keys())
 
     def create_items(self) -> None:
         item_pool = []
@@ -74,11 +78,12 @@ class FrogmonsterWorld(World):
 
     def set_rules(self) -> None:
         for location in location_data_table.items():
-            self.multiworld.get_location(location[0], self.player).access_rule = partial(location[1].access_rule, self.player, self.difficulty)
+            current_location = self.multiworld.get_location(location[0], self.player)
+            current_location.access_rule = partial(location[1].access_rule, self.player, self.difficulty)
 
         self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory))
         self.multiworld.get_location(l.workshop_access, self.player).place_locked_item(self.create_event(i.workshop_key))
-        self.multiworld.completion_condition[self.player] = lambda state: state.has(i.victory, self.player)
+        self.multiworld.completion_condition[self.player] = lambda state: True # state.has(i.victory, self.player)
 
         # Exclude or prioritize locations according to locations.py. This will be overridden by any YAML declarations.
         for location in location_data_table.items():
@@ -98,7 +103,7 @@ class FrogmonsterWorld(World):
             spoiler_handle.write("\n")
             spoiler_handle.write(f"{self.multiworld.get_player_name(self.player)}'s Shuffled Bug Effects:\n")
             for bug, effect in self.shuffled_bug_effects.items():
-                bug_name = every_bug[bug]
-                effect_name = every_bug[effect]
+                bug_name = every_bug[bug-1][0]
+                effect_name = every_bug[effect-1][0]
                 spoiler_handle.write(f"{bug_name}: {effect_name}\n")
             spoiler_handle.write("\n")

@@ -756,7 +756,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     i.coins: FrogmonsterItemData(
         id=BASE_ID + 146,
         type=ItemClassification.filler,
-        qty=7
+        qty=13
     ),
     
     # Events
@@ -768,10 +768,10 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
 item_id_table = {name: data.id for name, data in item_data_table.items() if data.id is not None}
 
 item_name_groups = {
-    "Bugs": {name for name, data in item_data_table.items() if data.category == ("Bug")},
-    "Guns": {name for name, data in item_data_table.items() if data.category == ("Gun")},
-    "Spells": {name for name, data in item_data_table.items() if data.category == ("Spell")},
-    "Gun Upgrades": {name for name, data in item_data_table.items() if data.category == ("Upgrade")},
+    "Bug": {name for name, data in item_data_table.items() if data.category == ("Bug")},
+    "Gun": {name for name, data in item_data_table.items() if data.category == ("Gun")},
+    "Spell": {name for name, data in item_data_table.items() if data.category == ("Spell")},
+    "Gun Upgrade": {name for name, data in item_data_table.items() if data.category == ("Upgrade")},
     # Aliases
     "Shotgun": {i.reeder},
     "Machine Gun": {i.machine_gun},
