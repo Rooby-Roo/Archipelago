@@ -10,7 +10,8 @@ from .regions import region_data_table
 from .names import item_names as i
 from .names import location_names as l
 from .names import region_names as r
-from .data import every_bug, Difficulty
+from .combat import Difficulty
+from .bugs import every_bug
 
 class FrogmonsterWorld(World):
     """Frogmonster."""

@@ -1,7 +1,7 @@
 from typing import Iterable
 
 from BaseClasses import CollectionState
-from .data import combat_data, Difficulty, secret_synergies, tanky_bugs
+from .combat import combat_data, Difficulty, secret_synergies, tanky_bugs
 from .names import item_names as i
 from .names import combat_names as c
 

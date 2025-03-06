@@ -1,5 +1,6 @@
 # Things to make it playable:
 
+audit my changes from last commit to make sure I didn't do anything stupid
 coins
 Finish location access rules
 Write region access rules

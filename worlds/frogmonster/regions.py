@@ -7,6 +7,7 @@ class FrogmonsterRegionData(NamedTuple):
 
 region_data_table: Dict[str, FrogmonsterRegionData] = {
 r.lost_swamp: FrogmonsterRegionData(),
+r.lost_swamp_after_groth: FrogmonsterRegionData(),
 r.marvins: FrogmonsterRegionData(),
 r.outskirts: FrogmonsterRegionData(),
 r.very_lost_swamp: FrogmonsterRegionData(),
@@ -51,5 +52,5 @@ r.under_under_city_lower: FrogmonsterRegionData(),
 r.myzand: FrogmonsterRegionData(),
 
 r.anywhere: FrogmonsterRegionData(),
-r.bug: FrogmonsterRegionData(),
+# r.bug: FrogmonsterRegionData(),
  }

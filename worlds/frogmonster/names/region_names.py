@@ -1,4 +1,5 @@
 lost_swamp = "Lost Swamp"
+lost_swamp_after_groth = "Lost Swamp"
 marvins = "Marvin's Domain"
 outskirts = "Outskirts"
 very_lost_swamp = "Very Lost Swamp"
