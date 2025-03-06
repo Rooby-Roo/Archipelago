@@ -1,5 +1,6 @@
 # Things to make it playable:
 
+coins
 Finish location access rules
 Write region access rules
 subdivide moridono's?
@@ -17,3 +18,4 @@ Exclude Puzzles, Start with Gear
 # Will need to do eventually
 Webworld, docstrings
 MORE DIFFICULTY SETTINGS
+tidy up the spoiler log

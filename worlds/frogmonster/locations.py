@@ -720,7 +720,35 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         id=BASE_ID + 152,
         access_rule=lambda player, dif, state: can_fight(c.fog_garden_arena_1, player, dif, state)
     ),
-    # Coin chests to be added when they are implemented clientside
+    l.coin_chest_1: FrogmonsterLocationData(
+        region=r.lost_swamp,
+        id=BASE_ID + 153,
+    ),
+    l.coin_chest_2: FrogmonsterLocationData(
+        region=r.yellow_forest,
+        id=BASE_ID + 154,
+        access_rule=lambda player, dif, state: can_fight(c.yellow_forest_general, player, dif, state)
+    ),
+    l.coin_chest_3: FrogmonsterLocationData(
+        region=r.thickness,
+        id=BASE_ID + 155,
+        access_rule=lambda player, dif, state: can_fight(c.thickness_arena_1, player, dif, state)
+    ),
+    l.coin_chest_4: FrogmonsterLocationData(
+        region=r.well,
+        id=BASE_ID + 156,
+        access_rule=lambda player, dif, state: can_fight(c.well_general, player, dif, state)
+    ),
+    l.coin_chest_5: FrogmonsterLocationData(
+        region=r.well,
+        id=BASE_ID + 157,
+        access_rule=lambda player, dif, state: can_fight(c.well_general, player, dif, state)
+    ),
+    l.coin_chest_6: FrogmonsterLocationData(
+        region=r.very_lost_swamp,
+        id=BASE_ID + 158,
+        access_rule=lambda player, dif, state: can_fight(c.very_lost_swamp_general, player, dif, state)
+    ),
 
     # Events
     l.goal: FrogmonsterLocationData(
