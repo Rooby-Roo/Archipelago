@@ -60,7 +60,7 @@ class FrogmonsterWorld(World):
             current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
             region.add_locations(current_region_locations, FrogmonsterLocation)
             # Add access connections between regions.
-            
+
     def create_items(self) -> None:
         item_pool = []
         for name, item in item_data_table.items():
@@ -86,8 +86,10 @@ class FrogmonsterWorld(World):
 
     def fill_slot_data(self) -> dict[str, Any]:
         slot_data: dict[str, Any] = {}
-
-        slot_data["shuffled_bug_effects"] = self.shuffled_bug_effects
+        bug_effect_array = []
+        for i in range (1, 41):
+            bug_effect_array.append(self.shuffled_bug_effects[i])
+        slot_data["shuffled_bug_effects"] = bug_effect_array
         slot_data["shop_multiplier"] = float(self.options.shop_multiplier / 100) # Convert to decimal for client
 
         return slot_data
