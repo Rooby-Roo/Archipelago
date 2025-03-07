@@ -162,3 +162,4 @@ coins = "Coins"
 
 victory = "Victory"
 workshop_key = "Workshop Key"
+orchus_key = "Orchus Key"

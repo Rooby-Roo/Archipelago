@@ -206,3 +206,6 @@ def get_gun_upgrade_from_gun(gun: str) -> str:
         i.gatling_gun: i.gatling_gun_myzand_upgrade,
         i.wooden_cannon: i.wooden_cannon_myzand_upgrade
     }[gun]
+
+def true_connect_helper():
+    return lambda player, dif, state: True

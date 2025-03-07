@@ -53,21 +53,14 @@ class FrogmonsterWorld(World):
 
     def create_regions(self) -> None:
         for region_name in region_data_table.keys():
-            # Create regions.
-            if region_name:
-                region = Region(region_name, self.player, self.multiworld)
-                self.multiworld.regions.append(region)
-
-                # Create locations, add locations to regions.
-                current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
-                print(current_region_locations)
-                region.add_locations(current_region_locations, FrogmonsterLocation)
-        # Add access connections for bugs. 
-#        raise NotImplementedError("TODO: Bugs.")
-        # Connect Anywhere to every region (for now.)
-        anywhere = self.multiworld.get_region("Anywhere", self.player)
-        anywhere.add_exits(region_data_table.keys())
-
+            # Create base regions.
+            region = Region(region_name, self.player, self.multiworld)
+            self.multiworld.regions.append(region)
+            # Create base locations, add locations to regions.
+            current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
+            region.add_locations(current_region_locations, FrogmonsterLocation)
+            # Add access connections between regions.
+            
     def create_items(self) -> None:
         item_pool = []
         for name, item in item_data_table.items():

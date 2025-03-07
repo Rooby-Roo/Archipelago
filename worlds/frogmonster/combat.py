@@ -29,7 +29,7 @@ X = 0
 combat_data = [
     CombatType(name=c.marvin_arena_1,          score_easy=X, score_normal=0, score_hard=0, score_very_hard=0, tags=["stationary"]),
     CombatType(name=c.outskirts_arena_1,       score_easy=X, score_normal=1, score_hard=0, score_very_hard=0,),
-    CombatType(name=c.very_lost_swamp_general, score_easy=X, score_normal=X, score_hard=0, score_very_hard=0,),
+    CombatType(name=c.very_lost_swamp_general, score_easy=X, score_normal=0, score_hard=0, score_very_hard=0,),
     CombatType(name=c.very_lost_swamp_arena_1, score_easy=X, score_normal=X, score_hard=0, score_very_hard=0,),
     CombatType(name=c.yellow_forest_general,   score_easy=X, score_normal=X, score_hard=0, score_very_hard=0,),
     CombatType(name=c.yellow_forest_arena_1,   score_easy=X, score_normal=X, score_hard=0, score_very_hard=0,),
@@ -73,7 +73,6 @@ combat_data = [
     CombatType(name=c.quarry_general,          score_easy=X, score_normal=X, score_hard=X, score_very_hard=0,),
     CombatType(name=c.quarry_arena_1,          score_easy=X, score_normal=X, score_hard=X, score_very_hard=0,),
     CombatType(name=c.temple_general,          score_easy=X, score_normal=X, score_hard=X, score_very_hard=0,),
-    # More general combats to come eventually I just need to route them out
 
     CombatType(name=c.groth,                   score_easy=1, score_normal=0, score_hard=0, score_very_hard=0,),
     CombatType(name=c.marvin,                  score_easy=X, score_normal=0, score_hard=0, score_very_hard=0, tags=["stationary"]),

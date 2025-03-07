@@ -164,3 +164,4 @@ coin_chest_6 = "Very Lost Swamp: Outskirts Entrance"
 
 goal = "Defeat Myzand"
 workshop_access = "Can Use Workshop"
+orchus_key = "Key from Bins after Runi Fight"

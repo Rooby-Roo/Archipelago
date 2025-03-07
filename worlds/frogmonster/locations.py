@@ -231,7 +231,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         access_rule=lambda player, dif, state: state.can_reach(r.city, None, player) and can_fight_all([c.thickness_arena_1, c.djumbo], player, dif, state)
     ),
     l.mana_1: FrogmonsterLocationData(
-        region=r.limbs_arena,
+        region=r.yellow_forest,
         id=BASE_ID + 50,
         access_rule=lambda player, dif, state: can_fight(c.limbs, player, dif, state)
     ),
@@ -552,7 +552,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.square_rock_4: FrogmonsterLocationData(
         region=r.old_wood,
         id=BASE_ID + 117,
-        access_rule=lambda player, dif, state: can_fight_all([c.old_wood_arena_1, c.old_wood_arena_2], player, dif, state)
+        access_rule=lambda player, dif, state: can_fight(c.old_wood_arenas, player, dif, state)
     ),
     l.square_rock_5: FrogmonsterLocationData(
         region=r.hive,
@@ -757,6 +757,9 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.workshop_access: FrogmonsterLocationData(
         region=r.anywhere,
     ),
+    l.orchus_key: FrogmonsterLocationData(
+        region=r.runi_arena,
+    )
 }
 
 location_id_table = {name: data.id for name, data in location_data_table.items() if data.id is not None}

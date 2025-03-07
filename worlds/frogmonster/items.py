@@ -761,7 +761,8 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     
     # Events
     i.victory: FrogmonsterItemData(),
-    i.workshop_key: FrogmonsterItemData(),    
+    i.workshop_key: FrogmonsterItemData(),
+    i.orchus_key: FrogmonsterItemData(),
 
 }
 

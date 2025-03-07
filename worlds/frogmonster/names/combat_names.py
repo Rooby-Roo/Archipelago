@@ -47,9 +47,8 @@ old_road_general = "Old Road General Combat"  # Hard
 old_road_arena_1 = "Old Road Arena 1"  # After first Save - Very Hard
 old_road_arena_2 = "Old Road Arena 2"  # Immediately before Valda - Very Hard
 old_wood_general = "Old Wood General Combat"  # Hard
-old_wood_arena_1 = "Old Wood Arena 1"  # At start
-old_wood_arena_2 = "Old Wood Arena 2"  # With Jumpers
-estate_general = "Estate General Combat"
+old_wood_arenas = "Old Wood Arenas"  # no reason to divide them. Very Hard.
+estate_general = "Estate General Combat"  # Arena = General
 fog_garden_general = "Fog Garden General Combat"
 fog_garden_arena_1 = "Fog Garden Arena 1"  # first tri split
 fog_garden_arena_2 = "Fog Garden Arena 2"  # Behind Key
