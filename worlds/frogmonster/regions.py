@@ -109,8 +109,10 @@ r.hive: FrogmonsterRegionData(
               (r.old_road, lambda player, dif, state: can_fight(c.hive_general, player, dif, state))]
 ),
 r.runi_arena: FrogmonsterRegionData(
-    connects=[(r.under_under_city_lower, lambda player, dif, state: state.has(i.dash, player) and can_fight(c.ridge_general, player, dif, state)),
-               (r.moridonos, lambda player, dif, state: state.has(i.sticky_hands, player) and can_fight(c.ridge_general, player, dif, state))]
+    connects=[(r.under_under_city_lower, lambda player, dif, state: state.has_all([i.dash, i.sticky_hands], player) and can_fight(c.ridge_general, player, dif, state)),
+               (r.moridonos, lambda player, dif, state: state.has(i.sticky_hands, player) and can_fight(c.ridge_general, player, dif, state)),
+               (r.quarry, lambda player, dif, state: state.has(i.dash, player) and can_fight(c.ridge_general, player, dif, state)),
+               (r.myzand, lambda player, dif, state: state.has_group_unique("Gun Upgrade", player, 6))]
 ),
 r.ridge: FrogmonsterRegionData(
     connects=[(r.moridonos, lambda player, dif, state: state.has(i.dash, player) and can_fight(c.ridge_general, player, dif, state)),
@@ -118,46 +120,58 @@ r.ridge: FrogmonsterRegionData(
               (r.quarry, lambda player, dif, state: state.has_all([i.dash, i.sticky_hands], player) and can_fight(c.ridge_general, player, dif, state))]
 ),
 r.moridonos: FrogmonsterRegionData(
-
+    connects=[(r.moridono_arena, lambda player, dif, state: can_fight_all([c.moridonos_arena_1, c.moridonos_arena_2], player, dif, state)),
+              (r.reef, lambda player, dif, state: can_fight_all([c.moridonos_arena_1, c.moridonos_arena_2], player, dif, state)),
+              (r.runi_arena, lambda player, dif, state: state.has(i.dash, player))]
 ),
 r.moridono_arena: FrogmonsterRegionData(
-
 ),
 r.reef: FrogmonsterRegionData(
-
+    connects=[(r.moridonos, lambda player, dif, state: can_fight(c.reef_arena_1, player, dif, state)),
+              (r.krogar_arena, lambda player, dif, state: can_fight(c.reef_arena_1, player, dif, state)),]
 ),
 r.deep: FrogmonsterRegionData(
-
+    connects=[(r.drywood, lambda player, dif, state: state.has(i.tongue_swing, player) and can_fight(c.deep_arena_1, player, dif, state)),
+              (r.krogar_arena, lambda player, dif, state: can_fight(c.deep_arena_1, player, dif, state)),]
 ),
 r.krogar_arena: FrogmonsterRegionData(
-
+    connects=[(r.deep, lambda player, dif, state: can_fight(c.krogar, player, dif, state)),
+              (r.reef, lambda player, dif, state: can_fight(c.krogar, player, dif, state))]
 ),
 r.drywood: FrogmonsterRegionData(
-
+    connects=[(r.rootden, nothing),
+              (r.reef, nothing),
+              (r.quarry, nothing),
+              (r.ridge, nothing)]
 ),
 r.rootden: FrogmonsterRegionData(
-
 ),
 r.temple: FrogmonsterRegionData(
-
+    connects=[(r.temple_top, lambda player, dif, state: can_fight_all([c.temple_general, c.door_crab], player, dif, state))]
 ),
 r.temple_top: FrogmonsterRegionData(
-
 ),
 r.quarry: FrogmonsterRegionData(
-
+    connects=[(r.temple, lambda player, dif, state: can_fight(c.quarry_arena_1, player, dif, state)),
+              (r.drywood, lambda player, dif, state: state.has(i.tongue_swing, player)),
+              (r.ridge, lambda player, dif, state: state.has_all([i.dash, i.sticky_hands], player) and can_fight(c.ridge_general, player, dif, state)),
+              (r.under_under_city_lower, lambda player, dif, state: state.has_all([i.dash, i.sticky_hands], player) and can_fight(c.ridge_general, player, dif, state)),
+              (r.runi_arena, lambda player, dif, state: state.has(i.dash, player) and can_fight(c.ridge_general, player, dif, state))]
 ),
 r.under_under_city: FrogmonsterRegionData(
-
+    connects=[(r.under_city, lambda player, dif, state: state.has(i.sticky_hands, player) and can_fight(c.under_under_arena_1, player, dif, state)),
+              (r.barge_arena, lambda player, dif, state: can_fight(c.under_under_arena_1, player, dif, state))]
 ),
 r.barge_arena: FrogmonsterRegionData(
-
+    connects=[(r.under_under_city, lambda player, dif, state: state.has(i.sticky_hands, player) and can_fight(c.barge, player, dif, state)),
+              (r.under_under_city_lower, lambda player, dif, state: can_fight(c.barge, player, dif, state))]
 ),
 r.under_under_city_lower: FrogmonsterRegionData(
-
+    connects=[(r.barge_arena, lambda player, dif, state: state.has(i.sticky_hands, player) and can_fight(c.under_under_general, player, dif, state)),
+              (r.runi_arena, lambda player, dif, state: state.has(i.dash) and can_fight(c.under_under_general, player, dif, state)),
+              (r.quarry, lambda player, dif, state: state.has(i.dash) and can_fight(c.under_under_general, player, dif, state))]
 ),
 r.myzand: FrogmonsterRegionData(
-
 ),
 
 r.anywhere: FrogmonsterRegionData(),

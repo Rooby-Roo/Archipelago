@@ -615,7 +615,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.dark_pebble_8: FrogmonsterLocationData(
         region=r.barge_arena,
         id=BASE_ID + 131,
-        access_rule=lambda player, dif, state: state.has_all([i.dash, i.tongue_swing], player)
+        access_rule=lambda player, dif, state: state.has_all([i.dash, i.tongue_swing], player) and can_fight(c.barge, player, dif, state)
     ),
     l.sparkling_gem_1: FrogmonsterLocationData(
         region=r.marvins,
