@@ -752,10 +752,10 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
 
     # Events
     l.goal: FrogmonsterLocationData(
-        region=r.anywhere,
+        region=r.myzand,
     ),
     l.workshop_access: FrogmonsterLocationData(
-        region=r.anywhere,
+        region=r.city,
     ),
     l.orchus_key: FrogmonsterLocationData(
         region=r.runi_arena,
