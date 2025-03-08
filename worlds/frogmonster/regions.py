@@ -3,7 +3,7 @@ from typing import Dict, NamedTuple, List, Callable
 from .names import item_names as i
 from .names import region_names as r
 from .names import combat_names as c
-from .rules import can_fight, can_fight_all, can_burn,
+from .rules import can_fight, can_fight_all, can_burn
 
 class FrogmonsterRegionData(NamedTuple):
     connects: List[tuple[str, Callable]] = []
@@ -90,7 +90,7 @@ r.under_city: FrogmonsterRegionData(
               (r.under_under_city, lambda player, dif, state: state.has(i.orchus_key, player))]
 ),
 r.forest_floor: FrogmonsterRegionData(
-    connect=[(r.city, nothing),
+    connects=[(r.city, nothing),
              (r.treetops, lambda player, dif, state: state.has(i.tongue_swing, player) and can_fight(c.forest_floor_general, player, dif, state)),
              (r.cicada_cove, lambda player, dif, state: state.has(i.tongue_swing, player) and can_fight(c.forest_floor_general, player, dif, state)),
              (r.hive, lambda player, dif, state: state.has_all([i.tongue_swing, i.dash], player) and can_fight(c.forest_floor_general, player, dif, state)),]

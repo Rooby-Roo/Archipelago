@@ -3,6 +3,7 @@ from functools import partial
 
 from BaseClasses import Region, LocationProgressType
 from worlds.AutoWorld import World
+from Utils import visualize_regions
 from .options import FrogmonsterOptions
 from .items import item_id_table, item_data_table, item_name_groups, FrogmonsterItem
 from .locations import location_id_table, location_data_table, location_name_groups, FrogmonsterLocation
@@ -78,6 +79,7 @@ class FrogmonsterWorld(World):
             bug_location = {bug.name: bug_location_data.id}  # add_locations expects a dict, so we convert here
             bug_region.add_locations(bug_location, FrogmonsterLocation)
 
+        visualize_regions(self.multiworld.get_region(r.anywhere, self.player), "Regions")
 
     def create_items(self) -> None:
         item_pool = []
