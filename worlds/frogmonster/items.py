@@ -511,7 +511,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     ),
     i.eye_fragment: FrogmonsterItemData(
         id=BASE_ID + 98,
-        type=ItemClassification.progression,
+        type=ItemClassification.filler,
     ),
     i.key: FrogmonsterItemData(
         id=BASE_ID + 99,

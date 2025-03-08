@@ -18,7 +18,9 @@ def can_fight(name: str, player: int, difficulty: Difficulty, state: CollectionS
 
     for item in need:
         if not state.has(item, player):
+            print(f"can_fight failed. {name} needs item {item}. {state.prog_items[player]}")
             return False
+#    print(f"can_fight passed. {state.prog_items[player]}")
     return True
 
     # Yes this is unreachable but I need to completely rework this, so we're basically ignoring combat difficulty for now
@@ -206,6 +208,3 @@ def get_gun_upgrade_from_gun(gun: str) -> str:
         i.gatling_gun: i.gatling_gun_myzand_upgrade,
         i.wooden_cannon: i.wooden_cannon_myzand_upgrade
     }[gun]
-
-def true_connect_helper():
-    return lambda player, dif, state: True

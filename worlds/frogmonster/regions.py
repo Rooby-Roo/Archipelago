@@ -57,7 +57,7 @@ r.city: FrogmonsterRegionData(
     connects=[(r.green_sea_after, nothing),
               (r.under_city, nothing),
               (r.workshop, nothing),
-              (r.treetops, nothing),
+              (r.forest_floor, nothing),
               (r.old_road, nothing),
               (r.runi_arena, lambda player, dif, state: state.has(i.orchus_key, player))]
 ),
@@ -140,7 +140,7 @@ r.krogar_arena: FrogmonsterRegionData(
 ),
 r.drywood: FrogmonsterRegionData(
     connects=[(r.rootden, nothing),
-              (r.reef, nothing),
+              (r.deep, nothing),
               (r.quarry, nothing),
               (r.ridge, nothing)]
 ),

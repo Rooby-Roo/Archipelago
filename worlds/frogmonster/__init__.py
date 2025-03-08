@@ -97,7 +97,7 @@ class FrogmonsterWorld(World):
 
         self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory))
         self.multiworld.get_location(l.workshop_access, self.player).place_locked_item(self.create_event(i.workshop_key))
-        self.multiworld.completion_condition[self.player] = lambda state: True # state.has(i.victory, self.player)
+        self.multiworld.completion_condition[self.player] = lambda state: state.has(i.victory, self.player)
 
         # Exclude or prioritize locations according to locations.py. This will be overridden by any YAML declarations.
         for location in location_data_table.items():
