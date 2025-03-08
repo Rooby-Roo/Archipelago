@@ -46,27 +46,28 @@ class FrogmonsterWorld(World):
             self.random.shuffle(shuffled_effects)
         shuffled_bugs = dict(zip(bugs, shuffled_effects))
         shuffled_bugs[36] = 36  # Mushroom is not shuffled but the client still expects this, it is always 36 and must be added back in manually.
-        self.shuffled_bug_effects = shuffled_bugs
+        self.shuffled_bug_effects = shuffled_bugs  # stored as dict for local purposes, but client expects array (handled in slot data)
 
         # Handling option: Game Difficulty
         self.difficulty = Difficulty(self.options.game_difficulty)
 
     def create_regions(self) -> None:
         for region_name in region_data_table.keys():
-            # Create regions.
-            if region_name:
-                region = Region(region_name, self.player, self.multiworld)
-                self.multiworld.regions.append(region)
+            # Create base regions.
+            region = Region(region_name, self.player, self.multiworld)
+            self.multiworld.regions.append(region)
+            # Create base locations, add locations to regions.
+            current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
+            region.add_locations(current_region_locations, FrogmonsterLocation)
+        # Connect regions to each other.
+        for region_name, data in region_data_table.items():
+            main_region = self.multiworld.get_region(region_name, self.player)
+            for connection in data.connects:
+                exit_region = self.multiworld.get_region(connection[0], self.player)
+                access_rule = partial(connection[1], self.player, self.difficulty)
+                main_region.connect(connecting_region=exit_region, rule=access_rule)
 
-                # Create locations, add locations to regions.
-                current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
-                print(current_region_locations)
-                region.add_locations(current_region_locations, FrogmonsterLocation)
-        # Add access connections for bugs. 
-#        raise NotImplementedError("TODO: Bugs.")
-        # Connect Anywhere to every region (for now.)
-        anywhere = self.multiworld.get_region("Anywhere", self.player)
-        anywhere.add_exits(region_data_table.keys())
+
 
     def create_items(self) -> None:
         item_pool = []
@@ -93,8 +94,10 @@ class FrogmonsterWorld(World):
 
     def fill_slot_data(self) -> dict[str, Any]:
         slot_data: dict[str, Any] = {}
-
-        slot_data["shuffled_bug_effects"] = self.shuffled_bug_effects
+        bug_effect_array = []
+        for i in range (1, 41):
+            bug_effect_array.append(self.shuffled_bug_effects[i])
+        slot_data["shuffled_bug_effects"] = bug_effect_array
         slot_data["shop_multiplier"] = float(self.options.shop_multiplier / 100) # Convert to decimal for client
 
         return slot_data
