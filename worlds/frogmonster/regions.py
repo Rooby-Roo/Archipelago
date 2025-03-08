@@ -67,7 +67,7 @@ r.old_road: FrogmonsterRegionData(
     connects=[(r.city, nothing),
               (r.hive, lambda player, dif, state: can_fight(c.old_road_general, player, dif, state)),
               (r.old_wood, lambda player, dif, state: can_burn(state, player)),
-              (r.estate, lambda player, dif, state: state.has(i.runi_key, player, dif, state) and can_fight(c.old_road_general, player, dif, state))]
+              (r.estate, lambda player, dif, state: state.has(i.runi_key, player) and can_fight(c.old_road_general, player, dif, state))]
 ),
 r.old_wood: FrogmonsterRegionData(
     connects=[(r.thickness, lambda player, dif, state: can_fight(c.old_wood_arenas, player, dif, state)),
@@ -81,7 +81,7 @@ r.estate: FrogmonsterRegionData(
     connects=[(r.fog_garden, lambda player, dif, state: can_fight(c.estate_general, player, dif, state))]
 ),
 r.fog_garden: FrogmonsterRegionData(
-    connects=[(r.fog_garden_key, lambda player, dif, state: can_fight([c.fog_garden_arena_2, c.fog_garden_arena_1], player, dif, state) and state.has(i.key, player, 3))]
+    connects=[(r.fog_garden_key, lambda player, dif, state: can_fight_all([c.fog_garden_arena_2, c.fog_garden_arena_1], player, dif, state) and state.has(i.key, player, 3))]
 ),
 r.fog_garden_key: FrogmonsterRegionData(
 ),
@@ -174,6 +174,8 @@ r.under_under_city_lower: FrogmonsterRegionData(
 r.myzand: FrogmonsterRegionData(
 ),
 
-r.anywhere: FrogmonsterRegionData(),
+r.anywhere: FrogmonsterRegionData(
+    connects=[(r.lost_swamp, nothing)]
+),
 # r.bug: FrogmonsterRegionData(),
  }

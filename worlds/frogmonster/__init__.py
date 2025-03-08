@@ -79,7 +79,7 @@ class FrogmonsterWorld(World):
             bug_location = {bug.name: bug_location_data.id}  # add_locations expects a dict, so we convert here
             bug_region.add_locations(bug_location, FrogmonsterLocation)
 
-        visualize_regions(self.multiworld.get_region(r.anywhere, self.player), "Regions")
+#        visualize_regions(self.multiworld.get_region(r.anywhere, self.player), "Regions.puml")
 
     def create_items(self) -> None:
         item_pool = []

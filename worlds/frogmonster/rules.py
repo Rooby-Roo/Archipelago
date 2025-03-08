@@ -11,7 +11,7 @@ def can_fight(name: str, player: int, difficulty: Difficulty, state: CollectionS
     weird_fights = {
         c.barge: can_fight_barge
     }
-    if name in weird_fights.keys():
+    if name in weird_fights:
         return weird_fights[name](difficulty, state, player)
     
     score, need, want, tags = get_combat_data(name, difficulty)
