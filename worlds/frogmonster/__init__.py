@@ -46,7 +46,7 @@ class FrogmonsterWorld(World):
             self.random.shuffle(shuffled_effects)
         shuffled_bugs = dict(zip(bugs, shuffled_effects))
         shuffled_bugs[36] = 36  # Mushroom is not shuffled but the client still expects this, it is always 36 and must be added back in manually.
-        self.shuffled_bug_effects = shuffled_bugs
+        self.shuffled_bug_effects = shuffled_bugs  # stored as dict for local purposes, but client expects array (handled in slot data)
 
         # Handling option: Game Difficulty
         self.difficulty = Difficulty(self.options.game_difficulty)
@@ -59,7 +59,15 @@ class FrogmonsterWorld(World):
             # Create base locations, add locations to regions.
             current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
             region.add_locations(current_region_locations, FrogmonsterLocation)
-            # Add access connections between regions.
+        # Connect regions to each other.
+        for region_name, data in region_data_table.items():
+            main_region = self.multiworld.get_region(region_name, self.player)
+            for connection in data.connects:
+                exit_region = self.multiworld.get_region(connection[0], self.player)
+                access_rule = partial(connection[1], self.player, self.difficulty)
+                main_region.connect(connecting_region=exit_region, rule=access_rule)
+
+
 
     def create_items(self) -> None:
         item_pool = []
