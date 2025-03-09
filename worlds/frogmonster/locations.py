@@ -412,8 +412,8 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         access_rule=lambda player, dif, state: state.has(i.key, player, 3) and can_fight(c.fog_garden_arena_2, player, dif, state)
     ),
     l.metal_ore_10: FrogmonsterLocationData(
-        region=r.treetops,
-        id=BASE_ID + 87 # "UNKNOWN"
+        region=r.forest_floor,
+        id=BASE_ID + 87
     ),
     l.metal_ore_11: FrogmonsterLocationData(
         region=r.cicada_cove,
@@ -430,15 +430,15 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         access_rule=lambda player, dif, state: can_fight_all([c.moridonos_arena_1, c.moridonos_arena_2], player, dif, state)
     ),
     l.metal_ore_14: FrogmonsterLocationData(
-        region=r.quarry, # "UNKNOWN"
+        region=r.quarry,
         id=BASE_ID + 91
     ),
     l.metal_ore_15: FrogmonsterLocationData(
-        region=r.rootden, # "UNKNOWN"
+        region=r.rootden,
         id=BASE_ID + 92
     ),
     l.metal_ore_16: FrogmonsterLocationData(
-        region=r.deep, # "UNKNOWN"
+        region=r.deep,
         id=BASE_ID + 93
     ),
     l.metal_ore_17: FrogmonsterLocationData(
