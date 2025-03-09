@@ -18,7 +18,7 @@ def can_fight(name: str, player: int, difficulty: Difficulty, state: CollectionS
 
     for item in need:
         if not state.has(item, player):
-            print(f"can_fight failed. {name} needs item {item}. {state.prog_items[player]}")
+#            print(f"can_fight failed. {name} needs item {item}. {state.prog_items[player]}")
             return False
 #    print(f"can_fight passed. {state.prog_items[player]}")
     return True
