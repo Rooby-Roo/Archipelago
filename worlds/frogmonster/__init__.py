@@ -84,20 +84,25 @@ class FrogmonsterWorld(World):
     def create_items(self) -> None:
         item_pool = []
         for name, item in item_data_table.items():
-            if item.id:
+            if item.id:  # excludes events
                 for _ in range(item_data_table[name].qty):
                     item_pool.append(self.create_item(name))
         
         self.multiworld.itempool += item_pool
 
     def set_rules(self) -> None:
+        # Set location access requirements.
         for location in location_data_table.items():
             current_location = self.multiworld.get_location(location[0], self.player)
             current_location.access_rule = partial(location[1].access_rule, self.player, self.difficulty)
 
+        # Set completion condition.
         self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory))
-        self.multiworld.get_location(l.workshop_access, self.player).place_locked_item(self.create_event(i.workshop_key))
         self.multiworld.completion_condition[self.player] = lambda state: state.has(i.victory, self.player)
+
+        # Set events.
+        self.multiworld.get_location(l.workshop_access, self.player).place_locked_item(self.create_event(i.workshop_key))
+        self.multiworld.get_location(l.orchus_key, self.player).place_locked_item(self.create_event(i.orchus_key))
 
         # Exclude or prioritize locations according to locations.py. This will be overridden by any YAML declarations.
         for location in location_data_table.items():

@@ -760,9 +760,15 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     ),
     
     # Events
-    i.victory: FrogmonsterItemData(),
-    i.workshop_key: FrogmonsterItemData(),
-    i.orchus_key: FrogmonsterItemData(),
+    i.victory: FrogmonsterItemData(
+        type=ItemClassification.progression
+    ),
+    i.workshop_key: FrogmonsterItemData(
+        type=ItemClassification.progression
+    ),
+    i.orchus_key: FrogmonsterItemData(
+        type=ItemClassification.progression
+    ),
 
 }
 
