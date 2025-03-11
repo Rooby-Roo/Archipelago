@@ -111,9 +111,9 @@ secret_synergies = {
     i.slam: i.turtle
 }
 
-tanky_bugs = (
+tanky_bugs = {
     i.turtle,
     i.blue_snack,
     i.beet,
     i.moth
-)
+}
