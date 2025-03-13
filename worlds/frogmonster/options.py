@@ -16,17 +16,15 @@ class ShufflePuzzles(Toggle):
 
 class StartWithGear(Toggle):
     """When enabled, Blue in Lost Swamp will always give you a gun, and you will always find a spell at the Fireball location."""
-    display_name = "Start With Gear"
+    display_name = "I Hate Seedling"
     # does nothing at the moment, to be implemented later
 
 class ShuffleBugEffects(Toggle):
-    """Randomizes the temporary effect gained when eating any bug other than Mushroom.
-    CURRENTLY NOT IMPLEMENTED IN THE CLIENT."""
+    """Randomizes the temporary effect gained when eating any bug other than Mushroom."""
     display_name = "Shuffle Bug-Eating Effects"
 
 class ShopMultiplier(Range):
-    """Decreases the total cost of items in shops by a percentage. 100 = no discount, 0 = free shops.
-    CURRENTLY NOT IMPLEMENTED IN THE CLIENT."""
+    """Decreases the total cost of items in shops by a percentage. 100 = no discount, 0 = free shops."""
     display_name = "Shop Multiplier"
     range_start = 0
     range_end = 100
