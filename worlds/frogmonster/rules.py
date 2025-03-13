@@ -78,7 +78,7 @@ def get_combat_data(name: str, difficulty: Difficulty) -> tuple[int, list[str], 
             if difficulty == Difficulty.EASY:
                 return combat.score_easy, combat.need, combat.want, combat.tags
             elif difficulty == Difficulty.NORMAL:
-                return combat.score_hard - 3, combat.need, combat.want, combat.tags
+                return combat.score_hard + 3, combat.need, combat.want, combat.tags
             elif difficulty == Difficulty.HARD:
                 return combat.score_hard, combat.need, combat.want, combat.tags
             elif difficulty == Difficulty.VERY_HARD:
