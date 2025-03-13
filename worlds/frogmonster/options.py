@@ -37,6 +37,10 @@ class OpenCity(Toggle):
     CURRENTLY NOT IMPLEMENTED IN THE CLIENT."""
     display_name = "Open City"
 
+class AdvancedParkour(Toggle):
+    """When enabled, the player will be expected to do more advanced or unituitive platform movement to get to some locations."""
+    display_name = "Hardcore Parkour"
+
 @dataclass
 class FrogmonsterOptions(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
@@ -46,4 +50,5 @@ class FrogmonsterOptions(PerGameCommonOptions):
     shuffle_bug_effects: ShuffleBugEffects
     shop_multiplier: ShopMultiplier
 #    open_city: OpenCity
+#    hardcore_parkour: AdvancedParkour
 
