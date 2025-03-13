@@ -29,6 +29,7 @@ class FrogmonsterWorld(World):
     # Options, to be sent to slot data.
     shuffled_bug_effects: dict[int, int]
     shop_multiplier: float
+    open_city: bool = False
 
     def create_item(self, name: str) -> FrogmonsterItem:
         return FrogmonsterItem(name, item_data_table[name].type, item_data_table[name].id, self.player)
@@ -78,6 +79,10 @@ class FrogmonsterWorld(World):
             bug_location_data = location_data_table[bug.name]
             bug_location = {bug.name: bug_location_data.id}  # add_locations expects a dict, so we convert here
             bug_region.add_locations(bug_location, FrogmonsterLocation)
+
+        # Handling option: Open City
+        if self.open_city:
+            self.multiworld.get_region(r.lost_swamp, self.player).connect(self.multiworld.get_region(r.city, self.player), None, lambda state: True)
 
 #        visualize_regions(self.multiworld.get_region(r.anywhere, self.player), "Regions.puml")
 

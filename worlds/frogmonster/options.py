@@ -32,6 +32,11 @@ class ShopMultiplier(Range):
     range_end = 100
     default = 100
 
+class OpenCity(Toggle):
+    """When enabled, the Lost Swamp portal vine will be enabled at the beginning, allowing quick travel to City without needing Sticky Hands.
+    CURRENTLY NOT IMPLEMENTED IN THE CLIENT."""
+    display_name = "Open City"
+
 @dataclass
 class FrogmonsterOptions(PerGameCommonOptions):
     start_inventory_from_pool: StartInventoryPool
@@ -40,4 +45,5 @@ class FrogmonsterOptions(PerGameCommonOptions):
 #    i_hate_seedling: StartWithGear
     shuffle_bug_effects: ShuffleBugEffects
     shop_multiplier: ShopMultiplier
+#    open_city: OpenCity
 
