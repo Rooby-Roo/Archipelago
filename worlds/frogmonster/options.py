@@ -47,6 +47,6 @@ class FrogmonsterOptions(PerGameCommonOptions):
 #    i_hate_seedling: StartWithGear
     shuffle_bug_effects: ShuffleBugEffects
     shop_multiplier: ShopMultiplier
-#    open_city: OpenCity
+    open_city: OpenCity
 #    hardcore_parkour: AdvancedParkour
 

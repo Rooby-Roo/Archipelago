@@ -120,6 +120,7 @@ class FrogmonsterWorld(World):
 
     def fill_slot_data(self) -> dict[str, Any]:
         slot_data: dict[str, Any] = {}
+
         # Handling option: Shuffle Bug-Eating Effects
         bug_effect_array = []
         for i in range (1, 41):
@@ -129,6 +130,7 @@ class FrogmonsterWorld(World):
         # Other Options:
         slot_data["shop_multiplier"] = float(self.options.shop_multiplier / 100) # Convert to decimal for client
         slot_data["shuffle_puzzles"] = self.options.shuffle_puzzles
+        slot_data["open_city"] = self.options.open_city
 
         return slot_data
     
