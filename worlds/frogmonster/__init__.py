@@ -60,7 +60,13 @@ class FrogmonsterWorld(World):
             self.multiworld.regions.append(region)
             # Create base locations, add locations to regions.
             current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
+            # Handling option: Shuffle Puzzles
+            if not self.options.shuffle_puzzles:
+                for location in current_region_locations.keys():
+                    if "Puzzle" in location:
+                        current_region_locations.pop(location)
             region.add_locations(current_region_locations, FrogmonsterLocation)
+
         # Connect regions to each other.
         for region_name, data in region_data_table.items():
             main_region = self.multiworld.get_region(region_name, self.player)
@@ -68,6 +74,7 @@ class FrogmonsterWorld(World):
                 exit_region = self.multiworld.get_region(connection[0], self.player)
                 access_rule = partial(connection[1], self.player, self.difficulty)
                 main_region.connect(connecting_region=exit_region, rule=access_rule)
+                
         for bug in every_bug:
             # Create bug region. Bugs can be found in multiple different parts of the map and as such they get their own regions, using region connections as logical access.
             bug_region = Region(bug.name, self.player, self.multiworld)
