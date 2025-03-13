@@ -1,15 +1,20 @@
 from typing import NamedTuple
 from enum import Enum
+from functools import total_ordering
 
 from .names import item_names as i
 from .names import combat_names as c
 
+@total_ordering
 class Difficulty(Enum):
     EASY = 0
     NORMAL = 1
     HARD = 2
     VERY_HARD = 3
     HYPOTHETICALLY_POSSIBLE = 4  # Would like to implement this sometime.
+    def __lt__(self, other):
+        if self.__class__ is other.__class__:
+            return self.value < other.value
 
 class CombatType(NamedTuple): 
     name: str
