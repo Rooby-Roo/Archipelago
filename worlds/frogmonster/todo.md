@@ -6,7 +6,7 @@ Fight data tables
 Can_fight
 
 # Half-implemented features
-Exclude Puzzles, Start with Gear
+Start with Gear, Advanced Parkour
 
 # Will need to do eventually
 Webworld, docstrings

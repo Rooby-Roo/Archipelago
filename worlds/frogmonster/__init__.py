@@ -131,6 +131,7 @@ class FrogmonsterWorld(World):
         slot_data["shop_multiplier"] = float(self.options.shop_multiplier / 100) # Convert to decimal for client
         slot_data["shuffle_puzzles"] = self.options.shuffle_puzzles
         slot_data["open_city"] = self.options.open_city
+        slot_data["death_link"] = self.options.death_link
 
         return slot_data
     
