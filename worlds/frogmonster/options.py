@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from Options import Toggle, Range, Choice, PerGameCommonOptions, StartInventoryPool
+from Options import Toggle, Range, Choice, PerGameCommonOptions, DeathLinkMixin, StartInventoryPool
 
 class GameDifficulty(Choice):
     """Determines expected player skill. A harder difficulty means you will be expected to go further in the game with less resources."""
@@ -10,34 +10,51 @@ class GameDifficulty(Choice):
 #    option_very_hard = 4
     default = 3
 
-class ExcludePuzzles(Toggle):
-    """When enabled, puzzles and their rewards will be excluded. This includes the chest in the Estate pool."""
-    display_name = "Exclude Puzzles"
+class GoalCondition(Choice):
+    """Determines the win condition for the game. Myzand 2: Traverse Myzand's Forest, defeat him, and lock him away. Eye Chest: Open the 6-Eye Door and open the chest that contains the Eye Fragment."""
+    display_name = "Goal"
+    option_myzand_2 = 0
+    option_eye_chest = 2
+    default = 0
+
+class ShufflePuzzles(Toggle):
+    """When enabled, slide puzzles and their rewards will be shuffled into the pool."""
+    display_name = "Shuffle Slide Puzzles"
 
 class StartWithGear(Toggle):
     """When enabled, Blue in Lost Swamp will always give you a gun, and you will always find a spell at the Fireball location."""
-    display_name = "Start With Gear"
+    display_name = "I Hate Seedling"
     # does nothing at the moment, to be implemented later
 
 class ShuffleBugEffects(Toggle):
-    """Randomizes the temporary effect gained when eating any bug other than Mushroom.
-    CURRENTLY NOT IMPLEMENTED IN THE CLIENT."""
+    """Randomizes the temporary effect gained when eating any bug other than Mushroom."""
     display_name = "Shuffle Bug-Eating Effects"
 
 class ShopMultiplier(Range):
-    """Decreases the total cost of items in shops by a percentage. 100 = no discount, 0 = free shops.
-    CURRENTLY NOT IMPLEMENTED IN THE CLIENT."""
+    """Decreases the total cost of items in shops by a percentage. 100 = no discount, 0 = free shops."""
     display_name = "Shop Multiplier"
     range_start = 0
     range_end = 100
     default = 100
 
+class OpenCity(Toggle):
+    """When enabled, the Lost Swamp portal vine will be enabled at the beginning, allowing quick travel to City without needing Sticky Hands.
+    CURRENTLY NOT IMPLEMENTED IN THE CLIENT."""
+    display_name = "Open City"
+
+class AdvancedParkour(Toggle):
+    """When enabled, the player will be expected to do more advanced or unituitive platform movement to get to some locations."""
+    display_name = "Hardcore Parkour"
+
 @dataclass
-class FrogmonsterOptions(PerGameCommonOptions):
+class FrogmonsterOptions(PerGameCommonOptions, DeathLinkMixin):
     start_inventory_from_pool: StartInventoryPool
     game_difficulty: GameDifficulty
-#    exclude_puzzles: ExcludePuzzles
+    goal: GoalCondition
+    shuffle_puzzles: ShufflePuzzles
 #    i_hate_seedling: StartWithGear
     shuffle_bug_effects: ShuffleBugEffects
     shop_multiplier: ShopMultiplier
+    open_city: OpenCity
+#    hardcore_parkour: AdvancedParkour
 

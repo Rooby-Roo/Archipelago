@@ -26,9 +26,7 @@ class FrogmonsterWorld(World):
     location_name_groups = location_name_groups
     item_name_groups = item_name_groups
 
-    # Options, to be sent to slot data.
     shuffled_bug_effects: dict[int, int]
-    shop_multiplier: float
 
     def create_item(self, name: str) -> FrogmonsterItem:
         return FrogmonsterItem(name, item_data_table[name].type, item_data_table[name].id, self.player)
@@ -59,7 +57,13 @@ class FrogmonsterWorld(World):
             self.multiworld.regions.append(region)
             # Create base locations, add locations to regions.
             current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
+            # Handling option: Shuffle Puzzles
+            if not self.options.shuffle_puzzles:
+                for location in current_region_locations.keys():
+                    if "Puzzle" in location:
+                        current_region_locations.pop(location)
             region.add_locations(current_region_locations, FrogmonsterLocation)
+
         # Connect regions to each other.
         for region_name, data in region_data_table.items():
             main_region = self.multiworld.get_region(region_name, self.player)
@@ -67,6 +71,7 @@ class FrogmonsterWorld(World):
                 exit_region = self.multiworld.get_region(connection[0], self.player)
                 access_rule = partial(connection[1], self.player, self.difficulty)
                 main_region.connect(connecting_region=exit_region, rule=access_rule)
+
         for bug in every_bug:
             # Create bug region. Bugs can be found in multiple different parts of the map and as such they get their own regions, using region connections as logical access.
             bug_region = Region(bug.name, self.player, self.multiworld)
@@ -78,6 +83,10 @@ class FrogmonsterWorld(World):
             bug_location_data = location_data_table[bug.name]
             bug_location = {bug.name: bug_location_data.id}  # add_locations expects a dict, so we convert here
             bug_region.add_locations(bug_location, FrogmonsterLocation)
+
+        # Handling option: Open City
+        if self.open_city:
+            self.multiworld.get_region(r.lost_swamp, self.player).connect(self.multiworld.get_region(r.city, self.player), None, lambda state: True)
 
 #        visualize_regions(self.multiworld.get_region(r.anywhere, self.player), "Regions.puml")
 
@@ -111,14 +120,18 @@ class FrogmonsterWorld(World):
 
     def fill_slot_data(self) -> dict[str, Any]:
         slot_data: dict[str, Any] = {}
+
         # Handling option: Shuffle Bug-Eating Effects
         bug_effect_array = []
         for i in range (1, 41):
             bug_effect_array.append(self.shuffled_bug_effects[i])
         slot_data["shuffled_bug_effects"] = bug_effect_array
 
-        # Handling option: Shop Multiplier
+        # Other Options:
         slot_data["shop_multiplier"] = float(self.options.shop_multiplier / 100) # Convert to decimal for client
+        slot_data["shuffle_puzzles"] = self.options.shuffle_puzzles
+        slot_data["open_city"] = self.options.open_city
+        slot_data["death_link"] = self.options.death_link
 
         return slot_data
     
