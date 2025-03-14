@@ -89,7 +89,7 @@ combat_data = [
     CombatType(name=c.valda,                   score_easy=X, score_normal=X, score_hard=5,  score_very_hard=X, need=[i.dash], tags=["stationary"]),
     CombatType(name=c.djumbo,                  score_easy=X, score_normal=X, score_hard=5,  score_very_hard=X, need=[i.dash]),
     CombatType(name=c.dekula,                  score_easy=X, score_normal=X, score_hard=5,  score_very_hard=X,),
-    CombatType(name=c.chroma,                  score_easy=X, score_normal=X, score_hard=0,  score_very_hard=0, need=[i.dash], want=[i.machine_gun, i.gatling_gun],),
+    CombatType(name=c.chroma,                  score_easy=X, score_normal=X, score_hard=0,  score_very_hard=0, need=[i.dash]),
     CombatType(name=c.tymbal,                  score_easy=X, score_normal=X, score_hard=5,  score_very_hard=0, need=[i.dash], want=[i.sticky_hands], tags=["swarm"]),
     CombatType(name=c.foraz,                   score_easy=X, score_normal=X, score_hard=6,  score_very_hard=X, need=[i.dash]),
     CombatType(name=c.hedgeward,               score_easy=X, score_normal=X, score_hard=6,  score_very_hard=X, need=[i.dash]),
@@ -121,4 +121,11 @@ tanky_bugs = {
     i.blue_snack,
     i.beet,
     i.moth
+}
+
+mana_bugs = {
+    i.wormy,
+    i.blue_jelly,
+    i.purple_snack,
+    i.roof_snail
 }
