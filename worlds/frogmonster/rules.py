@@ -1,7 +1,7 @@
 from typing import Iterable
 
 from BaseClasses import CollectionState
-from .combat import combat_data, Difficulty, secret_synergies, tanky_bugs, mana_bugs
+from .combat import combat_data, Difficulty, tanky_bugs, mana_bugs
 from .names import item_names as i
 from .names import combat_names as c
 from .names import region_names as r
@@ -161,9 +161,9 @@ def nice_to_haves(state: CollectionState, player: int, req_gun: int, req_myz: in
     if req_gun < gun_count:
         count += gun_count - req_gun
 
-    ore_value = [0, 1, 1, 2, 2, 2, 3, 3, 4]
+    ore_value = [0, 1, 1, 2, 2, 2, 3, 3]
     if req_myz == 0 and can_upgrade(state, player):
-        upgradables = min(gun_count, state.count(i.metal_ore, player), 8)
+        upgradables = min(gun_count, state.count(i.metal_ore, player))
         count += ore_value[upgradables]
 
     myz_count = state.count_group_unique("Upgrade", player)
