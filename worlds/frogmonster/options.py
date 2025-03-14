@@ -5,10 +5,10 @@ class GameDifficulty(Choice):
     """Determines expected player skill. A harder difficulty means you will be expected to go further in the game with less resources."""
     display_name = "Game Difficulty"
 #    option_easy = 1
-#    option_normal = 2
+    option_normal = 2
     option_hard = 3
 #    option_very_hard = 4
-    default = 3
+    default = 2
 
 class GoalCondition(Choice):
     """Determines the win condition for the game. Myzand 2: Traverse Myzand's Forest, defeat him, and lock him away. Eye Chest: Open the 6-Eye Door and open the chest that contains the Eye Fragment."""
