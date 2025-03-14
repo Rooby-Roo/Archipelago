@@ -27,6 +27,8 @@ class FrogmonsterWorld(World):
     item_name_groups = item_name_groups
 
     shuffled_bug_effects: dict[int, int]
+    starter_gun: FrogmonsterItem
+    starter_spell: FrogmonsterItem
 
     def create_item(self, name: str) -> FrogmonsterItem:
         return FrogmonsterItem(name, item_data_table[name].type, item_data_table[name].id, self.player)
@@ -49,6 +51,13 @@ class FrogmonsterWorld(World):
 
         # Handling option: Game Difficulty
         self.difficulty = Difficulty(self.options.game_difficulty)
+
+        # Handling option: Start with Gear
+        if self.options.i_hate_seedling:
+            gun_list = [i.reeder, i.gatling_gun, i.machine_gun, i.finisher, i.weepwood_bow]  # no cannon/flamethrower since they're logical
+            self.starter_gun = self.create_item(self.random.choice(gun_list))
+            spell_list = [i.fireball, i.sharp_shot, i.beans, i.slam, i.mushbomb, i.zap, i.hive, i.puff]
+            self.starter_spell = self.create_item(self.random.choice(spell_list))
 
     def create_regions(self) -> None:
         for region_name in region_data_table.keys():
@@ -94,8 +103,13 @@ class FrogmonsterWorld(World):
         item_pool = []
         for name, item in item_data_table.items():
             if item.id:  # excludes events
-                for _ in range(item_data_table[name].qty):
-                    item_pool.append(self.create_item(name))
+                if not self.options.i_hate_seedling:
+                    for _ in range(item_data_table[name].qty):
+                        item_pool.append(self.create_item(name))
+                else:  # excludes Start With Gear if that's enabled -- should rewrite this so that way the appends aren't written twice
+                     if (name not in [self.starter_gun.name, self.starter_spell.name]):
+                            for _ in range(item_data_table[name].qty):
+                                item_pool.append(self.create_item(name))
         
         self.multiworld.itempool += item_pool
 
@@ -117,6 +131,11 @@ class FrogmonsterWorld(World):
         for location in location_data_table.items():
             if location[1].progress_type != LocationProgressType.DEFAULT:
                 self.multiworld.get_location(location[0], self.player).progress_type = location[1].progress_type
+
+        # Handling Option: Start with Gear
+        if self.options.i_hate_seedling:
+            self.multiworld.get_location(l.reeder, self.player).place_locked_item(self.starter_gun)
+            self.multiworld.get_location(l.fireball, self.player).place_locked_item(self.starter_spell)
 
     def fill_slot_data(self) -> dict[str, Any]:
         slot_data: dict[str, Any] = {}

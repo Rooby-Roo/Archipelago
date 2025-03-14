@@ -52,7 +52,7 @@ class FrogmonsterOptions(PerGameCommonOptions, DeathLinkMixin):
     game_difficulty: GameDifficulty
     goal: GoalCondition
     shuffle_puzzles: ShufflePuzzles
-#    i_hate_seedling: StartWithGear
+    i_hate_seedling: StartWithGear
     shuffle_bug_effects: ShuffleBugEffects
     shop_multiplier: ShopMultiplier
     open_city: OpenCity
