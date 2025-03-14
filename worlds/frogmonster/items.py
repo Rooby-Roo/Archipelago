@@ -375,7 +375,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     ),
     i.bug_slot: FrogmonsterItemData(
         id=BASE_ID + 71,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression,
         category=("Bug Slot"),
         qty=7
     ),
