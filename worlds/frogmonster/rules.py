@@ -166,7 +166,7 @@ def nice_to_haves(state: CollectionState, player: int, req_gun: int, req_myz: in
         upgradables = min(gun_count, state.count(i.metal_ore, player))
         count += ore_value[upgradables]
 
-    myz_count = state.count_group_unique("Upgrade", player)
+    myz_count = state.count_group_unique("Gun Upgrade", player)
     if can_upgrade(state, player) and (req_myz < myz_count):
         count += myz_count - req_myz
 
