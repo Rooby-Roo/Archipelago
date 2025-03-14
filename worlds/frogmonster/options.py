@@ -22,9 +22,9 @@ class ShufflePuzzles(Toggle):
     display_name = "Shuffle Slide Puzzles"
 
 class StartWithGear(Toggle):
-    """When enabled, Blue in Lost Swamp will always give you a gun, and you will always find a spell at the Fireball location."""
+    """When enabled, Blue in Lost Swamp will always give you a gun, and you will always find a spell at the Fireball location. (This may break gun/spell plando, so be warned.)"""
     display_name = "I Hate Seedling"
-    # does nothing at the moment, to be implemented later
+
 
 class ShuffleBugEffects(Toggle):
     """Randomizes the temporary effect gained when eating any bug other than Mushroom."""
