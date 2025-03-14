@@ -68,9 +68,12 @@ class FrogmonsterWorld(World):
             current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
             # Handling option: Shuffle Puzzles
             if not self.options.shuffle_puzzles:
+                pop_list = []
                 for location in current_region_locations.keys():
                     if "Puzzle" in location:
-                        current_region_locations.pop(location)
+                        pop_list.append(location)
+                for location in pop_list:
+                    current_region_locations.pop(location)
             region.add_locations(current_region_locations, FrogmonsterLocation)
 
         # Connect regions to each other.
@@ -94,7 +97,7 @@ class FrogmonsterWorld(World):
             bug_region.add_locations(bug_location, FrogmonsterLocation)
 
         # Handling option: Open City
-        if self.open_city:
+        if self.options.open_city:
             self.multiworld.get_region(r.lost_swamp, self.player).connect(self.multiworld.get_region(r.city, self.player), None, lambda state: True)
 
 #        visualize_regions(self.multiworld.get_region(r.anywhere, self.player), "Regions.puml")
@@ -116,8 +119,13 @@ class FrogmonsterWorld(World):
     def set_rules(self) -> None:
         # Set location access requirements.
         for location in location_data_table.items():
-            current_location = self.multiworld.get_location(location[0], self.player)
-            current_location.access_rule = partial(location[1].access_rule, self.player, self.difficulty)
+            current_location = None
+            try:
+                current_location = self.multiworld.get_location(location[0], self.player)
+            except KeyError:  # if the location does not exist, then it does not need access rules.
+                pass
+            if current_location:
+                current_location.access_rule = partial(location[1].access_rule, self.player, self.difficulty)
 
         # Set completion condition.
         self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory))

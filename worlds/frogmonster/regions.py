@@ -168,8 +168,8 @@ r.barge_arena: FrogmonsterRegionData(
 ),
 r.under_under_city_lower: FrogmonsterRegionData(
     connects=[(r.barge_arena, lambda player, dif, state: state.has(i.sticky_hands, player) and can_fight(c.under_under_general, player, dif, state)),
-              (r.runi_arena, lambda player, dif, state: state.has(i.dash) and can_fight(c.under_under_general, player, dif, state)),
-              (r.quarry, lambda player, dif, state: state.has(i.dash) and can_fight(c.under_under_general, player, dif, state))]
+              (r.runi_arena, lambda player, dif, state: state.has(i.dash, player) and can_fight(c.under_under_general, player, dif, state)),
+              (r.quarry, lambda player, dif, state: state.has(i.dash, player) and can_fight(c.under_under_general, player, dif, state))]
 ),
 r.myzand: FrogmonsterRegionData(
 ),
