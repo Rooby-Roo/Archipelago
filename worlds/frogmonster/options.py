@@ -25,7 +25,6 @@ class StartWithGear(Toggle):
     """When enabled, Blue in Lost Swamp will always give you a gun, and you will always find a spell at the Fireball location. (This may break gun/spell plando, so be warned.)"""
     display_name = "I Hate Seedling"
 
-
 class ShuffleBugEffects(Toggle):
     """Randomizes the temporary effect gained when eating any bug other than Mushroom."""
     display_name = "Shuffle Bug-Eating Effects"
