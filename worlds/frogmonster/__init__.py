@@ -50,7 +50,7 @@ class FrogmonsterWorld(World):
         self.shuffled_bug_effects = shuffled_bugs  # stored as dict for local purposes, but client expects array (handled in slot data)
 
         # Handling option: Game Difficulty
-        self.difficulty = Difficulty(self.options.game_difficulty)
+        self.difficulty = Difficulty(self.options.game_difficulty.value)
 
         # Handling option: Start with Gear
         if self.options.i_hate_seedling:

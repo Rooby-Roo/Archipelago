@@ -28,19 +28,17 @@ def can_fight(name: str, player: int, difficulty: Difficulty, state: CollectionS
         return weird_fights[name](difficulty, state, player)
     
     score, need, want, tags = get_combat_data(name, difficulty)
-
     for item in need:
         if not state.has(item, player):
             return False
-    
     if score <= 0:
         return True
     elif score == 1:
-        return nice_to_haves(state, player, 0, 0) <= 1
+        return nice_to_haves(state, player, 0, 0) >= 1
     elif score == 2:
         return  (
                 state.has_group_unique("Gun", player, 1) and
-                nice_to_haves(state, player, 1, 0) <= 2
+                nice_to_haves(state, player, 1, 0) >= 2
                 )
     elif score == 3:
         return (
@@ -138,6 +136,8 @@ def can_fight(name: str, player: int, difficulty: Difficulty, state: CollectionS
                 state.has_group_unique("Spell", player, 2) and
                 nice_to_haves(state, player, 6, 4) >= 10
                )
+    else:
+        raise ValueError(f"Score {score} is not a valid score. Something is wrong with the Frogmonster world.")
     
 def nice_to_haves(state: CollectionState, player: int, req_gun: int, req_myz: int) -> int:
     count = 0
@@ -151,7 +151,7 @@ def nice_to_haves(state: CollectionState, player: int, req_gun: int, req_myz: in
     count += bug_slot_value[min(state.count(i.bug_slot, player), 6)]
 
     if state.has_group("Spell", player, 1):
-        count += 1
+        count += 3
         count += mana_count(state, player)
 
     if state.has_any([i.beans, i.fireball], player):
@@ -183,13 +183,13 @@ def can_fight_barge(difficulty: Difficulty, state: CollectionState, player: int)
     if difficulty == Difficulty.EASY:
         return (
             state.has_all([i.dash, i.fire_fruit_juicer], player) and 
-            state.has_group_unique("Guns", player, 2) and
+            state.has_group_unique("Gun", player, 2) and
             health_count(state, player) >= 1
         )
     elif difficulty == Difficulty.NORMAL:
         return (
             state.has_all([i.dash, i.fire_fruit_juicer], player) and 
-            state.has_group_unique("Guns", player, 2) and
+            state.has_group_unique("Gun", player, 2) and
             health_count(state, player) >= 1
         )
     elif difficulty == Difficulty.HARD:
@@ -206,9 +206,9 @@ def can_fight_barge(difficulty: Difficulty, state: CollectionState, player: int)
 
 def can_fight_chroma(difficulty: Difficulty, state: CollectionState, player: int):
     if difficulty == Difficulty.EASY:
-        return state.has_any([i.machine_gun, i.reeder, i.gatling_gun], player) and state.has(i.dash, player) and state.has_group("Spell", player, 1) and state.has_group_unique("Gun", 3) and nice_to_haves(state, player, 3, 0) >= 6
+        return state.has_any([i.machine_gun, i.reeder, i.gatling_gun], player) and state.has(i.dash, player) and state.has_group("Spell", player, 1) and state.has_group_unique("Gun", player, 3) and nice_to_haves(state, player, 3, 0) >= 6
     elif difficulty == Difficulty.NORMAL:
-        return state.has_any([i.machine_gun, i.reeder, i.gatling_gun], player) and state.has(i.dash, player) and state.has_group("Spell", player, 1) and state.has_group_unique("Gun", 3)
+        return state.has_any([i.machine_gun, i.reeder, i.gatling_gun], player) and state.has(i.dash, player) and state.has_group("Spell", player, 1) and state.has_group_unique("Gun", player, 3)
     elif difficulty == Difficulty.HARD:
         return state.has_any([i.machine_gun, i.reeder, i.gatling_gun], player) and (state.has(i.dash, player) or (health_count(state, player) >= 1 and state.has_group("Spell", player, 1)))
     elif difficulty == Difficulty.VERY_HARD:
