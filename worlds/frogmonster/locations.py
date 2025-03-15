@@ -765,7 +765,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
 }
 
 location_id_table = {name: data.id for name, data in location_data_table.items() if data.id is not None}
-
+post_ridge_regions = ["Ridge:", "Under Under City:", "Reef:", "Moridono's Domain:", "Quarry:", "Rootden:", "Drywood:" "Deep:", "Temple:", "Myzand's Forest:"]
 location_name_groups = {
     "Puzzles": {
         l.yellow_forest_puzzle,
@@ -775,5 +775,6 @@ location_name_groups = {
         l.mansion_puzzle_2,
         l.fog_garden_puzzle_1,
         l.fog_garden_puzzle_2
-    }
+    },
+    "Post-Ridge": {name for name in location_data_table.keys() if any(region in name for region in post_ridge_regions)},
 }
