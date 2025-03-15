@@ -753,12 +753,15 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     # Events
     l.goal: FrogmonsterLocationData(
         region=r.myzand,
+        access_rule=lambda player, dif, state: can_fight_all([c.myzand_1, c.myzand_2], player, dif, state)
     ),
     l.workshop_access: FrogmonsterLocationData(
-        region=r.city,
+        region=r.workshop,
+        access_rule=lambda player, dif, state: state.can_reach(l.mana_5, "Location", player)
     ),
     l.orchus_key: FrogmonsterLocationData(
         region=r.runi_arena,
+        access_rule=lambda player, dif, state: can_fight(c.runi, player, dif, state)
     )
 }
 

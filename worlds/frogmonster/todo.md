@@ -1,14 +1,11 @@
 # Things to make it playable:
-
-subdivide moridono's?
-fix events
-Fight data tables
-Can_fight
+Nothing, hopefully?
 
 # Half-implemented features
-Start with Gear, Advanced Parkour
+Advanced Parkour, Goal
 
 # Will need to do eventually
+clean up moridonos
 Webworld, docstrings
 MORE DIFFICULTY SETTINGS
 tidy up the spoiler log
