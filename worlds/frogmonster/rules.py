@@ -65,7 +65,7 @@ def can_fight(name: str, player: int, difficulty: Difficulty, state: CollectionS
                 can_upgrade(state, player) and
                 state.has(i.metal_ore, player, 5) and
                 state.has_group_unique("Spell", player, 1) and
-                nice_to_haves(state, player, 3, 1) >= 5
+                nice_to_haves(state, player, 3, 1) >= 6
                )
     elif score == 7:
         return (
@@ -75,7 +75,7 @@ def can_fight(name: str, player: int, difficulty: Difficulty, state: CollectionS
                 can_upgrade(state, player) and
                 state.has(i.metal_ore, player, 5) and
                 state.has_group_unique("Spell", player, 1) and
-                nice_to_haves(state, player, 3, 1) >= 6
+                nice_to_haves(state, player, 3, 1) >= 8
                )
     elif score == 8:
         return (
@@ -85,7 +85,7 @@ def can_fight(name: str, player: int, difficulty: Difficulty, state: CollectionS
                 can_upgrade(state, player) and
                 state.has(i.metal_ore, player, 6) and
                 state.has_group_unique("Spell", player, 1) and
-                nice_to_haves(state, player, 4, 2) >= 6
+                nice_to_haves(state, player, 4, 2) >= 8
                )
     elif score == 9:
         return (
@@ -95,7 +95,7 @@ def can_fight(name: str, player: int, difficulty: Difficulty, state: CollectionS
                 can_upgrade(state, player) and
                 state.has(i.metal_ore, player, 6) and
                 state.has_group_unique("Spell", player, 1) and
-                nice_to_haves(state, player, 4, 2) >= 7
+                nice_to_haves(state, player, 4, 2) >= 9
                )
     elif score == 10:
         return (
@@ -105,7 +105,7 @@ def can_fight(name: str, player: int, difficulty: Difficulty, state: CollectionS
                 can_upgrade(state, player) and
                 state.has(i.metal_ore, player, 8) and
                 state.has_group_unique("Spell", player, 2) and
-                nice_to_haves(state, player, 5, 3) >= 7
+                nice_to_haves(state, player, 5, 3) >= 9
                )
     elif score == 11:
         return (
@@ -115,7 +115,7 @@ def can_fight(name: str, player: int, difficulty: Difficulty, state: CollectionS
                 can_upgrade(state, player) and
                 state.has(i.metal_ore, player, 8) and
                 state.has_group_unique("Spell", player, 2) and
-                nice_to_haves(state, player, 5, 3) >= 8
+                nice_to_haves(state, player, 5, 3) >= 10
                )
     elif score == 12:
         return (
@@ -125,7 +125,7 @@ def can_fight(name: str, player: int, difficulty: Difficulty, state: CollectionS
                 can_upgrade(state, player) and
                 state.has(i.metal_ore, player, 8) and
                 state.has_group_unique("Spell", player, 2) and
-                nice_to_haves(state, player, 6, 4) >= 8
+                nice_to_haves(state, player, 6, 4) >= 10
                )
     elif score == 13:
         return (
@@ -134,7 +134,7 @@ def can_fight(name: str, player: int, difficulty: Difficulty, state: CollectionS
                 matching_myzands(state, player) >= 4 and 
                 state.has(i.metal_ore, player, 8) and
                 state.has_group_unique("Spell", player, 2) and
-                nice_to_haves(state, player, 6, 4) >= 10
+                nice_to_haves(state, player, 6, 4) >= 12
                )
     else:
         raise ValueError(f"Score {score} is not a valid score. Something is wrong with the Frogmonster world.")
