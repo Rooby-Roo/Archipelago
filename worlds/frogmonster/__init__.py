@@ -145,10 +145,15 @@ class FrogmonsterWorld(World):
         self.multiworld.get_location(l.workshop_access, self.player).place_locked_item(self.create_event(i.workshop_key))
         self.multiworld.get_location(l.orchus_key, self.player).place_locked_item(self.create_event(i.orchus_key))
 
-        # Exclude or prioritize locations according to locations.py. This will be overridden by any YAML declarations.
+        # Exclude or prioritize locations according to locations.py. This will be overwritten by any YAML declarations.
         for location in location_data_table.items():
             if location[1].progress_type != LocationProgressType.DEFAULT:
                 self.multiworld.get_location(location[0], self.player).progress_type = location[1].progress_type
+
+        # Handling Option: Deathlink. If deathlink is on, death-get bugs should be excluded.
+        if self.options.death_link:
+            for bug in [l.soul_fish, l.soul_frog]:
+                self.multiworld.get_location(bug, self.player).progress_type = LocationProgressType.EXCLUDED
 
         # Handling Option: Start with Gear
         if self.options.i_hate_seedling:
