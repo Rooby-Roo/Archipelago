@@ -462,9 +462,8 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         access_rule=lambda player, dif, state: can_fight(c.eels, player, dif, state)
     ),
     l.eye_fragment: FrogmonsterLocationData(
-        region=r.runi_arena,
-        id=BASE_ID + 98,
-        access_rule=lambda player, dif, state: state.has_group_unique("Gun Upgrade", player, 6)
+        region=r.myzand,
+        id=BASE_ID + 98
     ),
     l.key_1: FrogmonsterLocationData(
         region=r.yellow_forest_town,

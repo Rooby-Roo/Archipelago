@@ -11,10 +11,10 @@ class GameDifficulty(Choice):
     default = 2
 
 class GoalCondition(Choice):
-    """Determines the win condition for the game. Myzand 2: Traverse Myzand's Forest, defeat him, and lock him away. Eye Chest: Open the 6-Eye Door and open the chest that contains the Eye Fragment."""
+    """Determines the win condition for the game. Myzand 2: Traverse Myzand's Forest, defeat him, and lock him away. Eye Chest: Open the 6-Eye Door and collect the Eye Fragment."""
     display_name = "Goal"
     option_myzand_2 = 0
-    option_eye_chest = 2
+    option_eye_chest = 1
     default = 0
 
 class ShufflePuzzles(Toggle):

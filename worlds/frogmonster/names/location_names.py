@@ -162,6 +162,6 @@ coin_chest_4 = "Well: Eighth Floor"
 coin_chest_5 = "Well: First Floor"
 coin_chest_6 = "Very Lost Swamp: Outskirts Entrance"
 
-goal = "Defeat Myzand"
+goal = "Goal"
 workshop_access = "Can Use Workshop"
 orchus_key = "Key from Bins after Runi Fight"

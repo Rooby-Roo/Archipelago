@@ -6,7 +6,7 @@ from worlds.AutoWorld import World
 from Utils import visualize_regions
 from .options import FrogmonsterOptions
 from .items import item_id_table, item_data_table, item_name_groups, FrogmonsterItem
-from .locations import location_id_table, location_data_table, location_name_groups, FrogmonsterLocation
+from .locations import location_id_table, location_data_table, location_name_groups, FrogmonsterLocation, FrogmonsterLocationData
 from .regions import region_data_table
 from .names import item_names as i
 from .names import location_names as l
@@ -106,14 +106,16 @@ class FrogmonsterWorld(World):
         item_pool = []
         for name, item in item_data_table.items():
             if item.id:  # excludes events
-                if not self.options.i_hate_seedling:
+                dont_create = []
+                if self.options.goal == 1:
+                    dont_create.append(i.eye_fragment)
+                if self.options.i_hate_seedling:
+                    dont_create.append(self.starter_gun.name)
+                    dont_create.append(self.starter_spell.name)
+                if name not in dont_create:
                     for _ in range(item_data_table[name].qty):
                         item_pool.append(self.create_item(name))
-                else:  # excludes Start With Gear if that's enabled -- should rewrite this so that way the appends aren't written twice
-                     if (name not in [self.starter_gun.name, self.starter_spell.name]):
-                            for _ in range(item_data_table[name].qty):
-                                item_pool.append(self.create_item(name))
-        
+
         self.multiworld.itempool += item_pool
 
     def set_rules(self) -> None:
@@ -128,8 +130,12 @@ class FrogmonsterWorld(World):
                 current_location.access_rule = partial(location[1].access_rule, self.player, self.difficulty)
 
         # Set completion condition.
-        self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory))
         self.multiworld.completion_condition[self.player] = lambda state: state.has(i.victory, self.player)
+        self.multiworld.get_location(l.goal, self.player).place_locked_item(self.create_event(i.victory))
+
+        if self.options.goal == 1:
+            self.multiworld.get_location(l.eye_fragment, self.player).place_locked_item(self.create_item(i.eye_fragment))
+            self.multiworld.get_location(l.goal, self.player).access_rule = lambda state: state.can_reach(l.eye_fragment, "Location", self.player)
 
         # Set events.
         self.multiworld.get_location(l.workshop_access, self.player).place_locked_item(self.create_event(i.workshop_key))
@@ -159,6 +165,7 @@ class FrogmonsterWorld(World):
         slot_data["shuffle_puzzles"] = self.options.shuffle_puzzles
         slot_data["open_city"] = self.options.open_city
         slot_data["death_link"] = self.options.death_link
+        slot_data["goal"] = self.options.goal
 
         return slot_data
     
