@@ -116,6 +116,10 @@ class FrogmonsterWorld(World):
                     for _ in range(item_data_table[name].qty):
                         item_pool.append(self.create_item(name))
 
+        if self.options.shuffle_puzzles:
+            for _ in range(1, 8):
+                item_pool.append(self.create_item(self.get_filler_item_name()))
+
         self.multiworld.itempool += item_pool
 
     def set_rules(self) -> None:

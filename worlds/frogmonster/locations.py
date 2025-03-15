@@ -393,7 +393,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         id=BASE_ID + 83,
         access_rule=lambda player, dif, state: (
             can_fight(c.old_road_arena_1, player, dif, state) or
-            can_fight_all([c.old_road_arena_2, c.valda], player, dif, state) and can_burn(state, player)
+            (can_fight_all([c.old_road_arena_2, c.valda], player, dif, state) and can_burn(state, player))
         )
     ),
     l.metal_ore_7: FrogmonsterLocationData(

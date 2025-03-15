@@ -756,7 +756,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     i.coins: FrogmonsterItemData(
         id=BASE_ID + 146,
         type=ItemClassification.filler,
-        qty=14
+        qty=6
     ),
     
     # Events
