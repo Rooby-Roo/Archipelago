@@ -412,7 +412,8 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     ),
     l.metal_ore_10: FrogmonsterLocationData(
         region=r.forest_floor,
-        id=BASE_ID + 87
+        id=BASE_ID + 87,
+        access_rule=lambda player, dif, state: can_fight(c.forest_floor_arena_1, player, dif, state) and state.has_all([i.tongue_swing, i.sticky_hands], player)
     ),
     l.metal_ore_11: FrogmonsterLocationData(
         region=r.cicada_cove,
