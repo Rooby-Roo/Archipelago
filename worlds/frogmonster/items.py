@@ -592,7 +592,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
 #    ),
     i.square_rock: FrogmonsterItemData(
         id=BASE_ID + 114,
-        type=ItemClassification.useful,
+        type=ItemClassification.filler,
         category=("Relic"),
         qty=10
     ),
@@ -643,7 +643,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
 #    ),
     i.dark_pebble: FrogmonsterItemData(
         id=BASE_ID + 124,
-        type=ItemClassification.useful,
+        type=ItemClassification.filler,
         category=("Relic"),
         qty=8
     ),
