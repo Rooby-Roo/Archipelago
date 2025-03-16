@@ -712,12 +712,12 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.fog_garden_puzzle_1: FrogmonsterLocationData(
         region=r.fog_garden,
         id=BASE_ID + 151,
-        access_rule=lambda player, dif, state: can_fight(c.fog_garden_arena_1, player, dif, state)
+        access_rule=lambda player, dif, state: can_fight(c.fog_garden_arena_1, player, dif, state) and can_burn(state, player)
     ),
     l.fog_garden_puzzle_2: FrogmonsterLocationData(
         region=r.fog_garden,
         id=BASE_ID + 152,
-        access_rule=lambda player, dif, state: can_fight(c.fog_garden_arena_1, player, dif, state)
+        access_rule=lambda player, dif, state: can_fight(c.fog_garden_arena_1, player, dif, state) and can_burn(state, player)
     ),
     l.coin_chest_1: FrogmonsterLocationData(
         region=r.lost_swamp,
