@@ -1,8 +1,5 @@
 # Things to make it playable:
 Verify bug shuffle 
-well needs burn
-verify green sea regions
-rename river check
 
 # Half-implemented features
 Advanced Parkour
