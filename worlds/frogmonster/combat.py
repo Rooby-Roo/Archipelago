@@ -58,7 +58,7 @@ combat_data = [
     CombatType(name=c.fog_garden_arena_1,      score_easy=X, score_normal=X, score_hard=3,  score_very_hard=0,),
     CombatType(name=c.fog_garden_arena_2,      score_easy=X, score_normal=X, score_hard=4,  score_very_hard=0,),
     CombatType(name=c.hive_general,            score_easy=X, score_normal=X, score_hard=4,  score_very_hard=0,),
-    CombatType(name=c.well_general,            score_easy=X, score_normal=X, score_hard=4,  score_very_hard=0,),
+    CombatType(name=c.well_general,            score_easy=X, score_normal=X, score_hard=4,  score_very_hard=0, need=[i.fire_fruit_juicer]),
     CombatType(name=c.thickness_general,       score_easy=X, score_normal=X, score_hard=3,  score_very_hard=0,),
     CombatType(name=c.thickness_arena_1,       score_easy=X, score_normal=X, score_hard=4,  score_very_hard=0,),
     CombatType(name=c.ridge_general,           score_easy=X, score_normal=X, score_hard=2,  score_very_hard=0,),
