@@ -153,7 +153,7 @@ class FrogmonsterWorld(World):
         # Handling Option: Deathlink. If deathlink is on, death-get bugs should be excluded.
         if self.options.death_link:
             for bug in [l.soul_fish, l.soul_frog]:
-                self.multiworld.get_location(bug, self.player).progress_type = LocationProgressType.EXCLUDED
+                self.multiworld.get_location(bug, self.player).access_rule = lambda state: state.can_reach(r.city, "Region", self.player)
 
         # Handling Option: Start with Gear
         if self.options.i_hate_seedling:
