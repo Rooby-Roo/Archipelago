@@ -45,10 +45,11 @@ r.yellow_forest_side: FrogmonsterRegionData(
 r.green_sea_before: FrogmonsterRegionData(
     connects=[(r.yellow_forest_town, nothing),
               (r.green_sea_key, lambda player, dif, state: can_fight(c.green_sea_arena_1, player, dif, state) and state.has(i.key, player, 3)),
-              (r.green_sea_after, lambda player, dif, state: can_fight(c.green_sea_arena_2, player, dif, state))]
+              (r.green_sea_after, lambda player, dif, state: can_fight(c.green_sea_arena_1, player, dif, state))]
 ),
 r.green_sea_after: FrogmonsterRegionData(
-    connects=[(r.green_sea_before, lambda player, dif, state: can_fight(c.green_sea_arena_2, player, dif, state)),
+    connects=[(r.green_sea_before, lambda player, dif, state: can_fight(c.green_sea_arena_1, player, dif, state)),
+              (r.green_sea_key, lambda player, dif, state: state.has(i.key, player, 3)),
               (r.city, nothing)]
 ),
 r.green_sea_key: FrogmonsterRegionData(

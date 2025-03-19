@@ -40,7 +40,6 @@ combat_data = [
     CombatType(name=c.yellow_forest_arena_1,   score_easy=X, score_normal=X, score_hard=0,  score_very_hard=0,),
     CombatType(name=c.yellow_forest_arena_2,   score_easy=X, score_normal=X, score_hard=2,  score_very_hard=0,),
     CombatType(name=c.green_sea_arena_1,       score_easy=X, score_normal=X, score_hard=-1, score_very_hard=0, tags=["underwater", "swarm"]),
-    CombatType(name=c.green_sea_arena_2,       score_easy=X, score_normal=X, score_hard=-1, score_very_hard=0, tags=["underwater", "swarm"]),
     CombatType(name=c.green_sea_arena_3,       score_easy=X, score_normal=X, score_hard=4,  score_very_hard=X, tags=["underwater", "swarm"]),
     CombatType(name=c.under_city_arena_1,      score_easy=X, score_normal=0, score_hard=-2, score_very_hard=0, tags=["swarm"]),
     CombatType(name=c.forest_floor_general,    score_easy=X, score_normal=0, score_hard=-1, score_very_hard=0,),
