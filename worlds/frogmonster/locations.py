@@ -726,7 +726,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.coin_chest_2: FrogmonsterLocationData(
         region=r.yellow_forest,
         id=BASE_ID + 154,
-        access_rule=lambda player, dif, state: can_fight(c.yellow_forest_general, player, dif, state)
+        access_rule=lambda player, dif, state: can_fight(c.yellow_forest_arena_1, player, dif, state)
     ),
     l.coin_chest_3: FrogmonsterLocationData(
         region=r.thickness,
