@@ -29,6 +29,10 @@ class ShuffleBugEffects(Toggle):
     """Randomizes the temporary effect gained when eating any bug other than Mushroom."""
     display_name = "Shuffle Bug-Eating Effects"
 
+class ShuffleWorkshopKey(Toggle):
+    """When enabled, the Workshop Key will be shuffled into the item pool, and Bins will give you a random item after defeating Xoto."""
+    display_name = "Shuffle Workshop Key"
+
 class ShopMultiplier(Range):
     """Decreases the total cost of items in shops by a percentage. 100 = no discount, 0 = free shops."""
     display_name = "Shop Multiplier"
