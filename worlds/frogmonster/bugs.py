@@ -35,7 +35,7 @@ every_bug = [  # Regions values are noncomprehensive. Regions are excluded if th
     BugType(name=i.leafbug,        bug_id=17, slot_cost=3, regions=[(r.yellow_forest, nothing)]),
     BugType(name=i.wormy,          bug_id=18, slot_cost=2, regions=[(r.workshop, lambda player, dif, state: state.has_any([i.dash, i.sticky_hands], player))]),
     BugType(name=i.minnow,         bug_id=19, slot_cost=2, regions=[(r.green_sea_before, nothing), (r.green_sea_after, nothing)]),
-    BugType(name=i.turtle,         bug_id=20, slot_cost=2, regions=[(r.green_sea_after, nothing)]),
+    BugType(name=i.turtle,         bug_id=20, slot_cost=2, regions=[(r.green_sea_after, nothing), (r.green_sea_before, nothing)]),
     BugType(name=i.blue_jelly,     bug_id=21, slot_cost=3, regions=[(r.green_sea_key, nothing), (r.deep, nothing)]),  # Green Sea location is Behind Key Door	
     BugType(name=i.roof_snail,     bug_id=22, slot_cost=2, regions=[(r.city, nothing)]),
     BugType(name=i.crab,           bug_id=23, slot_cost=0, regions=[(r.lost_swamp, nothing)]),
