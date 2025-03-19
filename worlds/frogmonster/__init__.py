@@ -150,7 +150,7 @@ class FrogmonsterWorld(World):
             if location[1].progress_type != LocationProgressType.DEFAULT:
                 self.multiworld.get_location(location[0], self.player).progress_type = location[1].progress_type
 
-        # Handling Option: Deathlink. If deathlink is on, death-get bugs should be excluded.
+        # Handling Option: Deathlink. If deathlink is on, death-get bugs are expected to be purchased at Wren's shop instead.
         if self.options.death_link:
             for bug in [l.soul_fish, l.soul_frog]:
                 self.multiworld.get_location(bug, self.player).access_rule = lambda state: state.can_reach(r.city, "Region", self.player)
