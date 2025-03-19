@@ -30,7 +30,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.sticky_hands: FrogmonsterLocationData(
         region=r.outskirts,
         id=BASE_ID + 1,
-        access_rule=lambda player, dif, state: can_fight_all([c.outskirts_arena_1, c.snake], player, dif, state)
+        access_rule=lambda player, dif, state: can_fight_all([c.outskirts_arena_1, c.snake], player, dif, state) or state.can_reach(r.city, "Region", player)
     ),
     l.tongue_swing: FrogmonsterLocationData(
         region=r.forest_floor,
