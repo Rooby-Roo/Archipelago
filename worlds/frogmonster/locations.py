@@ -444,17 +444,14 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.metal_ore_17: FrogmonsterLocationData(
         region=r.outskirts,
         id=BASE_ID + 94,
-        progress_type=LocationProgressType.EXCLUDED  # Purple Bosses not supported by client yet
     ),
     l.metal_ore_18: FrogmonsterLocationData(
         region=r.forest_floor,
         id=BASE_ID + 95,
-        progress_type=LocationProgressType.EXCLUDED  # Purple Bosses not supported by client yet
     ),
     l.metal_ore_19: FrogmonsterLocationData(
         region=r.old_road,
         id=BASE_ID + 96,
-        progress_type=LocationProgressType.EXCLUDED  # Purple Bosses not supported by client yet
     ),
     l.eel_trophy: FrogmonsterLocationData(
         region=r.green_sea_after,
