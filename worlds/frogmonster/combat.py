@@ -102,6 +102,9 @@ combat_data = [
     CombatType(name=c.brothers,                score_easy=X, score_normal=X, score_hard=8,  score_very_hard=X, need=[i.dash]),
     CombatType(name=c.myzand_1,                score_easy=X, score_normal=X, score_hard=10, score_very_hard=X, need=[i.dash]),
     CombatType(name=c.myzand_2,                score_easy=X, score_normal=X, score_hard=10, score_very_hard=X, need=[i.dash]),
+    CombatType(name=c.mud,                     score_easy=X, score_normal=X, score_hard=7, score_very_hard=X, need=[i.dash]),
+    CombatType(name=c.borp,                    score_easy=X, score_normal=X, score_hard=7, score_very_hard=X, need=[i.dash]),
+    CombatType(name=c.balsam,                  score_easy=X, score_normal=X, score_hard=7, score_very_hard=X, need=[i.dash]),
 ]
 
 secret_synergies = {

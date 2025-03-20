@@ -444,14 +444,17 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.metal_ore_17: FrogmonsterLocationData(
         region=r.outskirts,
         id=BASE_ID + 94,
+        access_rule=lambda player, dif, state: can_fight(c.borp, player, dif, state)
     ),
     l.metal_ore_18: FrogmonsterLocationData(
         region=r.forest_floor,
         id=BASE_ID + 95,
+        access_rule=lambda player, dif, state: can_fight_all([c.mud, c.chroma], player, dif, state)
     ),
     l.metal_ore_19: FrogmonsterLocationData(
         region=r.old_road,
         id=BASE_ID + 96,
+        access_rule=lambda player, dif, state: can_fight_all([c.valda, c.balsam], player, dif, state)
     ),
     l.eel_trophy: FrogmonsterLocationData(
         region=r.green_sea_after,
