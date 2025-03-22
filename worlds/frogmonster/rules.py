@@ -210,9 +210,9 @@ def can_fight_chroma(difficulty: Difficulty, state: CollectionState, player: int
     elif difficulty == Difficulty.NORMAL:
         return state.has_any([i.machine_gun, i.reeder, i.gatling_gun], player) and state.has(i.dash, player) and state.has_group("Spell", player, 1) and state.has_group_unique("Gun", player, 3)
     elif difficulty == Difficulty.HARD:
-        return state.has_any([i.machine_gun, i.reeder, i.gatling_gun], player) and (state.has(i.dash, player) or (health_count(state, player) >= 1 and state.has_group("Spell", player, 1)))
+        return state.has_any([i.machine_gun, i.reeder, i.gatling_gun], player) and state.has(i.dash, player) and ((health_count(state, player) >= 1 or state.has_group("Spell", player, 1)))
     elif difficulty == Difficulty.VERY_HARD:
-        return state.has_any([i.machine_gun, i.reeder, i.gatling_gun, i.dash], player)
+        return state.has_any([i.machine_gun, i.reeder, i.gatling_gun], player) and (state.has(i.dash, player) or (health_count(state, player) >= 1 and state.has_group("Spell", player, 1)))
     else:
         raise ValueError(f"Difficulty {difficulty} is not a valid type. Something is wrong with the Frogmonster world.")
     
