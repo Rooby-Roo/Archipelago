@@ -239,8 +239,8 @@ def can_burn(state: CollectionState, player: int) -> bool:
 
 def can_burn_underwater(state: CollectionState, player: int) -> bool:
     return (state.has_all([i.fireball, i.cicada], player) or
-            (state.has(i.fire_fruit_juicer, player) and state.has(i.metal_ore, player, 14)) or
-            (state.has_all([i.gatling_gun, i.gatling_gun_myzand_upgrade], player) and state.has(i.metal_ore, player, 14))
+            (state.has(i.fire_fruit_juicer, player) and can_upgrade(state, player) and state.has(i.metal_ore, player, 16)) or
+            (state.has_all([i.gatling_gun, i.gatling_gun_myzand_upgrade], player) and can_upgrade(state, player) and state.has(i.metal_ore, player, 14))
     )
     
 def can_dash(tags: list[str], dif: Difficulty, state: CollectionState, player: int) -> bool:
