@@ -34,7 +34,7 @@ class ShuffleWorkshopKey(Toggle):
     display_name = "Shuffle Workshop Key"
 
 class ShopMultiplier(Range):
-    """Decreases the total cost of items in shops by a percentage. 100 = no discount, 0 = free shops."""
+    """Decreases the total cost of items in shops by a percentage. 100 = no discount, 0 = free shops. This does not impact gun upgrade costs, or buying from Supa."""
     display_name = "Shop Multiplier"
     range_start = 0
     range_end = 100
