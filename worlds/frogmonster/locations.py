@@ -470,13 +470,13 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         id=BASE_ID + 99
     ),
     l.key_2: FrogmonsterLocationData(
-        region=r.city,
-        id=BASE_ID + 100
+        region=r.thickness,
+        id=BASE_ID + 100,
+        access_rule=lambda player, dif, state: can_fight(c.thickness_general, player, dif, state)
     ),
     l.key_3: FrogmonsterLocationData(
-        region=r.thickness,
-        id=BASE_ID + 101,
-        access_rule=lambda player, dif, state: can_fight(c.thickness_general, player, dif, state)
+        region=r.city,
+        id=BASE_ID + 101
     ),
     l.smooth_stone_1: FrogmonsterLocationData(
         region=r.lost_swamp,
