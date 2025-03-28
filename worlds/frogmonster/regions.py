@@ -72,7 +72,7 @@ r.old_road: FrogmonsterRegionData(
 ),
 r.old_wood: FrogmonsterRegionData(
     connects=[(r.thickness, lambda player, dif, state: can_fight(c.old_wood_arenas, player, dif, state)),
-              (r.well, lambda player, dif, state: can_fight(c.old_wood_arenas, player, dif, state))]
+              (r.well, lambda player, dif, state: can_fight(c.old_wood_arenas, player, dif, state) and can_burn(state, player))]
 ),
 r.thickness: FrogmonsterRegionData(
 ),
