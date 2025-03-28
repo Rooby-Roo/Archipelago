@@ -48,6 +48,15 @@ class AdvancedParkour(Toggle):
     """When enabled, the player will be expected to do more advanced or unituitive platform movement to get to some locations."""
     display_name = "Hardcore Parkour"
 
+class WellLightLogic(Choice):
+    """Chooses which items will be expected to be acquired for traversing the well. Glowbug for navigating dark passages, Fire Fruit Juicer for relighting the candle after Fire-Eaters, or both."""
+    display_name = "Well Light Logic"
+    option_none = 0
+    option_glowbug = 1
+    option_fire_fruit_juicer = 2
+    option_both = 3
+    default = 2
+
 @dataclass
 class FrogmonsterOptions(PerGameCommonOptions, DeathLinkMixin):
     start_inventory_from_pool: StartInventoryPool
@@ -56,7 +65,9 @@ class FrogmonsterOptions(PerGameCommonOptions, DeathLinkMixin):
     shuffle_puzzles: ShufflePuzzles
     i_hate_seedling: StartWithGear
     shuffle_bug_effects: ShuffleBugEffects
+#    shuffle_workshop_key: ShuffleWorkshopKey
     shop_multiplier: ShopMultiplier
     open_city: OpenCity
 #    hardcore_parkour: AdvancedParkour
+    well_light_logic: WellLightLogic
 

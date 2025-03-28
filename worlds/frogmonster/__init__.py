@@ -3,6 +3,7 @@ from functools import partial
 
 from BaseClasses import Region, LocationProgressType, Tutorial
 from worlds.AutoWorld import World, WebWorld
+from worlds.generic.Rules import add_rule
 from Utils import visualize_regions
 from .options import FrogmonsterOptions
 from .items import item_id_table, item_data_table, item_name_groups, FrogmonsterItem
@@ -27,7 +28,7 @@ class FrogmonsterWebWorld(WebWorld):
     )
 
     tutorials = [setup_en]
-    
+
 class FrogmonsterWorld(World):
     """Frogmonster."""
 
@@ -173,6 +174,15 @@ class FrogmonsterWorld(World):
         if self.options.i_hate_seedling:
             self.multiworld.get_location(l.reeder, self.player).place_locked_item(self.starter_gun)
             self.multiworld.get_location(l.fireball, self.player).place_locked_item(self.starter_spell)
+
+        # Handling Option: Well Light Logic
+        if self.options.well_light_logic == 1 or self.options.well_light_logic == 3:
+            well_access = self.multiworld.get_entrance(f'{r.old_wood} -> {r.well}', self.player)
+            add_rule(well_access, lambda state: state.has(i.glowbug, self.player))
+        if self.options.well_light_logic == 2 or self.options.well_light_logic == 3:
+            fire_eater_blocked = [l.runi_key, l.coin_chest_4, l.metal_ore_7]
+            for location in fire_eater_blocked:
+                add_rule(self.multiworld.get_location(location, self.player), lambda state: state.has(i.fire_fruit_juicer, self.player))
 
     def fill_slot_data(self) -> dict[str, Any]:
         slot_data: dict[str, Any] = {}

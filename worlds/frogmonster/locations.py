@@ -40,7 +40,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.runi_key: FrogmonsterLocationData(
         region=r.well,
         id=BASE_ID + 3,
-        access_rule=lambda player, dif, state: can_fight_all([c.well_general, c.dekula], player, dif, state)
+        access_rule=lambda player, dif, state: can_fight_all([c.well_general_lower, c.dekula], player, dif, state)
     ),
     l.glowbug: FrogmonsterLocationData(
         region=r.bug,
@@ -398,7 +398,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.metal_ore_7: FrogmonsterLocationData(
         region=r.well,
         id=BASE_ID + 84,
-        access_rule=lambda player, dif, state: can_fight(c.well_general, player, dif, state)
+        access_rule=lambda player, dif, state: can_fight(c.well_general_lower, player, dif, state)
     ),
     l.metal_ore_8: FrogmonsterLocationData(
         region=r.very_lost_swamp,
@@ -629,7 +629,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.sparkling_gem_3: FrogmonsterLocationData(
         region=r.well,
         id=BASE_ID + 134,
-        access_rule=lambda player, dif, state: can_fight(c.well_general, player, dif, state)
+        access_rule=lambda player, dif, state: can_fight(c.well_general_upper, player, dif, state)
     ),
     l.sparkling_gem_4: FrogmonsterLocationData(
         region=r.city,
@@ -736,12 +736,12 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.coin_chest_4: FrogmonsterLocationData(
         region=r.well,
         id=BASE_ID + 156,
-        access_rule=lambda player, dif, state: can_fight(c.well_general, player, dif, state)
+        access_rule=lambda player, dif, state: can_fight(c.well_general_lower, player, dif, state)
     ),
     l.coin_chest_5: FrogmonsterLocationData(
         region=r.well,
         id=BASE_ID + 157,
-        access_rule=lambda player, dif, state: can_fight(c.well_general, player, dif, state)
+        access_rule=lambda player, dif, state: can_fight(c.well_general_upper, player, dif, state)
     ),
     l.coin_chest_6: FrogmonsterLocationData(
         region=r.very_lost_swamp,
