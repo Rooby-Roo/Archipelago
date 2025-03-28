@@ -1,8 +1,8 @@
 from typing import Any, TextIO
 from functools import partial
 
-from BaseClasses import Region, LocationProgressType
-from worlds.AutoWorld import World
+from BaseClasses import Region, LocationProgressType, Tutorial
+from worlds.AutoWorld import World, WebWorld
 from Utils import visualize_regions
 from .options import FrogmonsterOptions
 from .items import item_id_table, item_data_table, item_name_groups, FrogmonsterItem
@@ -14,6 +14,20 @@ from .names import region_names as r
 from .combat import Difficulty
 from .bugs import every_bug
 
+class FrogmonsterWebWorld(WebWorld):
+    theme = "jungle"
+
+    setup_en = Tutorial(
+        tutorial_name="Start Guide",
+        description="A guide to setting up and playing the Frogmonster randomizer.",
+        language="English",
+        file_name="guide_en.md",
+        link="guide/en",
+        authors=["RoobyRoo"]
+    )
+
+    tutorials = [setup_en]
+    
 class FrogmonsterWorld(World):
     """Frogmonster."""
 
