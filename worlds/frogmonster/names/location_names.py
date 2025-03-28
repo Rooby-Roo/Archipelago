@@ -158,7 +158,7 @@ fog_garden_puzzle_2 = "Fog Garden: Right Puzzle"
 coin_chest_1 = "Lost Swamp: After Blue"
 coin_chest_2 = "Yellow Forest: Before Limbs"
 coin_chest_3 = "Thickness: Hug the Left Wall"
-coin_chest_4 = "Well: Eighth Floor"
+coin_chest_4 = "Well: Seventh Floor"
 coin_chest_5 = "Well: First Floor"
 coin_chest_6 = "Very Lost Swamp: Outskirts Entrance"
 
