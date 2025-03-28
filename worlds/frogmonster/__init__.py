@@ -40,6 +40,7 @@ class FrogmonsterWorld(World):
     origin_region_name = r.anywhere
     location_name_groups = location_name_groups
     item_name_groups = item_name_groups
+    web = FrogmonsterWebWorld()
 
     shuffled_bug_effects: dict[int, int]
     starter_gun: FrogmonsterItem
