@@ -84,7 +84,7 @@ class FrogmonsterWorld(World):
             current_region_locations = {key:val.id for key,val in location_data_table.items() if val.region == region_name}
             # Handling option: Shuffle Puzzles
             if not self.options.shuffle_puzzles:
-                pop_list = []
+                pop_list: list[str] = []
                 for location in current_region_locations.keys():
                     if "Puzzle" in location:
                         pop_list.append(location)
@@ -119,10 +119,10 @@ class FrogmonsterWorld(World):
 #        visualize_regions(self.multiworld.get_region(r.anywhere, self.player), "Regions.puml")
 
     def create_items(self) -> None:
-        item_pool = []
+        item_pool: list[FrogmonsterItem] = []
         for name, item in item_data_table.items():
             if item.id:  # excludes events
-                dont_create = []
+                dont_create: list[str] = []
                 if self.options.goal == 1:
                     dont_create.append(i.eye_fragment)
                 if self.options.i_hate_seedling:
@@ -189,7 +189,7 @@ class FrogmonsterWorld(World):
         slot_data: dict[str, Any] = {}
 
         # Handling option: Shuffle Bug-Eating Effects
-        bug_effect_array = []
+        bug_effect_array: list[int] = []
         for i in range (1, 41):
             bug_effect_array.append(self.shuffled_bug_effects[i])
         slot_data["shuffled_bug_effects"] = bug_effect_array
