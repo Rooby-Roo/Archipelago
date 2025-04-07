@@ -3,7 +3,7 @@ from typing import Dict, NamedTuple, List, Callable
 from .names import item_names as i
 from .names import region_names as r
 from .names import combat_names as c
-from .rules import can_fight, can_fight_all, can_burn
+from .rules_helpers import can_fight, can_fight_all, can_burn
 
 class FrogmonsterRegionData(NamedTuple):
     connects: List[tuple[str, Callable]] = []

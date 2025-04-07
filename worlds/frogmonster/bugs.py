@@ -4,7 +4,7 @@ from BaseClasses import CollectionState
 from .names import item_names as i
 from .names import combat_names as c
 from .names import region_names as r
-from .rules import can_fight
+from .rules_helpers import can_fight
 from .combat import Difficulty
 
 class BugType(NamedTuple):

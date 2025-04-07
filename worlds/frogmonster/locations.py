@@ -6,7 +6,7 @@ from .names import location_names as l
 from .names import region_names as r
 from .names import combat_names as c
 from .items import BASE_ID
-from .rules import can_fight, can_fight_all, can_burn, can_burn_underwater
+from .rules_helpers import can_fight, can_fight_all, can_burn, can_burn_underwater
 from .combat import Difficulty
 
 class FrogmonsterLocation(Location):
