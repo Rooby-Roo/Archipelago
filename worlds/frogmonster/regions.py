@@ -107,6 +107,7 @@ r.cicada_cove: FrogmonsterRegionData(
 ),
 r.hive: FrogmonsterRegionData(
     connects=[(r.forest_floor, lambda player, dif, state: can_fight(c.hive_general, player, dif, state)),
+              (r.treetops, lambda player, dif, state: can_fight(c.hive_general, player, dif, state) and state.has_all([i.dash, i.tongue_swing], player)),
               (r.old_road, lambda player, dif, state: can_fight(c.hive_general, player, dif, state))]
 ),
 r.runi_arena: FrogmonsterRegionData(
