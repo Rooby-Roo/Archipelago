@@ -765,7 +765,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
 }
 
 location_id_table = {name: data.id for name, data in location_data_table.items() if data.id is not None}
-post_ridge_regions = ["Ridge:", "Under Under City:", "Reef:", "Moridono's Domain:", "Quarry:", "Rootden:", "Drywood:" "Deep:", "Temple:", "Myzand's Forest:"]
+post_ridge_regions = ["Ridge:", "Under Under City:", "Reef:", "Moridono's Domain:", "Quarry:", "Rootden:", "Drywood:" "Deep:", "Temple:", "Myzand's Forest:", l.mite, l.axolotyl, l.mushroom, l.tang]
 location_name_groups = {
     "Puzzles": {
         l.yellow_forest_puzzle,
