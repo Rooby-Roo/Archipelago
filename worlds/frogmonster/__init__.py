@@ -108,8 +108,8 @@ class FrogmonsterWorld(World):
                 access_rule = partial(connection[1], self.player, self.difficulty)
                 home_region.connect(connecting_region=bug_region, rule=access_rule)
             # Create bug location on region.
-            bug_location_data = location_data_table[bug.name]
-            bug_location = {bug.name: bug_location_data.id}  # add_locations expects a dict, so we convert here
+            bug_location_data = location_data_table[f"Catch {bug.name}"]
+            bug_location = {f"Catch {bug.name}": bug_location_data.id}  # add_locations expects a dict, so we convert here
             bug_region.add_locations(bug_location, FrogmonsterLocation)
 
         # Handling option: Open City
