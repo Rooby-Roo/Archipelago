@@ -22,7 +22,7 @@ class ArzetteWorld(World):
 
     item_name_groups = {
         "magic": {"Sword Wave", "Smart Gun"},
-        "bombs": {"Bombs", "Bomb Gauntlet"},
+#        "bombs": {"Bombs", "Bomb Gauntlet"},  # This doesn't actually work since "Bombs" is in Bombs
         "blue": {"Blue Magic", "Purple Magic"},
     }
     location_name_groups = {
