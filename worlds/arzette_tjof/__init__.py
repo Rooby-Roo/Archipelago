@@ -1,6 +1,8 @@
 from worlds.AutoWorld import WebWorld, World
 from BaseClasses import Region, Location, Item, Tutorial, ItemClassification, MultiWorld
-from locations import all_locations
+
+from .locations import all_locations
+from .options import ArzetteOptions
 
 
 class ArzetteWebWorld(WebWorld):
@@ -15,6 +17,8 @@ class ArzetteLocation(Location):
 class ArzetteWorld(World):
     game: str = "Arzette: The Jewel of Faramore"
     web = ArzetteWebWorld()
+    options: ArzetteOptions
+    options_dataclass = ArzetteOptions
 
     item_name_groups = {
         "magic": {"Sword Wave", "Smart Gun"},
@@ -30,3 +34,6 @@ class ArzetteWorld(World):
         "rocks": {location for location in all_locations if "Rock" in location.split()},
         "bags": {location for location in all_locations if "Bag" in location.split()},
     }
+
+#    def create_item(self, name: str) -> ArzetteItem:
+#        return ArzetteItem(name, self)
