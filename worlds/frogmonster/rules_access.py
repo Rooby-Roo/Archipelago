@@ -11,7 +11,7 @@ parkour_rules = {
         l.sparkling_gem_1: ("replace", lambda player, dif, state: True),
         l.metal_ore_10: ("or", lambda player, dif, state: state.has_all([i.sticky_hands, i.dash, i.cricket], player))
     },
-    "regions": {
+    "entrances": {
         f"{r.hive} -> {r.treetops}": ("replace", lambda player, dif, state: can_fight(c.hive_general, player, dif, state) and state.has(i.dash, player))
     }
 } 
