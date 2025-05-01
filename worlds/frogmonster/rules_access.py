@@ -1,5 +1,5 @@
-"""Holds additional rules for alternative settings, to be iterated over."""
-from typing import Callable, TYPE_CHECKING
+"""Holds additional rules for alternative settings, to be iterated over by the parsing function contained within."""
+from typing import Callable, NamedTuple, TYPE_CHECKING
 from functools import partial
 
 from BaseClasses import CollectionState
@@ -14,35 +14,43 @@ from .names import combat_names as c
 if TYPE_CHECKING:
     from __init__ import FrogmonsterWorld
 
-def parse_access_rule_group(world: FrogmonsterWorld, group: dict[str, dict[str, tuple[str, Callable[[int, Difficulty, CollectionState], bool]]]]) -> None:
+class FMAccessData(NamedTuple):
+    op: str
+    rule: Callable[[int, Difficulty, CollectionState], bool]
+
+def parse_access_rule_group(world: FrogmonsterWorld, group: dict[str, dict[str, FMAccessData]]) -> None:
 
     for location_data in group["locations"].items():
-        location = world.multiworld.get_location(location_data[0], world.player)
-        if location_data[0] == "replace":
-            location.access_rule = partial(location_data[1][1], world.player, world.difficulty)
-        elif location_data[0] in ["or", "and"]:
-            add_rule(location, partial(location_data[1][1], world.player, world.difficulty), combine=location_data[0])
+        name = location_data[0]
+        access_data = location_data[1]
+        location = world.multiworld.get_location(name, world.player)
+        if access_data.op == "replace":
+            location.access_rule = partial(access_data.rule, world.player, world.difficulty)
+        elif access_data.op in ["or", "and"]:
+            add_rule(location, partial(access_data.rule, world.player, world.difficulty), combine=access_data.op)
         else:
-            raise ValueError(f"Invalid access rule type {location_data[0]} for location {location_data[1][0]}.")
+            raise ValueError(f"Invalid access rule type {access_data.op} for location {name}.")
         
     for entrance_data in group["entrances"].items():
-        entrance = world.multiworld.get_entrance(entrance_data[0], world.player)
-        if entrance_data[0] == "replace":
-            entrance.access_rule = partial(entrance_data[1][1], world.player, world.difficulty)
-        elif entrance_data[0] in ["or", "and"]:
-            add_rule(entrance, partial(entrance_data[1][1], world.player, world.difficulty), combine=entrance_data[0])
+        name = entrance_data[0]
+        access_data = entrance_data[1]
+        entrance = world.multiworld.get_entrance(name, world.player)
+        if access_data.op == "replace":
+            entrance.access_rule = partial(access_data.rule, world.player, world.difficulty)
+        elif access_data.op in ["or", "and"]:
+            add_rule(entrance, partial(access_data.rule, world.player, world.difficulty), combine=access_data.op)
         else:
-            raise ValueError(f"Invalid access rule type {entrance_data[0]} for entrance {entrance_data[1][0]}.")  
+            raise ValueError(f"Invalid access rule type {access_data.op} for entrance {name}.") 
 
 access_rule_groups = {
     "parkour_rules": {
         "locations": {
-            l.sparkling_gem_1: ("replace", lambda player, dif, state: True),  # There's a mushroom in the poison fields you can stand on just off to the side of the chest.
-            l.metal_ore_10: ("or", lambda player, dif, state: state.has_all([i.sticky_hands, i.dash, i.cricket], player)),  # A well-timed wavedash and cricket can bypass the tongue swing.
-            l.sparkling_gem_2: ("replace", lambda player, dif, state: True),  # There's a part of the tree that you can stand on. Jump to it from Trench's house.
+            l.sparkling_gem_1: FMAccessData(op="replace", rule=lambda player, dif, state: True),  # There's a mushroom in the poison fields you can stand on just off to the side of the chest.
+            l.metal_ore_10: FMAccessData(op="or", rule=lambda player, dif, state: state.has_all([i.sticky_hands, i.dash, i.cricket], player)),  # A well-timed wavedash and cricket can bypass the tongue swing.
+            l.sparkling_gem_2: FMAccessData(op="replace", rule=lambda player, dif, state: True),  # There's a part of the tree that you can stand on. Jump to it from Trench's house.
         },
         "entrances": {
-            f"{r.hive} -> {r.treetops}": ("or", lambda player, dif, state: can_fight(c.hive_general, player, dif, state) and state.has(i.dash, player))  # Climb on top of the hive to get height.
+            f"{r.hive} -> {r.treetops}": FMAccessData(op="or", rule=lambda player, dif, state: can_fight(c.hive_general, player, dif, state) and state.has(i.dash, player))  # Climb on top of the hive to get height.
         }
-    } 
+    },
 }
