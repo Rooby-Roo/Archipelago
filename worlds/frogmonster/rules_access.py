@@ -53,4 +53,11 @@ access_rule_groups = {
             f"{r.hive} -> {r.treetops}": FMAccessData(op="or", rule=lambda player, dif, state: can_fight(c.hive_general, player, dif, state) and state.has(i.dash, player))  # Climb on top of the hive to get height.
         }
     },
+    "deathlink_rules": {
+        "locations": {},
+        "entrances": {
+            f"{r.anywhere} -> Soul Frog": FMAccessData(op="replace", rule=lambda player, dif, state: False),
+            f"{r.anywhere} -> Soul Fish": FMAccessData(op="replace", rule=lambda player, dif, state: False),
+        }
+    }
 }

@@ -29,7 +29,7 @@ every_bug = [  # Regions values are noncomprehensive. Regions are excluded if th
     BugType(name=i.mushfrog,       bug_id=11, slot_cost=1, regions=[(r.marvins, nothing), (r.treetops, nothing)]),
     BugType(name=i.beet,           bug_id=12, slot_cost=3, regions=[(r.outskirts, nothing)]),
     BugType(name=i.skater,         bug_id=13, slot_cost=2, regions=[(r.very_lost_swamp, nothing), (r.forest_floor, nothing)]),
-    BugType(name=i.soul_frog,      bug_id=14, slot_cost=1, regions=[(r.anywhere, nothing)]),
+    BugType(name=i.soul_frog,      bug_id=14, slot_cost=1, regions=[(r.anywhere, nothing), (r.city, nothing)]),
     BugType(name=i.river_fish,     bug_id=15, slot_cost=1, regions=[(r.yellow_forest, nothing)]),
     BugType(name=i.bird,           bug_id=16, slot_cost=1, regions=[(r.yellow_forest, nothing)]),
     BugType(name=i.leafbug,        bug_id=17, slot_cost=3, regions=[(r.yellow_forest, nothing)]),
@@ -45,7 +45,7 @@ every_bug = [  # Regions values are noncomprehensive. Regions are excluded if th
     BugType(name=i.moth,           bug_id=27, slot_cost=2, regions=[(r.old_road, nothing)]),
     BugType(name=i.ammofly,        bug_id=28, slot_cost=2, regions=[(r.treetops, lambda player, dif, state: can_fight(c.treetops_arena_1, player, dif, state)), (r.old_wood, nothing)]),  # after arena 1, before big door
     BugType(name=i.pecker,         bug_id=29, slot_cost=3, regions=[(r.thickness, nothing), (r.moridonos, nothing)]),  # verify these
-    BugType(name=i.soul_fish,      bug_id=30, slot_cost=1, regions=[(r.anywhere, nothing)]),  # Death possible in water in Lost Swamp, so anywhere.
+    BugType(name=i.soul_fish,      bug_id=30, slot_cost=1, regions=[(r.anywhere, nothing), (r.city, nothing)]),  # Death possible in water in Lost Swamp, so anywhere.
     BugType(name=i.fog_fly,        bug_id=31, slot_cost=3, regions=[(r.fog_garden, nothing), (r.temple, lambda player, dif, state: can_fight(c.temple_general, player, dif, state))]),
     BugType(name=i.cicada,         bug_id=32, slot_cost=2, regions=[(r.cicada_cove, nothing)]),
     BugType(name=i.mantis,         bug_id=33, slot_cost=2, regions=[(r.forest_floor, nothing)]),

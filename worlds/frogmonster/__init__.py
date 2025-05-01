@@ -167,11 +167,6 @@ class FrogmonsterWorld(World):
             if location[1].progress_type != LocationProgressType.DEFAULT:
                 self.multiworld.get_location(location[0], self.player).progress_type = location[1].progress_type
 
-        # Handling Option: Deathlink. If deathlink is on, death-get bugs are expected to be purchased at Wren's shop instead.
-        if self.options.death_link:
-            for bug in [l.soul_fish, l.soul_frog]:
-                self.multiworld.get_location(bug, self.player).access_rule = lambda state: state.can_reach(r.city, "Region", self.player)
-
         # Handling Option: Start with Gear
         if self.options.i_hate_seedling:
             self.multiworld.get_location(l.reeder, self.player).place_locked_item(self.starter_gun)
@@ -189,6 +184,10 @@ class FrogmonsterWorld(World):
         # Handling Option: Hardcore Parkour
         if self.options.hardcore_parkour:
             parse_access_rule_group(self, access_rule_groups["parkour_rules"])
+            
+        # Handling Option: Deathlink. If deathlink is on, death-get bugs are expected to be purchased at Wren's shop instead.
+        if self.options.death_link:
+            parse_access_rule_group(self, access_rule_groups["deathlink_rules"])
 
     def fill_slot_data(self) -> dict[str, Any]:
         slot_data: dict[str, Any] = {}
