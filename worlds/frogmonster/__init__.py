@@ -7,13 +7,14 @@ from worlds.generic.Rules import add_rule
 from Utils import visualize_regions
 from .options import FrogmonsterOptions
 from .items import item_id_table, item_data_table, item_name_groups, FrogmonsterItem
-from .locations import location_id_table, location_data_table, location_name_groups, FrogmonsterLocation, FrogmonsterLocationData
+from .locations import location_id_table, location_data_table, location_name_groups, FrogmonsterLocation
 from .regions import region_data_table
 from .names import item_names as i
 from .names import location_names as l
 from .names import region_names as r
 from .combat import Difficulty
 from .bugs import every_bug
+from .rules_access import parse_access_rule_group
 
 class FrogmonsterWebWorld(WebWorld):
     theme = "jungle"
@@ -184,6 +185,10 @@ class FrogmonsterWorld(World):
             fire_eater_blocked = [l.runi_key, l.coin_chest_4, l.metal_ore_7]
             for location in fire_eater_blocked:
                 add_rule(self.multiworld.get_location(location, self.player), lambda state: state.has(i.fire_fruit_juicer, self.player))
+
+        # Handling Option: Hardcore Parkour
+        if self.options.hardcore_parkour:
+            parse_acces
 
     def fill_slot_data(self) -> dict[str, Any]:
         slot_data: dict[str, Any] = {}

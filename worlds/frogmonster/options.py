@@ -68,6 +68,6 @@ class FrogmonsterOptions(PerGameCommonOptions, DeathLinkMixin):
 #    shuffle_workshop_key: ShuffleWorkshopKey
     shop_multiplier: ShopMultiplier
     open_city: OpenCity
-#    hardcore_parkour: AdvancedParkour
+    hardcore_parkour: AdvancedParkour
     well_light_logic: WellLightLogic
 

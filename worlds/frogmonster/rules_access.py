@@ -1,10 +1,38 @@
 """Holds additional rules for alternative settings, to be iterated over."""
+from typing import Callable, TYPE_CHECKING
+from functools import partial
 
+from BaseClasses import CollectionState
+from worlds.generic.Rules import add_rule
+from .combat import Difficulty
 from .rules_helpers import can_fight
 from .names import item_names as i
 from .names import location_names as l
 from .names import region_names as r
 from .names import combat_names as c
+
+if TYPE_CHECKING:
+    from __init__ import FrogmonsterWorld
+
+def parse_access_rule_group(world: FrogmonsterWorld, group: dict[str, dict[str, tuple[str, Callable[[int, Difficulty, CollectionState], bool]]]]) -> None:
+
+    for location_data in group["locations"].items():
+        location = world.multiworld.get_location(location_data[0], world.player)
+        if location_data[0] == "replace":
+            location.access_rule = partial(location_data[1][1], world.player, world.difficulty)
+        elif location_data[0] in ["or", "and"]:
+            add_rule(location, partial(location_data[1][1], world.player, world.difficulty), combine=location_data[0])
+        else:
+            raise ValueError(f"Invalid access rule type {location_data[0]} for location {location_data[1][0]}.")
+        
+    for entrance_data in group["entrances"].items():
+        entrance = world.multiworld.get_entrance(entrance_data[0], world.player)
+        if entrance_data[0] == "replace":
+            entrance.access_rule = partial(entrance_data[1][1], world.player, world.difficulty)
+        elif entrance_data[0] in ["or", "and"]:
+            add_rule(entrance, partial(entrance_data[1][1], world.player, world.difficulty), combine=entrance_data[0])
+        else:
+            raise ValueError(f"Invalid access rule type {entrance_data[0]} for entrance {entrance_data[1][0]}.")  
 
 parkour_rules = {
     "locations": {
