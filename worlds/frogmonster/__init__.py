@@ -14,7 +14,7 @@ from .names import location_names as l
 from .names import region_names as r
 from .combat import Difficulty
 from .bugs import every_bug
-from .rules_access import parse_access_rule_group
+from .rules_access import parse_access_rule_group, access_rule_groups
 
 class FrogmonsterWebWorld(WebWorld):
     theme = "jungle"
@@ -188,7 +188,7 @@ class FrogmonsterWorld(World):
 
         # Handling Option: Hardcore Parkour
         if self.options.hardcore_parkour:
-            parse_acces
+            parse_access_rule_group(self, access_rule_groups["parkour_rules"])
 
     def fill_slot_data(self) -> dict[str, Any]:
         slot_data: dict[str, Any] = {}
