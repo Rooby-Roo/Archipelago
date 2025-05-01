@@ -18,7 +18,7 @@ class FMAccessData(NamedTuple):
     op: str
     rule: Callable[[int, Difficulty, CollectionState], bool]
 
-def parse_access_rule_group(world: FrogmonsterWorld, group: dict[str, dict[str, FMAccessData]]) -> None:
+def parse_access_rule_group(world: "FrogmonsterWorld", group: dict[str, dict[str, FMAccessData]]) -> None:
 
     for location_data in group["locations"].items():
         name = location_data[0]
