@@ -1,6 +1,6 @@
-# Another Crab's Treasure
+# R.E.P.O.
 
-## What does the randomizer do to Another Crab's Treasure?
+## What does the randomizer do to R.E.P.O.?
 
 Currently, just about every item in the game is randomized.
 Including:
