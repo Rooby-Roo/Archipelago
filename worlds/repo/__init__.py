@@ -154,9 +154,6 @@ class REPOWorld(World):
             region = self.multiworld.get_region(region_name, self.player)
             region.add_exits(exits)
 
-        #regions_to_exclude = []
-            # player can complete the game if they can reach the final region
-
         for location_name, location_id in location_name_to_id.items():
             if location_id is not None:
 
@@ -175,6 +172,9 @@ class REPOWorld(World):
                 if (location_table[location_name].location_group == "Shop Upgrade Purchase" and location_table[location_name].location_id_offset > self.options.shop_upgrade_logical):
                     print(f"Excluding {location_name}")
                     location.progress_type == LocationProgressType.EXCLUDED
+                elif(location_table[location_name].location_group == "Shop Upgrade Purchase"and location_table[location_name].location_id_offset % 20 == 0):
+                    print(f"Making {location} Priority")
+                    location.progress_type == LocationProgressType.PRIORITY
                 region.locations.append(location)
 
         # for i in range(len(shell_items)):
@@ -188,7 +188,6 @@ class REPOWorld(World):
         set_region_rules(self)
         set_location_rules(self)
     
-    # shell slotdata stuff almost certainly isn't going to work properly like this
 
     def fill_slot_data(self) -> Dict[str, Any]:
         #Sleep for if im trying to read the output log
@@ -199,8 +198,8 @@ class REPOWorld(World):
             "pellys_required": set(self.options.pellys_required),
             "pelly_spawning": bool(self.options.pelly_spawning.value),
             "upgrade_locations": int(self.options.shop_upgrade_total.value),
-            "shop_stock" : int(self.options.shop_stock.value)
+            "shop_stock" : int(self.options.shop_stock.value),
+            "valuable_hunt": bool(self.options.valuable_hunt.value),
+            "monster_hunt": bool(self.options.monster_hunt.value)
         }
-
-        #time.sleep(3)
         return slot_data

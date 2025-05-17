@@ -46,52 +46,73 @@ def set_location_rules(world: "REPOWorld") -> None:
     player = world.player
     options = world.options
 
+    pellys = (pelly for pelly in location_table if location_table[pelly].location_group.__contains__("Pelly"))
+    valuables = (val for val in location_table if location_table[val].location_group.__contains__("Valuable"))
+    monster_souls = (soul for soul in location_table if location_table[soul].location_group.__contains__("Soul"))
     #Set Completion Condition to Victory Event
     multiworld.completion_condition[player] = lambda state: state.has("Victory", player)
 
     #Set Logic for Victory Location
-    #if options.goal == "pelly_hunt":
-        #Player Should have access to all levels
     add_rule(multiworld.get_location("Victory",player),
         lambda state: state.has_all({iname.headman_lvl,iname.mcjannek_lvl,iname.swiftbroom_lvl},player))
     
+    # ---- Pelly Logic ----
     #Player Should be able to reach all Pellys
-    for pelly in pelly_list:
-        #Rules for Pelly by Location
+    for pelly in pellys:
         if (options.pelly_spawning == True or any(map(pelly.__contains__,options.pellys_required))):
+
+            #Victory for spawned pellys
+            add_rule(multiworld.get_location("Victory",player), lambda state, pell=pelly: state.can_reach_location(pell, player))
+            
+            #Rules for Pelly by Location
             if (pelly.__contains__("Swiftbroom Academy")):
                 print("SBA Pelly Added")
                 set_rule(multiworld.get_location(pelly,player),
-                    lambda state: state.can_reach(multiworld.get_region(rname.swiftbroom,player),player))
+                    lambda state: state.can_reach(multiworld.get_region(rname.swiftbroom,player),player=player))
             if (pelly.__contains__("Headman Manor")):
                 print("HM Pelly added")
                 set_rule(multiworld.get_location(pelly,player),
-                    lambda state: state.can_reach(multiworld.get_region(rname.headman,player),player))
+                    lambda state: state.can_reach(multiworld.get_region(rname.headman,player),player=player))
             if (pelly.__contains__("McJannek Station")):
                 print("McJ Pelly added")
                 set_rule(multiworld.get_location(pelly,player),
-                    lambda state: state.can_reach(multiworld.get_region(rname.mcjannek,player),player))
+                    lambda state: state.can_reach(multiworld.get_region(rname.mcjannek,player),player=player))
             
             #Rules for Pelly by Type
             if pelly.__contains__("Gold"):
-                set_rule(multiworld.get_location(pelly,player),
-                    lambda state: state.has(iname.strength_up,player,3))
+                add_rule(multiworld.get_location(pelly,player),
+                    lambda state: state.has(iname.strength_up,player,3))    
+    
+    # ---- Valuable Logic ----
+    for valuable in valuables:        
+        #Victory if valuable hunt is enabled
+        if options.valuable_hunt:
+            add_rule(multiworld.get_location("Victory",player), lambda state, val=valuable: state.can_reach_location(val,player))
 
-        #Rules for Victory
-        if (options.pelly_spawning == False and any(map(pelly.__contains__,options.pellys_required))):
-            print(f"adding {pelly} rule to list")
-            add_rule(multiworld.get_location("Victory",player),
-                lambda state: state.can_reach(multiworld.get_location(pelly,player)))
-        elif(options.pelly_spawning == True):
-            print(f"adding {pelly} rule to list")
-            add_rule(multiworld.get_location("Victory",player),
-                lambda state: state.can_reach(multiworld.get_location(pelly,player)))
+        #Valuable rules based on weight
+        weight = location_table[valuable].location_group
+        if weight.__contains__("VeryHeavy"):
+            add_rule(multiworld.get_location(valuable,player), lambda state: state.has(iname.strength_up,player,4))
+        elif weight.__contains__("Heavy++"):
+            add_rule(multiworld.get_location(valuable,player), lambda state: state.has(iname.strength_up,player,3))
+        elif weight.__contains__("Heavy+"):
+            add_rule(multiworld.get_location(valuable,player), lambda state: state.has(iname.strength_up,player,3))
+        elif weight.__contains__("Heavy"):
+            add_rule(multiworld.get_location(valuable,player), lambda state: state.has(iname.strength_up,player,2))
+        elif weight.__contains__("Medium+++"):
+            add_rule(multiworld.get_location(valuable,player), lambda state: state.has(iname.strength_up,player,2))
+        elif weight.__contains__("Medium++"):
+            add_rule(multiworld.get_location(valuable,player), lambda state: state.has(iname.strength_up,player,1))
+        elif weight.__contains__("Medium+"):
+            add_rule(multiworld.get_location(valuable,player), lambda state: state.has(iname.strength_up,player,1))
         
-    # elif options.goal == "level_quota":
-    #     set_rule(multiworld.get_location("Victory",player),
-    #         lambda state: state.has(iname.strength_up,player,3))
-        
+    # ---- Monter Soul Logic ----
+    for soul in monster_souls:        
+        #Victory if monster hunt is enabled
+        if options.monster_hunt:
+            add_rule(multiworld.get_location("Victory",player), lambda state, s=soul: state.can_reach_location(s,player))    
 
+    # ---- Shop Logic ----
     for loc_name in location_table:
         print(f"Shop Upgrade total: {int(options.shop_upgrade_total.value)}\n Location id: {location_table[loc_name].location_id_offset}")
         if location_table[loc_name].location_id_offset != None and location_table[loc_name].location_id_offset > int(options.shop_upgrade_total.value):

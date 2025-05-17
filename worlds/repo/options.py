@@ -34,6 +34,14 @@ class LevelQuota(Range):
     range_end = 20
     default = 8
 
+class ValuableHunt(Toggle):
+    """Determines if extracting all valuables is required for your goal."""
+    display_name: str = "Valuable Hunt"
+
+class MonsterHunt(Toggle):
+    """Determines if extracting all monster souls is required for your goal."""
+    display_name : str = "Monster Hunt"
+
 class ShopPackCount(Range):
     """Choose how many Archipelago Shop Items are unlocked with each Progressive Shop Stock."""
     display_name: str = "Progressive Shop Stock Amount"
@@ -87,6 +95,8 @@ class REPOGameOptions(PerGameCommonOptions):
     pellys_required: PellyHunt
     pelly_spawning : PellySpawning
     level_quota: LevelQuota 
+    valuable_hunt: ValuableHunt
+    monster_hunt: MonsterHunt
     shop_stock: ShopPackCount
     shop_upgrade_total: ShopUpgradeLocationsTotal
     shop_upgrade_logical: ShopUpgradeLocationsInLogic
