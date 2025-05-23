@@ -50,7 +50,8 @@ access_rule_groups = {
             l.sparkling_gem_2: FMAccessData(op="replace", rule=lambda player, dif, state: True),  # There's a part of the tree that you can stand on. Jump to it from Trench's house.
         },
         "entrances": {
-            f"{r.hive} -> {r.treetops}": FMAccessData(op="or", rule=lambda player, dif, state: can_fight(c.hive_general, player, dif, state) and state.has(i.dash, player))  # Climb on top of the hive to get height.
+            f"{r.hive} -> {r.treetops}": FMAccessData(op="or", rule=lambda player, dif, state: can_fight(c.hive_general, player, dif, state) and state.has(i.dash, player)),  # Climb on top of the hive to get height.
+            f"{r.forest_floor} -> {r.treetops}": FMAccessData(op="or", rule=lambda player, dif, state: can_fight(c.forest_floor_general, player, dif, state) and state.has(i.mushbomb, player))  # Rocket jump to the top of the tree.
         }
     },
     "deathlink_rules": {
