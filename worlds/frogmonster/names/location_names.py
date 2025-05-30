@@ -163,5 +163,5 @@ coin_chest_5 = "Well: First Floor"
 coin_chest_6 = "Very Lost Swamp: Near Fishanny"
 
 goal = "Goal"
-workshop_access = "Can Use Workshop"
-orchus_key = "Key from Bins after Runi Fight"
+workshop_access = "Bins' Workshop: Gift from Bins"
+orchus_key = "Ridge: Gift from Bins"

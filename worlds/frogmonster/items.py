@@ -764,9 +764,11 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
         type=ItemClassification.progression
     ),
     i.workshop_key: FrogmonsterItemData(
+        id=BASE_ID + 100,
         type=ItemClassification.progression
     ),
     i.orchus_key: FrogmonsterItemData(
+        id=BASE_ID + 101,
         type=ItemClassification.progression
     ),
 

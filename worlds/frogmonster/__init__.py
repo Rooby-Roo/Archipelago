@@ -159,8 +159,8 @@ class FrogmonsterWorld(World):
             self.multiworld.get_location(l.goal, self.player).access_rule = lambda state: state.can_reach(l.eye_fragment, "Location", self.player)
 
         # Set events.
-        self.multiworld.get_location(l.workshop_access, self.player).place_locked_item(self.create_event(i.workshop_key))
-        self.multiworld.get_location(l.orchus_key, self.player).place_locked_item(self.create_event(i.orchus_key))
+        #self.multiworld.get_location(l.workshop_access, self.player).place_locked_item(self.create_event(i.workshop_key))
+        #self.multiworld.get_location(l.orchus_key, self.player).place_locked_item(self.create_event(i.orchus_key))
 
         # Exclude or prioritize locations according to locations.py. This will be overwritten by any YAML declarations.
         for location in location_data_table.items():

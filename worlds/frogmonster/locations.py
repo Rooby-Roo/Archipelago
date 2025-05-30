@@ -756,10 +756,12 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     ),
     l.workshop_access: FrogmonsterLocationData(
         region=r.workshop,
+        id=BASE_ID + 159,
         access_rule=lambda player, dif, state: state.can_reach(l.mana_5, "Location", player)
     ),
     l.orchus_key: FrogmonsterLocationData(
         region=r.runi_arena,
+        id=BASE_ID + 160,
         access_rule=lambda player, dif, state: can_fight(c.runi, player, dif, state)
     )
 }
