@@ -78,11 +78,10 @@ location_table: Dict[str, REPOLocationData] = {
     lname.small_vase: REPOLocationData(rname.menu,215,"Light Valuable"),
     lname.champagne: REPOLocationData(rname.menu,216,"Medium Valuable"),
     lname.clown_doll: REPOLocationData(rname.menu,217,"Medium+ Valuable"),
-    lname.radio: REPOLocationData(rname.menu,218,"Medium++ Valuable"),
-    lname.ship_in_a_bottle: REPOLocationData(rname.menu,219,"Medium Valuable"),
+
     lname.trophy: REPOLocationData(rname.menu,220,"Medium Valuable"),
     lname.vase: REPOLocationData(rname.menu,221,"Medium Valuable"),
-    lname.tv: REPOLocationData(rname.menu,222,"Heavy Valuable"),
+
     lname.large_vase: REPOLocationData(rname.menu,223,"Heavy Valuable"),
     lname.animal_crate: REPOLocationData(rname.menu,224,"Heavy Valuable"),
     lname.bonsai: REPOLocationData(rname.menu,225,"Medium Valuable"),
@@ -98,6 +97,9 @@ location_table: Dict[str, REPOLocationData] = {
     lname.grandfather_clock: REPOLocationData(rname.headman,233,"Heavy+ Valuable"),
     lname.dinosaur_skeleton: REPOLocationData(rname.headman,234,"Heavy Valuable"),
     lname.golden_statue: REPOLocationData(rname.headman,235,"Heavy Valuable"),
+    lname.tv: REPOLocationData(rname.headman,222,"Heavy Valuable"),
+    lname.radio: REPOLocationData(rname.headman,218,"Medium++ Valuable"),
+    lname.ship_in_a_bottle: REPOLocationData(rname.headman,219,"Medium Valuable"),
 
     # -- McJannek Station --
     lname.desktop_computer: REPOLocationData(rname.mcjannek,236,"Medium+ Valuable"),
