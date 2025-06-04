@@ -24,6 +24,7 @@ item_table: Dict[str, REPOItemData] = {
     iname.swiftbroom_lvl: REPOItemData(ItemClassification.progression,1,0,"Level"),
     iname.headman_lvl: REPOItemData(ItemClassification.progression,1,1,"Level"),
     iname.mcjannek_lvl: REPOItemData(ItemClassification.progression,1,2,"Level"),
+    iname.museum_lvl: REPOItemData(ItemClassification.progression,1,3,"Level"),
 
     # ---- UPGRADES ----
     iname.health_up: REPOItemData(ItemClassification.filler,1,10,"Upgrades"),
@@ -34,9 +35,11 @@ item_table: Dict[str, REPOItemData] = {
     iname.player_count_up: REPOItemData(ItemClassification.filler,1,15,"Upgrades"),
     iname.double_jump_up: REPOItemData(ItemClassification.filler,1,16,"Upgrades"),
     iname.tumble_up: REPOItemData(ItemClassification.filler,1,17,"Upgrades"),
+    iname.crouch_rest: REPOItemData(ItemClassification.filler,1,18,"Upgrades"),
+    iname.tumble_wings: REPOItemData(ItemClassification.filler,1,19,"Upgrades"),
 
     # ---- AP Function Items ----
-    iname.shop_stock: REPOItemData(ItemClassification.progression,0,18,"Progressive Shop"),
+    iname.shop_stock: REPOItemData(ItemClassification.progression,0,20,"Progressive Shop"),
 
     # ---- Event Items ----
     "Victory": REPOItemData(ItemClassification.progression,0,None,"Event"),

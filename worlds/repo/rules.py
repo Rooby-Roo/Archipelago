@@ -39,7 +39,8 @@ lambda state: state.has(iname.mcjannek_lvl, player)
     multiworld.get_entrance(f"{rname.menu} -> {rname.swiftbroom}", player).access_rule = \
 lambda state: state.has(iname.swiftbroom_lvl, player)
     
-    
+    multiworld.get_entrance(f"{rname.menu} -> {rname.museum}", player).access_rule = \
+lambda state: state.has(iname.museum_lvl, player)  
 
 def set_location_rules(world: "REPOWorld") -> None:
     multiworld = world.multiworld
@@ -77,7 +78,10 @@ def set_location_rules(world: "REPOWorld") -> None:
                 print("McJ Pelly added")
                 set_rule(multiworld.get_location(pelly,player),
                     lambda state: state.can_reach(multiworld.get_region(rname.mcjannek,player),player=player))
-            
+            if (pelly.__contains__("Museum of Human Art")):
+                print("Museum Pelly added")
+                set_rule(multiworld.get_location(pelly,player),
+                    lambda state: state.can_reach(multiworld.get_region(rname.museum,player),player=player)) 
             #Rules for Pelly by Type
             if pelly.__contains__("Gold"):
                 add_rule(multiworld.get_location(pelly,player),
