@@ -71,6 +71,7 @@ class StartingLevelType(TextChoice):
     option_swiftbroom_academy = 0
     option_headman_manor = 1
     option_mcjannek_station = 2
+    option_museum_of_human_art = 3
     default = "random"
 
 class UpgradeItemWeights(OptionDict):
@@ -84,7 +85,9 @@ class UpgradeItemWeights(OptionDict):
         iname.stamina_up : 5, 
         iname.player_count_up : 1, 
         iname.double_jump_up : 2, 
-        iname.tumble_up : 2
+        iname.tumble_up : 2,
+        iname.tumble_wings : 2,
+        iname.crouch_rest : 2
     }
     
 

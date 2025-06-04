@@ -7,13 +7,14 @@ REPO_regions: Dict[str, Set[str]] = {
         rname.shop,
         rname.headman,
         rname.mcjannek,
-        rname.swiftbroom
+        rname.swiftbroom,
+        rname.museum
     },
     rname.shop: set(),
     rname.headman: set(),
     rname.mcjannek: set(),
-    rname.swiftbroom: set()
+    rname.swiftbroom: set(),
+    rname.museum: set()
 
-   
 }
 

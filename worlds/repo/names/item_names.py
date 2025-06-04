@@ -10,11 +10,14 @@ stamina_up = "Stamina Upgrade"
 player_count_up = "Map Player Count Upgrade"
 double_jump_up = "Double Jump Upgrade"
 tumble_up = "Tumble Launch Upgrade"
+tumble_wings = "Tumble Wings Upgrade"
+crouch_rest = "Crouch Rest Upgrade"
 
 # ---- Level Type Items ----
 swiftbroom_lvl = "Swiftbroom Academy Level"
 headman_lvl = "Headman Manor Level"
 mcjannek_lvl = "McJannek Station Level"
+museum_lvl = "Museum of Human Art Level"
 
 # ---- AP Function Items ----
 shop_stock = "Progressive Shop Stock"

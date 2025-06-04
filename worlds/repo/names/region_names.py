@@ -8,3 +8,4 @@ shop = "Service Station" #Where players buy items and upgrades between levels
 mcjannek = "McJannek Station"
 headman = "Headman Manor"
 swiftbroom = "Swiftbroom Academy"
+museum = "Museum of Human Art"
