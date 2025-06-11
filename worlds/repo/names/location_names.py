@@ -109,6 +109,11 @@ handface = "Handface Valuable"
 gem_burger = "Gem Burger Valuable"
 wire_figure = "Wire Figure Valuable"
 rubendoll = "Rubendoll Valuable"
+duck_man = "Duck Man Valuable"
+cocktail = "Cocktail Valuable"
+cube_ball = "Cube Ball Valuable"
+ladybug = "Ladybug Valuable"
+cubic_sculpture = "Cubic Sculpture Valuable"
 
 # ---- Monsters ----
 animal_soul = "Animal Soul" 
