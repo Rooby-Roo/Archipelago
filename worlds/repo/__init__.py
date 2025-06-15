@@ -71,17 +71,21 @@ class REPOWorld(World):
 
         # ---- YAML Options ----
         # -- Starting Level --
-        if self.options.starting_level_type == "swiftbroom_academy":
+        if self.options.starting_level_type == self.options.starting_level_type.option_swiftbroom_academy:
             self.multiworld.push_precollected(self.create_item(iname.swiftbroom_lvl))
             items_to_create[iname.swiftbroom_lvl] = 0
 
-        if self.options.starting_level_type == "mcjannek_station":
+        if self.options.starting_level_type == self.options.starting_level_type.option_mcjannek_station:
             self.multiworld.push_precollected(self.create_item(iname.mcjannek_lvl))
             items_to_create[iname.mcjannek_lvl] = 0
 
-        if self.options.starting_level_type == "headman_manor":
+        if self.options.starting_level_type == self.options.starting_level_type.option_headman_manor:
             self.multiworld.push_precollected(self.create_item(iname.headman_lvl))
             items_to_create[iname.headman_lvl] = 0
+
+        if self.options.starting_level_type == self.options.starting_level_type.option_museum_of_human_art:
+            self.multiworld.push_precollected(self.create_item(iname.museum_lvl))
+            items_to_create[iname.museum_lvl] = 0
         # -- Shop Stock --
         items_to_create[iname.shop_stock] = math.ceil((self.options.shop_upgrade_total / self.options.shop_stock) - 1)
 
