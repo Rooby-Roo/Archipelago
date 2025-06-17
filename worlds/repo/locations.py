@@ -171,6 +171,13 @@ location_table: Dict[str, REPOLocationData] = {
     lname.cube_ball:       REPOLocationData(rname.museum,(v:=v+1),"Light+ Valuable"),
     lname.ladybug:         REPOLocationData(rname.museum,(v:=v+1),"Medium++ Valuable"),
     lname.cubic_sculpture: REPOLocationData(rname.museum,(v:=v+1),"Medium+++ Valuable"),
+    lname.pimpleguy:       REPOLocationData(rname.museum,(v:=v+1),"Medium Valuable"),
+    lname.plane:           REPOLocationData(rname.museum,(v:=v+1),"Light Valuable"),
+    lname.teeth_bot:       REPOLocationData(rname.museum,(v:=v+1),"Medium+ Valuable"),
+    lname.worm:            REPOLocationData(rname.museum,(v:=v+1),"Heavy+ Valuable"),
+    lname.vinyl:           REPOLocationData(rname.museum,(v:=v+1),"Heavy++ Valuable"),
+    lname.tray:            REPOLocationData(rname.museum,(v:=v+1),"Heavy Valuable"),
+    lname.tall_guy:        REPOLocationData(rname.museum,(v:=v+1),"Heavy+ Valuable"),
 
     # ---- Enemy Souls ----
     lname.animal_soul       : REPOLocationData(rname.menu,e,       "Monster Soul"),
