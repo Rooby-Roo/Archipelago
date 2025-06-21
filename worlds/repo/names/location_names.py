@@ -114,6 +114,13 @@ cocktail = "Cocktail Valuable"
 cube_ball = "Cube Ball Valuable"
 ladybug = "Ladybug Valuable"
 cubic_sculpture = "Cubic Sculpture Valuable"
+pimpleguy = "PimpleGuy Valuable"
+plane = "Plane Valuable"
+teeth_bot = "Teeth Bot Valuable"
+worm = "Worm Valuable"
+vinyl = "Vinyl Valuable"
+tray = "Tray Valuable"
+tall_guy = "Tall Guy Valuable"
 
 # ---- Monsters ----
 animal_soul = "Animal Soul" 
