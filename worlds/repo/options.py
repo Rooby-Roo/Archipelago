@@ -42,6 +42,17 @@ class MonsterHunt(Toggle):
     """Determines if extracting all monster souls is required for your goal."""
     display_name : str = "Monster Hunt"
 
+class CombatLogic(Choice):
+    """Determines what items are logically required to fight monsters.
+    Easy: Guns or Explosives
+    Medium: Strength Upgrades, Melee Weapons, Guns, or Explosives
+    Hard: Nothing. Player may have to use valuables found in levels."""
+    display_name: str = "Combat Logic"
+    option_easy = 0
+    option_medium = 1
+    option_hard = 2
+    default = 1
+
 class ShopPackCount(Range):
     """Choose how many Archipelago Shop Items are unlocked with each Progressive Shop Stock."""
     display_name: str = "Progressive Shop Stock Amount"
@@ -100,6 +111,7 @@ class REPOGameOptions(PerGameCommonOptions):
     level_quota: LevelQuota 
     valuable_hunt: ValuableHunt
     monster_hunt: MonsterHunt
+    combat_logic: CombatLogic
     shop_stock: ShopPackCount
     shop_upgrade_total: ShopUpgradeLocationsTotal
     shop_upgrade_logical: ShopUpgradeLocationsInLogic

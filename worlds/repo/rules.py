@@ -111,10 +111,21 @@ def set_location_rules(world: "REPOWorld") -> None:
             add_rule(multiworld.get_location(valuable,player), lambda state: state.has(iname.strength_up,player,1))
         
     # ---- Monter Soul Logic ----
+    easy_combat_items = {iname.grenade,iname.human_grenade,iname.duct_taped_grenade,iname.explosive_mine,iname.shotgun,iname.gun,iname.pulse_pistol,iname.photon_blaster,iname.cart_cannon,iname.cart_laser}
+    medium_combat_items = {iname.baseball_bat,iname.frying_pan,iname.sledge_hammer,iname.sword}
+
+    
+
     for soul in monster_souls:        
         #Victory if monster hunt is enabled
         if options.monster_hunt:
-            add_rule(multiworld.get_location("Victory",player), lambda state, s=soul: state.can_reach_location(s,player))    
+            add_rule(multiworld.get_location("Victory",player), lambda state, s=soul: state.can_reach_location(s,player))   
+
+        if options.combat_logic.value == options.combat_logic.option_easy:
+            add_rule(multiworld.get_location(soul,player), lambda state: state.has_any(easy_combat_items,player))
+
+        elif options.combat_logic.value == options.combat_logic.option_medium:
+            add_rule(multiworld.get_location(soul,player), lambda state: (state.has_any(medium_combat_items.union(easy_combat_items),player)) or state.has(iname.strength_up,player,13))
 
     # ---- Shop Logic ----
     for loc_name in location_table:
