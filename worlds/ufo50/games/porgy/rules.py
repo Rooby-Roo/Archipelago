@@ -380,8 +380,9 @@ def create_rules(world: "UFO50World", regions: Dict[str, Region]) -> None:
                  # drill only: 5/10
                  rule=lambda state:
                  state.has(drill, player)
-                 and has_fuel_and_slots(5, loc, 1, state, world)
-                 or (state.has_any((buster, depth_charge), player) and has_fuel_and_slots(4, loc, 2, state, world)))
+                 and (has_fuel_and_slots(5, loc, 1, state, world)
+                      or (state.has_any((buster, depth_charge), player)
+                          and has_fuel_and_slots(4, loc, 2, state, world))))
 
         loc = "Abyss Upper Mid - Egg on Seaweed"
         add_rule(get_porgy_location(loc, world),
