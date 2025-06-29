@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from Options import (StartInventoryPool, Range, OptionSet, PerGameCommonOptions, OptionGroup, Choice, Toggle,
-                     DefaultOnToggle)
+                     DefaultOnToggle, Visibility)
 from .constants import game_ids
 
 
@@ -41,6 +41,8 @@ class RandomChoiceGameCount(Range):
     range_start = 0
     range_end = 50
     default = 0
+    # this is super unnecessary to show in the spoiler, so just hide it
+    visibility = Visibility.template | Visibility.simple_ui | Visibility.complex_ui
 
 
 class StartingGameAmount(Range):
@@ -78,6 +80,8 @@ class GoalGameAmount(Range):
     range_start = 1
     range_end = 50
     default = 50
+    # this is super unnecessary to show in the spoiler, so just hide it
+    visibility = Visibility.template | Visibility.simple_ui | Visibility.complex_ui
 
 
 class CherryAllowed(OptionSet):

@@ -204,21 +204,7 @@ class UFO50World(World):
                                   f"Please select at least one game that has an actual implementation, or have the "
                                   f"host enable the host.yaml setting to allow them.\n"
                                   f"The following games have actual implementations: {[name for name in ufo50_games]}")
-
-        if self.options.starting_game_amount >= len(included_game_names):
-            self.starting_games = included_game_names
-        else:
-            # need at least one game to be a fully implemented game
-            self.starting_games = self.random.choices(included_game_names, k=self.options.starting_game_amount.value)
-            for game_name in self.starting_games:
-                if game_name in ufo50_games.keys():
-                    break
-            else:
-                # remove a game, add an implemented game, unless none are implemented
-                if self.included_games:
-                    self.starting_games.pop()
-                    self.starting_games.append(self.random.choice(self.included_games))
-
+        self.options.goal_games.value = [game_name for game_name in self.options.goal_games if game_name in included_game_names]
         potential_goal_games = [game_name for game_name in included_game_names if game_name in self.options.goal_games]
         if self.options.goal_game_amount >= len(potential_goal_games):
             self.goal_games = potential_goal_games
@@ -270,10 +256,40 @@ class UFO50World(World):
             game = ufo50_games[game_name]
             created_items += game.items.create_items(self)
 
+        included_game_names = self.included_games + self.included_unimplemented_games
+        # check precollected items for cartridges, add them to the starting games list
+        precollected_cartridges = set()
+        self.starting_games = []
+        for item in self.multiworld.precollected_items[self.player]:
+            if item.name.endswith("Cartridge"):
+                game_name = item.name.split(" Cartridge")[0]
+                if game_name not in self.starting_games and game_name in included_game_names:
+                    self.starting_games.append(game_name)
+                    precollected_cartridges.add(game_name)
+
+        # if your starting game amount is higher than included games, then they're all starting games
+        if self.options.starting_game_amount >= len(included_game_names):
+            self.starting_games = included_game_names
+        else:
+            addtl_games_to_start_with = max(self.options.starting_game_amount.value - len(self.starting_games), 0)
+            self.starting_games += self.random.choices(
+                [game for game in included_game_names if game not in self.starting_games],
+                k=addtl_games_to_start_with)
+            for game_name in self.starting_games:
+                if game_name in ufo50_games.keys():
+                    break
+            else:
+                # remove a game, add an implemented game, unless none are implemented
+                # since we're popping, we don't need to worry about removing a precollected cartridge
+                if self.included_games and addtl_games_to_start_with > 0:
+                    self.starting_games.pop()
+                    self.starting_games.append(self.random.choice(self.included_games))
+
         all_games = self.included_games + self.included_unimplemented_games
         for game_name in all_games:
-            cartridge = self.create_item(f"{game_name} Cartridge", ItemClassification.progression)
-            if game_name in self.starting_games:
+            cartridge = self.create_item(f"{game_name} Cartridge",
+                                         ItemClassification.progression | ItemClassification.useful)
+            if game_name in self.starting_games and game_name not in precollected_cartridges:
                 self.multiworld.push_precollected(cartridge)
             else:
                 created_items.append(cartridge)
