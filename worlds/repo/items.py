@@ -44,7 +44,7 @@ item_table: Dict[str, REPOItemData] = {
     iname.small_health: REPOItemData(ItemClassification.filler,2,21,"Health Pack"),
     iname.medium_health: REPOItemData(ItemClassification.filler,2,22,"Health Pack"),
     iname.large_health: REPOItemData(ItemClassification.filler,2,23,"Health Pack"),
-    iname.progressive_health: REPOItemData(ItemClassification.progression,1,24,"Shop Unlock"),
+    iname.progressive_health: REPOItemData(ItemClassification.progression,3,24,"Shop Unlock"),
     iname.baseball_bat: REPOItemData(ItemClassification.progression,1,25,"Melee Shop Unlock"),
     iname.frying_pan: REPOItemData(ItemClassification.progression,1,26,"Melee Shop Unlock"),
     iname.sledge_hammer: REPOItemData(ItemClassification.progression,1,27,"Melee Shop Unlock"),
