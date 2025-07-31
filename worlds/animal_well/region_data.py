@@ -1216,10 +1216,10 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], AWDa
         lname.fruit_105:
             AWData(AWType.location, [[iname.bubble, iname.top, iname.wheel], [iname.disc, iname.top, iname.wheel],
                                      [iname.wheel_hop, iname.top]], loc_type=LocType.fruit),
-        rname.hippo_fireworks:  # todo: verify you need disc
-            AWData(AWType.region, [[iname.slink, iname.yoyo, iname.disc]]),
+        rname.hippo_fireworks:  # If you pre-hold the button, top can push the button incidentally enough to get you through
+            AWData(AWType.region, [[iname.slink, iname.yoyo, iname.disc], [iname.top, iname.yoyo, iname.disc, iname.obscure_tricks]]),
         rname.hippo_skull_room:
-            AWData(AWType.region, [[iname.slink, iname.yoyo, iname.disc]]),
+            AWData(AWType.region, [[iname.slink, iname.yoyo, iname.disc], [iname.top, iname.yoyo, iname.disc, iname.obscure_tricks]]),
     },
     rname.hippo_skull_room: {
         lname.bb_wand_chest:
