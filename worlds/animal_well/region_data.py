@@ -801,7 +801,7 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], AWDa
         lname.fruit_3:
             AWData(AWType.location, [[iname.top]], loc_type=LocType.fruit),
         lname.egg_brown:
-            AWData(AWType.location, [[iname.slink]]),
+            AWData(AWType.location, [[iname.slink], [iname.ball_trick_hard]]),
         lname.fruit_2:
             AWData(AWType.location, loc_type=LocType.fruit),
         lname.egg_reference:  # funny slink and disc room
