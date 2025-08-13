@@ -154,7 +154,7 @@ r.moridonos_warp: FrogmonsterRegionData(
 r.moridono_arena: FrogmonsterRegionData(
 ),
 r.reef: FrogmonsterRegionData(
-    connects=[(r.moridonos, lambda player, dif, state: can_fight(c.reef_arena_1, player, dif, state)),
+    connects=[(r.moridonos_warp, lambda player, dif, state: can_fight(c.reef_arena_1, player, dif, state)),
               (r.krogar_arena, lambda player, dif, state: can_fight(c.reef_arena_1, player, dif, state)),]
 ),
 r.deep: FrogmonsterRegionData(
