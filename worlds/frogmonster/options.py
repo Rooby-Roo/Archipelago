@@ -29,9 +29,17 @@ class ShuffleBugEffects(Toggle):
     """Randomizes the temporary effect gained when eating any bug other than Mushroom."""
     display_name = "Shuffle Bug-Eating Effects"
 
-class ShuffleWorkshopKey(Toggle):
+class ShuffleWorkshopKey(Choice):
     """When enabled, the Workshop Key will be shuffled into the item pool, and Bins will give you a random item after defeating Xoto."""
     display_name = "Shuffle Workshop Key"
+    option_enabled = 1
+    option_disabled = 0
+    option_startwith = 2
+    alias_true = 1
+    alias_false = 0
+    alias_on = 1
+    alias_off = 0
+    default = 1
 
 class ShopMultiplier(Range):
     """Decreases the total cost of items in shops by a percentage. 100 = no discount, 0 = free shops. This does not impact gun upgrade costs, or buying from Supa."""
@@ -65,7 +73,7 @@ class FrogmonsterOptions(PerGameCommonOptions, DeathLinkMixin):
     shuffle_puzzles: ShufflePuzzles
     i_hate_seedling: StartWithGear
     shuffle_bug_effects: ShuffleBugEffects
-#    shuffle_workshop_key: ShuffleWorkshopKey
+    shuffle_workshop_key: ShuffleWorkshopKey
     shop_multiplier: ShopMultiplier
     open_city: OpenCity
     hardcore_parkour: AdvancedParkour
