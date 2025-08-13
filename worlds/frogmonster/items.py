@@ -38,12 +38,12 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     ),
     i.glowbug: FrogmonsterItemData(
         id=BASE_ID + 4,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression,
         category=("Bug")
     ),
     i.frog: FrogmonsterItemData(
         id=BASE_ID + 5,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression,
         category=("Bug")
     ),
     i.fly: FrogmonsterItemData(
@@ -63,7 +63,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     ),
     i.bass: FrogmonsterItemData(
         id=BASE_ID + 9,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression,
         category=("Bug")
     ),
     i.blue_snack: FrogmonsterItemData(
@@ -158,7 +158,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     ),
     i.cricket: FrogmonsterItemData(
         id=BASE_ID + 28,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression,
         category=("Bug")
     ),
     i.spider: FrogmonsterItemData(
@@ -193,7 +193,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     ),
     i.cicada: FrogmonsterItemData(
         id=BASE_ID + 35,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression,
         category=("Bug")
     ),
     i.mantis: FrogmonsterItemData(
