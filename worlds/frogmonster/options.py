@@ -49,7 +49,7 @@ class ShopMultiplier(Range):
     default = 100
 
 class OpenCity(Toggle):
-    """When enabled, the Lost Swamp portal vine will be enabled from the beginning, allowing quick travel to City without needing Sticky Hands."""
+    """When enabled, the Lost Swamp portal vine will be enabled from the beginning, allowing quick travel to City without needing to traverse through most of the early game first."""
     display_name = "Open City"
 
 class AdvancedParkour(Toggle):
