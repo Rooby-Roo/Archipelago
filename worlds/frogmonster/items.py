@@ -238,7 +238,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     ),
     i.health: FrogmonsterItemData(
         id=BASE_ID + 44,
-        type=ItemClassification.progression,
+        type=ItemClassification.progression_deprioritized,
         category=("Health"),
         qty=6
     ),
@@ -269,7 +269,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
 #    ),
     i.mana: FrogmonsterItemData(
         id=BASE_ID + 50,
-        type=ItemClassification.progression,
+        type=ItemClassification.progression_deprioritized,
         category=("Mana"),
         qty=6
     ),
@@ -375,7 +375,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     ),
     i.bug_slot: FrogmonsterItemData(
         id=BASE_ID + 71,
-        type=ItemClassification.progression,
+        type=ItemClassification.progression_deprioritized,
         category=("Bug Slot"),
         qty=7
     ),
@@ -411,7 +411,7 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
 #    ),
     i.metal_ore: FrogmonsterItemData(
         id=BASE_ID + 78,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Metal Ore"),
         qty=19
     ),
