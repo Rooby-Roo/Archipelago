@@ -148,7 +148,8 @@ r.moridonos_layer_turtle: FrogmonsterRegionData(
 ),
 r.moridonos_warp: FrogmonsterRegionData(
     connects=[(r.moridonos_layer_worm, lambda player, dif, state: can_fight(c.moridonos_arena_1, player, dif, state)),
-              (r.moridonos_layer_drill, lambda player, dif, state: state.has(i.dash, player) and can_fight(c.moridonos_general, player, dif, state))],
+              (r.moridonos_layer_drill, lambda player, dif, state: state.has(i.dash, player) and can_fight(c.moridonos_general, player, dif, state)),
+              (r.reef, nothing)],
 ),
 r.moridono_arena: FrogmonsterRegionData(
 ),
