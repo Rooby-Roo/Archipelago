@@ -1,6 +1,6 @@
 ## What does randomization do to the game?
 
-By default, every single chest in the game, as well as every item given to you by NPCs (except for Orchus Key and Workshop Key), and every boss reward is randomized. Additionally, each bug when eaten for the first time will give you a randomized item, and the ability to equip each bug is shuffled among these locations. Optionally, you can also include the assorted sliding tile puzzles, so their coin rewards are shuffled, and completing them gives an item.
+By default, every single chest in the game, as well as every item given to you by NPCs and every boss reward is randomized. Additionally, each bug when eaten for the first time will give you a randomized item, and the ability to equip each bug is shuffled among these locations. Optionally, you can also include the assorted sliding tile puzzles, so their coin rewards are shuffled, and completing them gives an item.
 
 ## What's the goal of Frogmonster when randomized?
 
