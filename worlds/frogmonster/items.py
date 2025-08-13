@@ -43,22 +43,22 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     ),
     i.frog: FrogmonsterItemData(
         id=BASE_ID + 5,
-        type=ItemClassification.progression,
+        type=ItemClassification.progression_deprioritized,
         category=("Bug")
     ),
     i.fly: FrogmonsterItemData(
         id=BASE_ID + 6,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.dragonfly: FrogmonsterItemData(
         id=BASE_ID + 7,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.eel: FrogmonsterItemData(
         id=BASE_ID + 8,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.bass: FrogmonsterItemData(
@@ -68,92 +68,92 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     ),
     i.blue_snack: FrogmonsterItemData(
         id=BASE_ID + 10,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.purple_snack: FrogmonsterItemData(
         id=BASE_ID + 11,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.magnet_roach: FrogmonsterItemData(
         id=BASE_ID + 12,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.mushroll: FrogmonsterItemData(
         id=BASE_ID + 13,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.mushfrog: FrogmonsterItemData(
         id=BASE_ID + 14,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.beet: FrogmonsterItemData(
         id=BASE_ID + 15,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.skater: FrogmonsterItemData(
         id=BASE_ID + 16,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.soul_frog: FrogmonsterItemData(
         id=BASE_ID + 17,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.river_fish: FrogmonsterItemData(
         id=BASE_ID + 18,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.bird: FrogmonsterItemData(
         id=BASE_ID + 19,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.leafbug: FrogmonsterItemData(
         id=BASE_ID + 20,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.wormy: FrogmonsterItemData(
         id=BASE_ID + 21,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.minnow: FrogmonsterItemData(
         id=BASE_ID + 22,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.turtle: FrogmonsterItemData(
         id=BASE_ID + 23,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.blue_jelly: FrogmonsterItemData(
         id=BASE_ID + 24,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.roof_snail: FrogmonsterItemData(
         id=BASE_ID + 25,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.crab: FrogmonsterItemData(
         id=BASE_ID + 26,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.bridge_frog: FrogmonsterItemData(
         id=BASE_ID + 27,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.cricket: FrogmonsterItemData(
@@ -163,32 +163,32 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     ),
     i.spider: FrogmonsterItemData(
         id=BASE_ID + 29,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.moth: FrogmonsterItemData(
         id=BASE_ID + 30,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.ammofly: FrogmonsterItemData(
         id=BASE_ID + 31,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.pecker: FrogmonsterItemData(
         id=BASE_ID + 32,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.soul_fish: FrogmonsterItemData(
         id=BASE_ID + 33,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.fog_fly: FrogmonsterItemData(
         id=BASE_ID + 34,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.cicada: FrogmonsterItemData(
@@ -198,42 +198,42 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     ),
     i.mantis: FrogmonsterItemData(
         id=BASE_ID + 36,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.jungle_snack: FrogmonsterItemData(
         id=BASE_ID + 37,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.gecko: FrogmonsterItemData(
         id=BASE_ID + 38,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.bee: FrogmonsterItemData(
         id=BASE_ID + 39,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.mushroom: FrogmonsterItemData(
         id=BASE_ID + 40,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.tang: FrogmonsterItemData(
         id=BASE_ID + 41,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.axolotyl: FrogmonsterItemData(
         id=BASE_ID + 42,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.mite: FrogmonsterItemData(
         id=BASE_ID + 43,
-        type=ItemClassification.progression_skip_balancing,
+        type=ItemClassification.progression_deprioritized_skip_balancing,
         category=("Bug")
     ),
     i.health: FrogmonsterItemData(
