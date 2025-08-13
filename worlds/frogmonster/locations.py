@@ -526,7 +526,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         access_rule=lambda player, dif, state: can_fight(c.reef_arena_1, player, dif, state)
     ),
     l.smooth_stone_11: FrogmonsterLocationData(
-        region=r.moridonos,
+        region=r.moridonos_layer_worm,
         id=BASE_ID + 112,
         access_rule=lambda player, dif, state: can_fight(c.moridonos_general, player, dif, state)
     ),
@@ -602,9 +602,9 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         access_rule=lambda player, dif, state: can_burn(state, player)
     ),
     l.dark_pebble_6: FrogmonsterLocationData(
-        region=r.moridonos,
+        region=r.moridonos_warp,
         id=BASE_ID + 129,
-        access_rule=lambda player, dif, state: can_fight(c.moridonos_arena_1, player, dif, state)
+        access_rule=lambda player, dif, state: can_fight(c.moridonos_general, player, dif, state)
     ),
     l.dark_pebble_7: FrogmonsterLocationData(
         region=r.city,

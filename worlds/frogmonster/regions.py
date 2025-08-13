@@ -122,9 +122,29 @@ r.ridge: FrogmonsterRegionData(
               (r.quarry, lambda player, dif, state: state.has_all([i.dash, i.sticky_hands], player) and can_fight(c.ridge_general, player, dif, state))]
 ),
 r.moridonos: FrogmonsterRegionData(
-    connects=[(r.moridono_arena, lambda player, dif, state: can_fight_all([c.moridonos_arena_1, c.moridonos_arena_2], player, dif, state)),
-              (r.reef, lambda player, dif, state: can_fight_all([c.moridonos_arena_1, c.moridonos_arena_2], player, dif, state)),
-              (r.runi_arena, lambda player, dif, state: state.has(i.dash, player))]
+    connects=[(r.ridge, lambda player, dif, state: state.has(i.dash, player)),
+              (r.runi_arena, lambda player, dif, state: state.has(i.dash, player)),
+              (r.moridonos_layer_worm, lambda player, dif, state: state.has(i.tongue_swing, player) and can_fight(c.moridonos_general, player, dif, state)),
+              (r.moridonos_layer_drill, lambda player, dif, state: can_fight(c.moridonos_general, player, dif, state)),
+              (r.moridonos_layer_thumper, lambda player, dif, state: can_fight(c.moridonos_general, player, dif, state))]
+),
+r.moridonos_layer_worm: FrogmonsterRegionData(
+    connects=[(r.moridonos, lambda player, dif, state: state.has(i.tongue_swing, player) and can_fight(c.moridonos_arena_1, player, dif, state)),
+              (r.moridonos_warp, lambda player, dif, state: can_fight(c.moridonos_arena_1, player, dif, state))],
+),
+r.moridonos_layer_drill: FrogmonsterRegionData(
+    connects=[(r.moridonos, lambda player, dif, state: state.has(i.dash, player) and can_fight(c.moridonos_arena_2, player, dif, state)),
+              (r.moridonos_warp, lambda player, dif, state: state.has(i.dash, player) and can_fight(c.moridonos_arena_2, player, dif, state)),
+              (r.moridonos_layer_turtle, lambda player, dif, state: state.has(i.dash, player) and can_fight(c.moridonos_arena_2, player, dif, state))],
+),
+r.moridonos_layer_thumper: FrogmonsterRegionData(
+    connects=[(r.moridono_arena, lambda player, dif, state: state.has(i.dash, player) and can_fight(c.moridonos_arena_3, player, dif, state)),
+              (r.moridonos_layer_drill, lambda player, dif, state: state.has(i.dash, player) and can_fight(c.moridonos_arena_3, player, dif, state))],
+),
+r.moridonos_layer_turtle: FrogmonsterRegionData(
+    connects=[(r.moridono_arena, lambda player, dif, state: can_fight(c.moridonos_arena_4, player, dif, state)),
+              (r.moridonos_layer_thumper, lambda player, dif, state: can_fight(c.moridonos_arena_4, player, dif, state)),
+              (r.moridonos_layer_drill, lambda player, dif, state: can_fight(c.moridonos_arena_4, player, dif, state))],
 ),
 r.moridono_arena: FrogmonsterRegionData(
 ),
