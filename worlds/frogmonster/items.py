@@ -529,6 +529,14 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
 #        type=ItemClassification.useful,
 #        category=("Key")
 #    ),
+    i.workshop_key: FrogmonsterItemData(
+        id=BASE_ID + 100,
+        type=ItemClassification.progression
+    ),
+    i.orchus_key: FrogmonsterItemData(
+        id=BASE_ID + 101,
+        type=ItemClassification.progression
+    ),
     i.smooth_stone: FrogmonsterItemData(
         id=BASE_ID + 102,
         type=ItemClassification.filler,
@@ -763,15 +771,6 @@ item_data_table: Dict[str, FrogmonsterItemData] = {
     i.victory: FrogmonsterItemData(
         type=ItemClassification.progression
     ),
-    i.workshop_key: FrogmonsterItemData(
-        id=BASE_ID + 100,
-        type=ItemClassification.progression
-    ),
-    i.orchus_key: FrogmonsterItemData(
-        id=BASE_ID + 101,
-        type=ItemClassification.progression
-    ),
-
 }
 
 item_id_table = {name: data.id for name, data in item_data_table.items() if data.id is not None}
