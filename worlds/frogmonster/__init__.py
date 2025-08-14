@@ -211,8 +211,7 @@ class FrogmonsterWorld(World):
         if self.options.shuffle_bug_effects:
             spoiler_handle.write("\n")
             spoiler_handle.write(f"{self.multiworld.get_player_name(self.player)}'s Shuffled Bug Effects:\n")
-            for bug, effect in self.shuffled_bug_effects.items():
-                bug_name = every_bug[bug-1][0]
-                effect_name = every_bug[effect-1][0]
-                spoiler_handle.write(f"{bug_name}: {effect_name}\n")
+            bug_names = {bug.bug_id: bug.name for bug in every_bug}
+            for bug_id, effect_id in sorted(self.shuffled_bug_effects.items()):
+                spoiler_handle.write(f"{bug_names[bug_id]}: {bug_names[effect_id]}\n")
             spoiler_handle.write("\n")

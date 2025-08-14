@@ -1,5 +1,4 @@
 # Things to make it playable:
-Verify bug shuffle 
 Formally add the "quick-fixed" Orchus and Workshop keys
 
 # Half-implemented features
