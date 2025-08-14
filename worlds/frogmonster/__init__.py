@@ -121,14 +121,14 @@ class FrogmonsterWorld(World):
 
     def create_items(self) -> None:
         item_pool: list[FrogmonsterItem] = []
+        dont_create: list[str] = []
+        if self.options.goal == 1:
+            dont_create.append(i.eye_fragment)
+        if self.options.i_hate_seedling:
+            dont_create.append(self.starter_gun.name)
+            dont_create.append(self.starter_spell.name)
         for name, item in item_data_table.items():
             if item.id:  # excludes events
-                dont_create: list[str] = []
-                if self.options.goal == 1:
-                    dont_create.append(i.eye_fragment)
-                if self.options.i_hate_seedling:
-                    dont_create.append(self.starter_gun.name)
-                    dont_create.append(self.starter_spell.name)
                 if name not in dont_create:
                     for _ in range(item_data_table[name].qty):
                         item_pool.append(self.create_item(name))
