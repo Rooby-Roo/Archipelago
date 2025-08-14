@@ -24,7 +24,7 @@ every_bug = [  # Regions values are noncomprehensive. Regions are excluded if th
     BugType(name=i.bass,           bug_id=6,  slot_cost=1, regions=[(r.lost_swamp, nothing)]),  # Blue's Cabin
     BugType(name=i.blue_snack,     bug_id=7,  slot_cost=3, regions=[(r.marvins, nothing), (r.workshop, lambda player, dif, state: state.has(i.sticky_hands, player))]),
     BugType(name=i.purple_snack,   bug_id=8,  slot_cost=4, regions=[(r.marvins, nothing)]),	
-    BugType(name=i.magnet_roach,   bug_id=9,  slot_cost=1, regions=[(r.yellow_forest_town, nothing), (r.runi_arena, lambda player, dif, state: can_fight(c.runi, player, dif, state))]),  # For sale, or eatable during Runi fight
+    BugType(name=i.magnet_roach,   bug_id=9,  slot_cost=1, regions=[(r.yellow_forest_town, nothing), (r.runi_arena, nothing)]),  # For sale, or eatable during Runi fight
     BugType(name=i.mushroll,       bug_id=10, slot_cost=2, regions=[(r.marvins, nothing)]),
     BugType(name=i.mushfrog,       bug_id=11, slot_cost=1, regions=[(r.marvins, nothing), (r.treetops, nothing)]),
     BugType(name=i.beet,           bug_id=12, slot_cost=3, regions=[(r.outskirts, nothing)]),

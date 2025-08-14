@@ -647,7 +647,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         access_rule=lambda player, dif, state: can_fight(c.estate_general, player, dif, state)
     ),
     l.seedling_myzand_upgrade: FrogmonsterLocationData(
-        region=r.runi_arena,
+        region=r.orchus_tree,
         id=BASE_ID + 138,
         access_rule=lambda player, dif, state: can_fight(c.runi, player, dif, state)
     ),
@@ -754,7 +754,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         access_rule=lambda player, dif, state: state.can_reach(l.mana_5, "Location", player)
     ),
     l.orchus_key: FrogmonsterLocationData(
-        region=r.runi_arena,
+        region=r.orchus_tree,
         id=BASE_ID + 160,
         access_rule=lambda player, dif, state: can_fight(c.runi, player, dif, state)
     ),

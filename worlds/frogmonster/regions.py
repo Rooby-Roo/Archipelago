@@ -98,7 +98,7 @@ r.forest_floor: FrogmonsterRegionData(
 ),
 r.treetops: FrogmonsterRegionData(
     connects=[(r.forest_floor, nothing),
-              (r.runi_arena, lambda player, dif, state: state.has(i.wooden_cannon, player) and can_fight(c.treetops_arena_1, player, dif, state)),
+              (r.orchus_tree, lambda player, dif, state: state.has(i.wooden_cannon, player) and can_fight(c.treetops_arena_1, player, dif, state)),
               (r.treetops_key, lambda player, dif, state: state.has(i.key, player, 3) and can_fight(c.treetops_arena_1, player, dif, state))]
 ),
 r.treetops_key: FrogmonsterRegionData(
@@ -109,6 +109,9 @@ r.hive: FrogmonsterRegionData(
     connects=[(r.forest_floor, lambda player, dif, state: can_fight(c.hive_general, player, dif, state)),
               (r.treetops, lambda player, dif, state: can_fight(c.hive_general, player, dif, state) and state.has_all([i.dash, i.tongue_swing], player)),
               (r.old_road, lambda player, dif, state: can_fight(c.hive_general, player, dif, state))]
+),
+r.orchus_tree: FrogmonsterRegionData(
+    connects=[(r.runi_arena, lambda player, dif, state: can_fight(c.runi, player, dif, state))]
 ),
 r.runi_arena: FrogmonsterRegionData(
     connects=[(r.under_under_city_lower, lambda player, dif, state: state.has_all([i.dash, i.sticky_hands], player) and can_fight(c.ridge_general, player, dif, state)),

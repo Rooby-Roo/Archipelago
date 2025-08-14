@@ -161,7 +161,7 @@ coin_chest_3 = "Thickness: Hug the Left Wall"
 coin_chest_4 = "Well: Seventh Floor"
 coin_chest_5 = "Well: First Floor"
 coin_chest_6 = "Very Lost Swamp: Near Fishanny"
-
-goal = "Goal"
 workshop_access = "Bins' Workshop: Gift from Bins"
 orchus_key = "Ridge: Gift from Bins"
+
+goal = "Goal"
