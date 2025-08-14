@@ -127,7 +127,7 @@ class FrogmonsterWorld(World):
         if self.options.i_hate_seedling:
             dont_create.append(self.starter_gun.name)
             dont_create.append(self.starter_spell.name)
-        if self.options.shuffle_workshop_key != 0:
+        if self.options.shuffle_workshop_key != 1:
             dont_create.append(i.workshop_key)
         for name, item in item_data_table.items():
             if item.id:  # excludes events
