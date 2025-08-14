@@ -127,6 +127,8 @@ class FrogmonsterWorld(World):
         if self.options.i_hate_seedling:
             dont_create.append(self.starter_gun.name)
             dont_create.append(self.starter_spell.name)
+        if self.options.shuffle_workshop_key != 0:
+            dont_create.append(i.workshop_key)
         for name, item in item_data_table.items():
             if item.id:  # excludes events
                 if name not in dont_create:
@@ -136,6 +138,10 @@ class FrogmonsterWorld(World):
         if self.options.shuffle_puzzles:
             for _ in range(7):
                 item_pool.append(self.create_item(self.get_filler_item_name()))
+
+        if self.options.shuffle_workshop_key == 2:
+            item_pool.append(self.create_item(self.get_filler_item_name()))
+            self.multiworld.push_precollected(self.create_item(i.workshop_key))
 
         self.multiworld.itempool += item_pool
 
@@ -171,6 +177,10 @@ class FrogmonsterWorld(World):
         if self.options.i_hate_seedling:
             self.multiworld.get_location(l.reeder, self.player).place_locked_item(self.starter_gun)
             self.multiworld.get_location(l.fireball, self.player).place_locked_item(self.starter_spell)
+
+        # Handling Option: Shuffle Workshop Key
+        if self.options.shuffle_workshop_key == 0:
+            self.multiworld.get_location(l.workshop_access, self.player).place_locked_item(self.create_item(i.workshop_key))
 
         # Handling Option: Well Light Logic
         if self.options.well_light_logic == 1 or self.options.well_light_logic == 3:
