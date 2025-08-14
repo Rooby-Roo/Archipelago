@@ -748,12 +748,6 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         id=BASE_ID + 158,
         access_rule=lambda player, dif, state: can_fight(c.very_lost_swamp_general, player, dif, state)
     ),
-
-    # Events
-    l.goal: FrogmonsterLocationData(
-        region=r.myzand,
-        access_rule=lambda player, dif, state: can_fight_all([c.myzand_1, c.myzand_2], player, dif, state)
-    ),
     l.workshop_access: FrogmonsterLocationData(
         region=r.workshop,
         id=BASE_ID + 159,
@@ -763,7 +757,12 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
         region=r.runi_arena,
         id=BASE_ID + 160,
         access_rule=lambda player, dif, state: can_fight(c.runi, player, dif, state)
-    )
+    ),
+    # Events
+    l.goal: FrogmonsterLocationData(
+        region=r.myzand,
+        access_rule=lambda player, dif, state: can_fight_all([c.myzand_1, c.myzand_2], player, dif, state)
+    ),
 }
 
 location_id_table = {name: data.id for name, data in location_data_table.items() if data.id is not None}
