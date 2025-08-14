@@ -1,5 +1,5 @@
 # Things to make it playable:
-Formally add the "quick-fixed" Orchus and Workshop keys
+Formally add the "quick-fixed" Orchus and Workshop keys -- fix logic around Runi Arena
 
 # Half-implemented features
 Advanced Parkour
