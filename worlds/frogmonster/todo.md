@@ -1,5 +1,7 @@
 # Things to make it playable:
-Confirm Orchus Key behavior
+Fix logic for dash re: old wood
+treetops key area logic?
+confirm bug effect fix
 
 # Half-implemented features
 Advanced Parkour
