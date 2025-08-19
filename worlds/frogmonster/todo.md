@@ -1,5 +1,4 @@
 # Things to make it playable:
-treetops key area logic?
 confirm bug effect fix
 
 # Half-implemented features

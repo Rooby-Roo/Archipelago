@@ -99,7 +99,7 @@ r.forest_floor: FrogmonsterRegionData(
 r.treetops: FrogmonsterRegionData(
     connects=[(r.forest_floor, nothing),
               (r.orchus_tree, lambda player, dif, state: state.has(i.wooden_cannon, player) and can_fight(c.treetops_arena_1, player, dif, state)),
-              (r.treetops_key, lambda player, dif, state: state.has(i.key, player, 3) and can_fight(c.treetops_arena_1, player, dif, state))]
+              (r.treetops_key, lambda player, dif, state: state.has(i.key, player, 3) and state.has(i.tongue_swing, player) and can_fight(c.treetops_arena_1, player, dif, state))]
 ),
 r.treetops_key: FrogmonsterRegionData(
 ),
