@@ -1,5 +1,4 @@
 # Things to make it playable:
-Fix logic for dash re: old wood
 treetops key area logic?
 confirm bug effect fix
 
