@@ -43,7 +43,7 @@ class FrogmonsterWorld(World):
     item_name_groups = item_name_groups
     web = FrogmonsterWebWorld()
 
-    apworld_version = (0, 2, 0)
+    apworld_version = (0, 2, 1)
     shuffled_bug_effects: dict[int, int]
     starter_gun: FrogmonsterItem
     starter_spell: FrogmonsterItem
