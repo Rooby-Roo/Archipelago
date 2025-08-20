@@ -203,6 +203,8 @@ class FrogmonsterWorld(World):
     def fill_slot_data(self) -> dict[str, Any]:
         slot_data: dict[str, Any] = {}
 
+        slot_data["apworld_version"] = self.apworld_version
+
         # Handling option: Shuffle Bug-Eating Effects
         bug_effect_array: list[int] = []
         for i in range (1, 41):
