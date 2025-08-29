@@ -14,7 +14,10 @@
 5. When it asks you to locate the UFO 50 executable, navigate to your UFO 50 .exe file and select it.
 6. To launch the game, run the UFO 50 Client from the Archipelago Launcher.
 
+
 ### Manual Installation
+
+Do not follow these steps if you are doing the Automated Installation above.
 
 Extra required software:
 - A way to apply `.bsdiff4` patches, such as [bspatch](https://www.romhacking.net/utilities/929/).
