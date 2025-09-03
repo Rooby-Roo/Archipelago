@@ -275,6 +275,11 @@ def create_rules(world: "UFO50World", regions: Dict[str, Region]) -> None:
                  or (state.has(depth_charge, player)
                      and has_fuel_and_slots(3, loc, 1, state, world)))
 
+        loc = "Deeper Upper Mid - Torpedo Upgrade in Ceiling"
+        add_rule(get_porgy_location(loc, world),
+                 rule=lambda state: state.has_any((depth_charge, missile), player)
+                 and has_fuel_and_slots(3, loc, 1, state, world))
+
         loc = "Deeper Upper Mid - Egg in Dirt"
         add_rule(get_porgy_location(loc, world),
                  rule=lambda state: state.has(drill, player)
@@ -283,6 +288,11 @@ def create_rules(world: "UFO50World", regions: Dict[str, Region]) -> None:
         loc = "Deeper Lower Mid - Fuel Tank in Floor"
         add_rule(get_porgy_location(loc, world),
                  lambda state: state.has(depth_charge, player)
+                 and has_fuel_and_slots(4, loc, 1, state, world))
+
+        loc = "Deeper Lower Right - Fuel Tank in Ceiling"
+        add_rule(get_porgy_location(loc, world),
+                 lambda state: state.has_any((depth_charge, missile), player)
                  and has_fuel_and_slots(4, loc, 1, state, world))
 
         # abyss
@@ -500,6 +510,11 @@ def create_rules(world: "UFO50World", regions: Dict[str, Region]) -> None:
                  rule=lambda state: has_fuel_opt_eff(8, state, world)
                  or (state.has(ship_rocks, player) and has_fuel_opt_eff(5, state, world)))
 
+        loc = "Deeper Upper Mid - Torpedo Upgrade in Ceiling"
+        add_rule(get_porgy_location(loc, world),
+                 rule=lambda state: state.has_any((depth_charge, missile), player)
+                 and has_fuel_and_slots(6, loc, 1, state, world))
+
         loc = "Deeper Upper Mid - Egg in Dirt"
         add_rule(get_porgy_location(loc, world),
                  rule=lambda state: state.has(drill, player)
@@ -508,6 +523,11 @@ def create_rules(world: "UFO50World", regions: Dict[str, Region]) -> None:
         loc = "Deeper Lower Mid - Fuel Tank in Floor"
         add_rule(get_porgy_location(loc, world),
                  lambda state: state.has(depth_charge, player)
+                 and has_fuel_and_slots(7, loc, 1, state, world))
+
+        loc = "Deeper Lower Right - Fuel Tank in Ceiling"
+        add_rule(get_porgy_location(loc, world),
+                 lambda state: state.has_any((depth_charge, missile), player)
                  and has_fuel_and_slots(7, loc, 1, state, world))
 
         # abyss
