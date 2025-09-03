@@ -78,7 +78,7 @@ location_table: Dict[str, LocationInfo] = {
     "Deeper Upper Left - Fuel Tank on Coral": LocationInfo(100, "Deeper", 4, 7),
     "Deeper Upper Left - Fuel Tank behind ! Blocks": LocationInfo(103, "Deeper", 4, 6),
     "Deeper Upper Mid - Torpedo Upgrade in Coral": LocationInfo(124, "Deeper", 3, 5, Hidden.no_tell),
-    "Deeper Upper Mid - Torpedo Upgrade in Ceiling": LocationInfo(125, "Deeper", 3, 6, Hidden.has_tell),
+    "Deeper Upper Mid - Torpedo Upgrade in Ceiling": LocationInfo(125, "Deeper", 3, 6, Hidden.has_tell),  # depth or missile
     "Deeper Upper Mid - Egg in Dirt": LocationInfo(154, "Deeper", Hidden.no_tell),  # drill, 3/5
     "Deeper Upper Mid - Spotlight Module": LocationInfo(192, "Deeper", 3, 5),  # depth
     "Deeper Upper Mid - Fuel Tank in Collapsed Structure": LocationInfo(102, "Deeper", 2, 5),
@@ -88,7 +88,7 @@ location_table: Dict[str, LocationInfo] = {
     "Deeper Right - Torpedo Upgrade on Coral": LocationInfo(123, "Deeper", 5, 8),  # same speed to blow up rocks
     "Deeper Upper Right - Targeting System Module": LocationInfo(190, "Deeper", 5, 9),
     "Deeper Lower Right - Egg behind Urchins": LocationInfo(152, "Deeper", 3, 5, Hidden.no_tell),
-    "Deeper Lower Right - Fuel Tank in Ceiling": LocationInfo(105, "Deeper", 4, 7, Hidden.no_tell),
+    "Deeper Lower Right - Fuel Tank in Ceiling": LocationInfo(105, "Deeper", 4, 7, Hidden.no_tell),  # depth or missile
     "Deeper Lower Right - Egg on Coral": LocationInfo(151, "Deeper", 5, 8),
     "Deeper Lower Mid - Missile System Module": LocationInfo(191, "Deeper", 4, 7),
     "Deeper Lower Mid - Torpedo Upgrade on Coral": LocationInfo(120, "Deeper", 4, 7),
