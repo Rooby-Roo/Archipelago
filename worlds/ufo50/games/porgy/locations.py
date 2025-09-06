@@ -31,7 +31,7 @@ class EventInfo(NamedTuple):
 
 location_table: Dict[str, LocationInfo] = {
     # Shallows
-    "Shallows Upper Left - Ceiling Torpedo Upgrade": LocationInfo(20, "Shallows", 1, 2, Hidden.no_tell),
+    "Shallows Upper Left - Ceiling Torpedo Upgrade": LocationInfo(20, "Shallows", 1, 2, Hidden.no_tell),  # no missile
     "Shallows Upper Left - Fuel Tank next to Coral": LocationInfo(1, "Shallows", 2, 3),
     "Shallows Lower Left - Fuel Tank between some Coral": LocationInfo(10, "Shallows", 1, 2),
     "Shallows Lower Left - Fuel Tank above Breakable Rocks": LocationInfo(8, "Shallows - Missile", 1, 2),  # missile
