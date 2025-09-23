@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
 class LocationInfo(NamedTuple):
     id_offset: int
-    region_name: str = "Menu"
+    region_name: str = "The Party House"
 
 location_table: Dict[str, LocationInfo] = {
     "Alien Invitation": LocationInfo(0),
