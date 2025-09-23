@@ -1,4 +1,4 @@
-from typing import NamedTuple, Dict, List, TYPE_CHECKING
+from typing import NamedTuple, Dict, List, Set, TYPE_CHECKING
 from BaseClasses import ItemClassification as IC, Item
 
 from ...constants import get_game_base_id
@@ -18,6 +18,11 @@ item_table: Dict[str, ItemInfo] = {
 
 def get_items() -> Dict[str, int]:
     return {f"Party House - {name}": data.id_offset + get_game_base_id("Party House") for name, data in item_table.items()}
+
+def get_item_groups() -> Dict[str, Set[str]]:
+    item_groups: Dict[str, Set[str]] = {"Party House": {
+        f"Party House - {item_name}" for item_name in item_table.keys()}}
+    return item_groups
 
 def create_item(item_name: str, world: "UFO50World", item_class: IC = None) -> Item:
     base_id = get_game_base_id("Party House")
