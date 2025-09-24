@@ -308,10 +308,16 @@ class UFO50World(World):
 
         self.multiworld.itempool += created_items
 
+    # games where the filler is a nothing item, so let's just exclude these where we can
+    bad_filler_games: set[str] = {"Night Manor"}
+
     def get_filler_item_name(self) -> str:
         if not self.included_games:
             return "Intentional Nothing Filler Item"
-        return ufo50_games[self.random.choice(self.included_games)].items.get_filler_item_name(self)
+        good_filler_item_games = [game for game in self.included_games if game not in self.bad_filler_games]
+        if not good_filler_item_games:
+            good_filler_item_games = self.included_games
+        return ufo50_games[self.random.choice(good_filler_item_games)].items.get_filler_item_name(self)
 
     def fill_slot_data(self) -> dict[str, Any]:
         included_games = [game_ids[game_name] for game_name in self.included_games]
