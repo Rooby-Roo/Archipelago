@@ -1,6 +1,8 @@
 from dataclasses import dataclass
+
 from Options import (StartInventoryPool, Range, OptionSet, PerGameCommonOptions, OptionGroup, Choice, Toggle,
                      DefaultOnToggle, Visibility)
+
 from .constants import game_ids
 
 

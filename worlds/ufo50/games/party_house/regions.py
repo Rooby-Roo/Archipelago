@@ -1,4 +1,5 @@
 from typing import TYPE_CHECKING
+
 from BaseClasses import Region
 
 from .locations import create_locations

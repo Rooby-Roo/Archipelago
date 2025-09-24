@@ -1,4 +1,5 @@
 from typing import NamedTuple, TYPE_CHECKING
+
 from BaseClasses import ItemClassification as IC, Item
 
 from ...constants import get_game_base_id

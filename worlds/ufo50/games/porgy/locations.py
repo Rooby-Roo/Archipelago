@@ -1,5 +1,6 @@
-from typing import TYPE_CHECKING, Dict, NamedTuple, Set
 from enum import IntEnum
+from typing import TYPE_CHECKING, NamedTuple
+
 from BaseClasses import Region, Location, Item, ItemClassification
 from worlds.generic.Rules import add_rule
 
@@ -29,7 +30,7 @@ class EventInfo(NamedTuple):
     item_name: str
 
 
-location_table: Dict[str, LocationInfo] = {
+location_table: dict[str, LocationInfo] = {
     # Shallows
     "Shallows Upper Left - Ceiling Torpedo Upgrade": LocationInfo(20, "Shallows", 1, 2, Hidden.no_tell),  # no missile
     "Shallows Upper Left - Fuel Tank next to Coral": LocationInfo(1, "Shallows", 2, 3),
@@ -135,7 +136,7 @@ location_table: Dict[str, LocationInfo] = {
 }
 
 
-event_table: Dict[str, EventInfo] = {
+event_table: dict[str, EventInfo] = {
     "Sunken Ship": EventInfo("Shallows", "Bombed Open the Ship"),
     "Rock at Buster Urchin Path": EventInfo("Deeper", "Bombed the Buster Urchin Path Exit Rock"),
     "Rock at Leftmost Abyss Entrance": EventInfo("Deeper", "Bombed the Leftmost Abyss Entrance Rock"),
@@ -145,19 +146,19 @@ event_table: Dict[str, EventInfo] = {
 
 
 # this is for filling out location_name_to_id, it should be static regardless of yaml options
-def get_locations() -> Dict[str, int]:
+def get_locations() -> dict[str, int]:
     return {f"Porgy - {name}": data.id_offset + get_game_base_id("Porgy") for name, data in location_table.items()}
 
 
 # this should return the location groups for this game, independent of yaml options
 # you should include a group that contains all location for this game that is called the same thing as the game
-def get_location_groups() -> Dict[str, Set[str]]:
-    location_groups: Dict[str, Set[str]] = {"Porgy": {f"Porgy - {loc_name}" for loc_name in location_table.keys()}}
+def get_location_groups() -> dict[str, set[str]]:
+    location_groups: dict[str, set[str]] = {"Porgy": {f"Porgy - {loc_name}" for loc_name in location_table.keys()}}
     return location_groups
 
 
 # this is not a required function, but a recommended one -- the world class does not call this function
-def create_locations(world: "UFO50World", regions: Dict[str, Region]) -> None:
+def create_locations(world: "UFO50World", regions: dict[str, Region]) -> None:
     for loc_name, loc_data in location_table.items():
         if loc_name == "Cherry" and "Porgy" not in world.options.cherry_allowed_games:
             break

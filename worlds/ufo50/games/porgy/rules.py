@@ -1,4 +1,5 @@
-from typing import TYPE_CHECKING, Dict
+from typing import TYPE_CHECKING
+
 from BaseClasses import Region, CollectionState, Location
 from worlds.generic.Rules import add_rule
 
@@ -175,7 +176,7 @@ def set_fuel_and_radar_reqs(world: "UFO50World", on_touch: bool) -> None:
 
 
 # there's going to be a lot of parentheses containing and/or that don't need them, it's for sanity purposes
-def create_rules(world: "UFO50World", regions: Dict[str, Region]) -> None:
+def create_rules(world: "UFO50World", regions: dict[str, Region]) -> None:
     player = world.player
     check_on_touch = bool(world.options.porgy_check_on_touch)
     set_fuel_and_radar_reqs(world, check_on_touch)

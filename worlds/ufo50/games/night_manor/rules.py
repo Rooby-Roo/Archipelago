@@ -1,4 +1,5 @@
-from typing import TYPE_CHECKING, Dict
+from typing import TYPE_CHECKING
+
 from BaseClasses import Region
 from worlds.generic.Rules import set_rule
 
@@ -58,7 +59,7 @@ safe_combo = "Night Manor - Safe Combination"
 password = "Night Manor - Computer Password"
 
 
-def create_rules(world: "UFO50World", regions: Dict[str, Region]) -> None:
+def create_rules(world: "UFO50World", regions: dict[str, Region]) -> None:
     player = world.player
     regions["Menu"].connect(regions["Starting Room"])
     regions["Starting Room"].connect(regions["First Floor & Exterior"],

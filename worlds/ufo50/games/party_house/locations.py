@@ -1,4 +1,5 @@
-from typing import TYPE_CHECKING, Dict, NamedTuple, Set
+from typing import TYPE_CHECKING, NamedTuple
+
 from BaseClasses import Region, Location, Item, ItemClassification
 from worlds.generic.Rules import add_rule
 
@@ -13,7 +14,7 @@ class LocationInfo(NamedTuple):
     region_name: str = "The Party House"
 
 
-location_table: Dict[str, LocationInfo] = {
+location_table: dict[str, LocationInfo] = {
     "Alien Invitation": LocationInfo(0),
     "High or Low": LocationInfo(1),
     "Best Wishes": LocationInfo(2),
@@ -26,17 +27,17 @@ location_table: Dict[str, LocationInfo] = {
 }
 
 
-def get_locations() -> Dict[str, int]:
+def get_locations() -> dict[str, int]:
     return {f"Party House - {name}": data.id_offset + get_game_base_id("Party House") for name, data in location_table.items()}
 
 
-def get_location_groups() -> Dict[str, Set[str]]:
-    location_groups: Dict[str, Set[str]] = {"Party House": {f"Party House - {loc_name}"
+def get_location_groups() -> dict[str, set[str]]:
+    location_groups: dict[str, set[str]] = {"Party House": {f"Party House - {loc_name}"
                                                             for loc_name in location_table.keys()}}
     return location_groups
 
 
-def create_locations(world: "UFO50World", regions: Dict[str, Region]) -> None:
+def create_locations(world: "UFO50World", regions: dict[str, Region]) -> None:
     for loc_name, loc_data in location_table.items():
         if loc_name == "Cherry" and "Party House" not in world.options.cherry_allowed_games:
             break
