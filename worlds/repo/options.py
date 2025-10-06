@@ -23,7 +23,7 @@ class PellyHunt(OptionSet):
 
 class PellySpawning(DefaultOnToggle):
     """Determines how Pellys are spawned
-    True: Spawns all Pellys. All Pellys are loctions.
+    True: Spawns all Pellys. All Pellys are locations.
     False: Only spawns Pellys chosen in 'Pellys Required'. Only spawned Pellys are Locations."""
     display_name: str = "Pelly Spawning"
 
