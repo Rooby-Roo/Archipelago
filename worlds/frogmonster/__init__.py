@@ -31,7 +31,7 @@ class FrogmonsterWebWorld(WebWorld):
     tutorials = [setup_en]
 
 class FrogmonsterWorld(World):
-    """Frogmonster."""
+    """Frogmonster is a first-person boss rush shooter adventure game where you play as the titular Frogmonster, slaying monsters, eating bugs, and saving the world from a mad bird god."""
 
     game = "Frogmonster"
     options: FrogmonsterOptions
