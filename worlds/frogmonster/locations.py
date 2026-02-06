@@ -323,7 +323,6 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.hive: FrogmonsterLocationData(
         region=r.hive,
         id=BASE_ID + 69,
-        access_rule=lambda player, dif, state: state.has(i.tongue_swing, player) and state.can_reach(r.city, None, player) and can_fight(c.hive_general, player, dif, state)
     ),
     l.puff: FrogmonsterLocationData(
         region=r.treetops_key,
