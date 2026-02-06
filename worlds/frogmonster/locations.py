@@ -215,7 +215,7 @@ location_data_table: Dict[str, FrogmonsterLocationData] = {
     l.health_3: FrogmonsterLocationData(
         region=r.hive,
         id=BASE_ID + 46,
-        access_rule=lambda player, dif, state: can_fight_all([c.foraz, c.hive_general], player, dif, state)
+        access_rule=lambda player, dif, state: state.has(i.tongue_swing, player) and can_fight_all([c.foraz, c.hive_general], player, dif, state)
     ),
     l.health_4: FrogmonsterLocationData(
         region=r.yellow_forest_town,
