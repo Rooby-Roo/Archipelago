@@ -49,6 +49,9 @@ class FrogmonsterWorld(World):
     starter_gun: FrogmonsterItem
     starter_spell: FrogmonsterItem
 
+    # UT Support. 
+    ut_can_gen_without_yaml = True
+
     def create_item(self, name: str) -> FrogmonsterItem:
         return FrogmonsterItem(name, item_data_table[name].type, item_data_table[name].id, self.player)
     
@@ -59,6 +62,17 @@ class FrogmonsterWorld(World):
         return i.coins
 
     def generate_early(self) -> None:
+        # UT Support. Override gen-specific options according to slot data
+        if hasattr(self.multiworld, "re_gen_passthrough"):
+            if "Frogmonster" in self.multiworld.re_gen_passthrough:
+                slot_data = self.multiworld.re_gen_passthrough["Frogmonster"]
+                self.options.game_difficulty.value = slot_data["difficulty"]
+                self.options.goal.value = slot_data["goal"]
+                self.options.shuffle_puzzles.value = 1 if slot_data["shuffle_puzzles"] else 0
+                self.options.open_city.value = 1 if slot_data["open_city"] else 0  # deconverting from the bool it's stored as
+                self.options.hardcore_parkour.value = slot_data["hardcore_parkour"]
+                self.options.well_light_logic.value = slot_data["well_light_logic"]
+
         # Handling option: Shuffle Bug-Eating Effects
         bugs = [bug.bug_id for bug in every_bug if bug.name != i.mushroom]  
         shuffled_effects = bugs.copy()
@@ -219,7 +233,10 @@ class FrogmonsterWorld(World):
         slot_data["open_city"] = bool(self.options.open_city.value)
         slot_data["death_link"] = bool(self.options.death_link.value)
         slot_data["goal"] = self.options.goal.value
-
+        # These options only matter for UT. They mean nothing to the client.
+        slot_data["difficulty"] = self.options.game_difficulty.value
+        slot_data["hardcore_parkour"] = self.options.hardcore_parkour.value
+        slot_data["well_light_logic"] = self.options.well_light_logic.value
         return slot_data
     
     def write_spoiler(self, spoiler_handle: TextIO) -> None:
