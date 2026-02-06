@@ -225,8 +225,8 @@ class FrogmonsterWorld(World):
         slot_data["shuffled_bug_effects"] = bug_effect_array
 
         # Other Options:
-        slot_data["shop_multiplier"] = self.options.shop_multiplier.value / 100 # Convert to decimal for client
-        slot_data["shuffle_puzzles"] = bool(self.options.shuffle_puzzles.value)
+        slot_data["shop_multiplier"] = self.options.shop_multiplier.value / 100  # Convert to decimal for client
+        slot_data["shuffle_puzzles"] = bool(self.options.shuffle_puzzles.value)  # Client expects true/false for these options
         slot_data["open_city"] = bool(self.options.open_city.value)
         slot_data["death_link"] = bool(self.options.death_link.value)
         slot_data["goal"] = self.options.goal.value
