@@ -179,6 +179,7 @@ class FrogmonsterWorld(World):
         if self.options.goal == 1:
             self.multiworld.get_location(l.eye_fragment, self.player).place_locked_item(self.create_item(i.eye_fragment))
             self.multiworld.get_location(l.goal, self.player).access_rule = lambda state: state.can_reach(l.eye_fragment, "Location", self.player)
+            parse_access_rule_group(self, access_rule_groups["goal_eye_chest_rules"])
 
         # Exclude or prioritize locations according to locations.py. This will be overwritten by any YAML declarations.
         for location in location_data_table.items():
