@@ -1098,7 +1098,7 @@ traversal_requirements: Dict[Union[lname, rname], Dict[Union[lname, rname], AWDa
             AWData(AWType.location, [[iname.yoyo], [iname.bubble, iname.flute], 
                                      [iname.ball], [iname.flute_jump]]),
         rname.frog_bird_after_yoyo_1:
-            AWData(AWType.location),
+            AWData(AWType.region),
         rname.frog_dark_room:  # yoyo to open the door, lantern to fall through the bird, or ball to hit buttons
             AWData(AWType.region, [[iname.yoyo], [iname.lantern], [iname.ball_trick_easy]]),
         rname.frog_ruby_egg_ledge:  # fall through a bird onto it
