@@ -4,25 +4,23 @@ from Options import (DefaultOnToggle, Toggle, Choice, PerGameCommonOptions, Opti
 class LevelOrder(Choice):
     """
 Determines which levels are unlocked with beacons.
-Random: Each beacon will unlock 2 or 3 random levels.
-Faramore: As random, but Faramore Town is guaranteed to be one of your starting levels.
+Faramore: Each beacon will unlock 2 or 3 random levels, but Faramore Town is guaranteed to be one of your starting levels.
 Vanilla: Each beacon will unlock its normal levels. Note that beacon locations may still be shuffled to random locations.
     """
     internal_name = "level_order"
     display_name = "Level Order"
     option_vanilla = 0
     option_faramore = 1
-    option_random = 2
+    #option_randomize = 2
     default = 1
 
 class ShuffleBarrierTypes(Toggle):
-    """When enabled, will randomize the barrier types. All barriers of a certain type will be changed to another.
-    """
+    """When enabled, will randomize the barrier types. All barriers of a certain type will be changed to another."""
     internal_name = "shuffle_barrier_types"
     display_name = "Shuffle Barrier Types"
 
 class ShuffleNPCs(Toggle):
-    """Include NPCs in the item and location pools. NPCs are always local, and can never spawn from other NPCs or from hitting rocks."""
+    """Include NPCs in the item and location pools. NPCs are always local, and always spawn in the open."""
     internal_name = "shuffle_npcs"
     display_name = "Shuffle NPCs"
 
@@ -50,6 +48,11 @@ class ShuffleCoins(DefaultOnToggle):
     """Include all coins and coin locations in the pool."""
     internal_name = "shuffle_coins"
     display_name = "Shuffle Coins"
+
+class ShuffleRocks(DefaultOnToggle):
+    """Include all four rocks (and their locations) in the pool."""
+    internal_name = "shuffle_rocks"
+    display_name = "Shuffle Rocks"
 
 class ShufflePlants(DefaultOnToggle):
     """Include all three of the Cypress' quest's plants (and their locations) in the pool."""
@@ -82,7 +85,7 @@ class ShuffleRaceRewards(Toggle):
     display_name = "Shuffle Race Rewards"
 
 class ShuffleBeacons(DefaultOnToggle):
-    """Include the Sacred Beacons in the item and location pools."""
+    """Include the Sacred Beacons in the item and location pools. Sacred Beacons are always local, and will still unlock levels when hit."""
     internal_name = "shuffle_beacons"
     display_name = "Shuffle Beacons"
 
@@ -122,26 +125,27 @@ class DamageBoost(Toggle):
 
 @dataclass
 class ArzetteOptions(PerGameCommonOptions):
-    level_order = LevelOrder
-    shuffle_barrier_types = ShuffleBarrierTypes
-    shuffle_npcs = ShuffleNPCs
-    shuffle_bags = ShuffleBags
-    shuffle_keys = ShuffleKeys
-    shuffle_hills_key = ShuffleHillsKey
-    shuffle_candles = ShuffleCandles
-    shuffle_coins = ShuffleCoins
-    shuffle_plants = ShufflePlants
-    shuffle_upgrades = ShuffleUpgrades
-    shuffle_life_ups = ShuffleLifeUps
-    shuffle_bonus_scrolls = ShuffleBonusScrolls
-    shuffle_bonus_rewards = ShuffleBonusScrollRewards
-    shuffle_race_rewards = ShuffleRaceRewards
-    shuffle_beacons = ShuffleBeacons
-    shuffle_jewels = ShuffleJewels
-    trading_sequence = TradingSequence
-    tricky_jumps = TrickyJumps
-    no_lantern = NoLantern
-    damage_boost = DamageBoost
+    level_order: LevelOrder
+    shuffle_barrier_types: ShuffleBarrierTypes
+    shuffle_npcs: ShuffleNPCs
+    shuffle_bags: ShuffleBags
+    shuffle_keys: ShuffleKeys
+    shuffle_hills_key: ShuffleHillsKey
+    shuffle_candles: ShuffleCandles
+    shuffle_coins: ShuffleCoins
+    shuffle_rocks: ShuffleRocks
+    shuffle_plants: ShufflePlants
+    shuffle_upgrades: ShuffleUpgrades
+    shuffle_life_ups: ShuffleLifeUps
+    shuffle_bonus_scrolls: ShuffleBonusScrolls
+    shuffle_bonus_rewards: ShuffleBonusScrollRewards
+    shuffle_race_rewards: ShuffleRaceRewards
+    shuffle_beacons: ShuffleBeacons
+    shuffle_jewels: ShuffleJewels
+    trading_sequence: TradingSequence
+    tricky_jumps: TrickyJumps
+    no_lantern: NoLantern
+    damage_boost: DamageBoost
 
 arzette_option_groups = [
     OptionGroup("Logic Options", [
@@ -157,6 +161,7 @@ arzette_option_groups = [
         ShuffleCandles,
         ShuffleCoins,
         ShuffleUpgrades,
+        ShuffleRocks,
         ShufflePlants,
         ShuffleLifeUps,
         ShuffleBonusScrollRewards,
