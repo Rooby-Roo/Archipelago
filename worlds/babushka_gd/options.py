@@ -8,41 +8,18 @@ class DeathLink(FreeText):
     display_name = "Death Link"
     default = "wow, thanks gramma"
 
+class MusicRando(Choice):
+    """Shuffles all the game's music tracks. Multiple music tracks that aren't used anywhere in the base
+    game are included, so you'll get to listen to all sorts of new stuff!
+    Shuffled = Shuffles the music once.
+    Chaos = Shuffles the music every time music plays."""
+    option_false = 0
+    option_shuffled = 1
+    option_chaos = 2
+    option_alias_true = 1
+    default = 0
+
 @dataclass
 class BabushkaOptions(PerGameCommonOptions):
     death_link: DeathLink
-
-
-# If we want to group our options by similar type, we can do so as well. This looks nice on the website.
-option_groups = [
-    OptionGroup(
-        "Gameplay Options",
-        [HardMode, Hammer, ExtraStartingChest, StartWithOneConfettiCannon, TrapChance],
-    ),
-    OptionGroup(
-        "Aesthetic Options",
-        [ConfettiExplosiveness, PlayerSprite],
-    ),
-]
-
-# Finally, we can define some option presets if we want the player to be able to quickly choose a specific "mode".
-option_presets = {
-    "boring": {
-        "hard_mode": False,
-        "hammer": False,
-        "extra_starting_chest": False,
-        "start_with_one_confetti_cannon": False,
-        "trap_chance": 0,
-        "confetti_explosiveness": ConfettiExplosiveness.range_start,
-        "player_sprite": PlayerSprite.option_human,
-    },
-    "the true way to play": {
-        "hard_mode": True,
-        "hammer": True,
-        "extra_starting_chest": True,
-        "start_with_one_confetti_cannon": True,
-        "trap_chance": 50,
-        "confetti_explosiveness": ConfettiExplosiveness.range_end,
-        "player_sprite": PlayerSprite.option_duck,
-    },
-}
+    music_rando: MusicRando

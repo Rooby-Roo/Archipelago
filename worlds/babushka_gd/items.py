@@ -4,20 +4,29 @@ from typing import TYPE_CHECKING
 
 from BaseClasses import Item, ItemClassification
 
-if TYPE_CHECKING:
-    from .world import APQuestWorld
+from names import ItemNames as i
 
-# Every item must have a unique integer ID associated with it.
-# We will have a lookup from item name to ID here that, in world.py, we will import and bind to the world class.
-# Even if an item doesn't exist on specific options, it must be present in this lookup.
+if TYPE_CHECKING:
+    from .__init__ import BabushkaWorld
+
 ITEM_NAME_TO_ID = {
-    "Key": 1,
-    "Sword": 2,
-    "Shield": 3,
-    "Hammer": 4,
-    "Health Upgrade": 5,
-    "Confetti Cannon": 6,
-    "Math Trap": 7,
+    # Spells
+    i.feather_fall: 100,
+    i.air_walk: 101,
+    i.ladder: 102,
+    i.ghost: 103,
+
+    # Memories
+    i.fish_memory: 200,
+    i.cricket_memory: 201,
+    i.spore_memory: 202,
+    i.love: 203,
+
+    # Collectibles
+    i.angel_egg = 300,
+    i.fishing_rod = 301,
+    i.flower_pot = 302,
+    i.cute_pet = 303
 }
 
 # Items should have a defined default classification.
@@ -32,11 +41,8 @@ DEFAULT_ITEM_CLASSIFICATIONS = {
     "Math Trap": ItemClassification.trap,
 }
 
-
-# Each Item instance must correctly report the "game" it belongs to.
-# To make this simple, it is common practice to subclass the basic Item class and override the "game" field.
-class APQuestItem(Item):
-    game = "APQuest"
+class BabushkaItem(Item):
+    game = "Babushka's Glitch Dungeon"
 
 
 # Ontop of our regular itempool, our world must be able to create arbitrary amounts of filler as requested by core.
