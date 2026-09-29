@@ -23,22 +23,73 @@ ITEM_NAME_TO_ID = {
     i.love: 203,
 
     # Collectibles
-    i.angel_egg = 300,
-    i.fishing_rod = 301,
-    i.flower_pot = 302,
-    i.cute_pet = 303
+    i.angel_egg: 300,
+    i.fishing_rod: 301,
+    i.flower_pot: 302,
+    i.cute_pet: 303,
+
+    # Equipment
+    i.broomerang: 400,
+    i.map_item: 401,
+    i.warp: 402,
+    i.time_keeper: 403,
+
+    # Elders
+    i.elder_0: 500,
+    i.elder_1: 501,
+    i.elder_2: 502,
+    i.elder_3: 503,
+
+    # Hats
+    i.outfit_0: 600,
+    i.outfit_1: 601,
+    i.outfit_2: 602,
+    i.outfit_3: 603,
+    i.outfit_4: 604,
+    i.outfit_5: 605,
+    i.outfit_6: 606,
+    i.outfit_7: 607,
+    i.outfit_8: 608,
+    i.outfit_9: 609,
+    i.outfit_10: 610,
+    i.outfit_11: 611
 }
 
-# Items should have a defined default classification.
-# In our case, we will make a dictionary from item name to classification.
 DEFAULT_ITEM_CLASSIFICATIONS = {
-    "Key": ItemClassification.progression,
-    "Sword": ItemClassification.progression | ItemClassification.useful,  # Items can have multiple classifications.
-    "Shield": ItemClassification.progression,
-    "Hammer": ItemClassification.progression,
-    "Health Upgrade": ItemClassification.useful,
-    "Confetti Cannon": ItemClassification.filler,
-    "Math Trap": ItemClassification.trap,
+    i.feather_fall: ItemClassification.progression | ItemClassification.useful,
+    i.air_walk: ItemClassification.progression | ItemClassification.useful,
+    i.ladder: ItemClassification.progression | ItemClassification.useful,
+    i.ghost: ItemClassification.progression | ItemClassification.useful,
+    i.fish_memory: ItemClassification.progression | ItemClassification.useful,
+    i.cricket_memory: ItemClassification.progression | ItemClassification.useful,
+    i.spore_memory: ItemClassification.progression | ItemClassification.useful,
+    i.love: ItemClassification.useful,
+    i.angel_egg: ItemClassification.filler,
+    i.fishing_rod: ItemClassification.progression,
+    i.flower_pot: ItemClassification.progression,
+    i.cute_pet: ItemClassification.progression,
+    i.broomerang: ItemClassification.useful,
+    i.map_item: ItemClassification.filler,
+    i.warp: ItemClassification.progression,
+    i.time_keeper: ItemClassification.useful,
+    i.elder_0: ItemClassification.progression,
+    i.elder_1: ItemClassification.progression,
+    i.elder_2: ItemClassification.progression,
+    i.elder_3: ItemClassification.progression,
+    i.outfit_0: ItemClassification.filler,
+    i.outfit_1: ItemClassification.filler,
+    i.outfit_2: ItemClassification.filler,
+    i.outfit_3: ItemClassification.filler,
+    i.outfit_4: ItemClassification.filler,
+    i.outfit_5: ItemClassification.filler,
+    i.outfit_6: ItemClassification.filler,
+    i.outfit_7: ItemClassification.filler,
+    i.outfit_8: ItemClassification.filler,
+    i.outfit_9: ItemClassification.filler,
+    i.outfit_10: ItemClassification.filler,
+    i.outfit_11: ItemClassification.filler,
+
+
 }
 
 class BabushkaItem(Item):
