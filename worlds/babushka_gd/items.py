@@ -52,7 +52,11 @@ ITEM_NAME_TO_ID = {
     i.outfit_8: 608,
     i.outfit_9: 609,
     i.outfit_10: 610,
-    i.outfit_11: 611
+    i.outfit_11: 611,
+
+    # Other filler items
+    i.forget_trap: 700,
+    i.shard_bundle: 701
 }
 
 DEFAULT_ITEM_CLASSIFICATIONS = {
@@ -88,6 +92,8 @@ DEFAULT_ITEM_CLASSIFICATIONS = {
     i.outfit_9: ItemClassification.filler,
     i.outfit_10: ItemClassification.filler,
     i.outfit_11: ItemClassification.filler,
+    i.forget_trap: ItemClassification.trap,
+    i.shard_bundle: ItemClassification.filler
 
 
 }

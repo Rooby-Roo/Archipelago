@@ -45,3 +45,7 @@ class ItemNames(StrEnum):
     outfit_9 = "Crone Hat"
     outfit_10 = "No Scarf"
     outfit_11 = "Cozy Winter Scarf"
+
+    # fillers
+    forget_trap = "Forget Trap"
+    shard_bundle = "50 Shards"
