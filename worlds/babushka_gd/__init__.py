@@ -7,6 +7,7 @@ from BaseClasses import Tutorial
 from . import items, locations, regions, rules
 from . import options as babushka_options  # rename due to a name conflict with World.options
 from .options import option_groups, option_presets
+from .names import ItemNames as i
 
 class BabushkaWorld(World):
     """
@@ -37,18 +38,11 @@ class BabushkaWorld(World):
     def create_items(self) -> None:
         items.create_all_items(self)
 
-    # Our world class must also have a create_item function that can create any one of our items by name at any time.
-    # We also put this in a different file, the same one that create_items is in.
-    def create_item(self, name: str) -> items.APQuestItem:
-        return items.create_item_with_correct_classification(self, name)
+    def create_item(self, name: str) -> items.BabushkaItemItem:
+        return items.create_item_with_class(self, name)
 
-    # For features such as item links and panic-method start inventory, AP may ask your world to create extra filler.
-    # The way it does this is by calling get_filler_item_name.
-    # For this purpose, your world *must* have at least one infinitely repeatable item (usually filler).
-    # You must override this function and return this infinitely repeatable item's name.
-    # In our case, we defined a function called get_random_filler_item_name for this purpose in our items.py.
     def get_filler_item_name(self) -> str:
-        return items.get_random_filler_item_name(self)
+        return i.forget_trap
 
     # There may be data that the game client will need to modify the behavior of the game.
     # This is what slot_data exists for. Upon every client connection, the slot's slot_data is sent to the client.
