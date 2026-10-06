@@ -28,6 +28,10 @@ class BabushkaWorld(World):
 
     origin_region_name = "Overworld"
 
+    def generate_early(self) -> None:
+        if self.options.angel_egg_hunt:
+            self.options.angel_eggs_in_pool.value = max([self.options.angel_eggs_in_pool, self.options.angel_eggs_needed])
+
     def create_regions(self) -> None:
         regions.create_and_connect_regions(self)
         locations.create_all_locations(self)

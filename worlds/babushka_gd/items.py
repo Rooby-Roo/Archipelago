@@ -98,40 +98,48 @@ DEFAULT_ITEM_CLASSIFICATIONS = {
 
 }
 
+ALWAYS_CREATED_ITEMS = [
+    i.feather_fall,
+    i.air_walk,
+    i.ladder,
+    i.ghost,
+    i.fish_memory,
+    i.cricket_memory,
+    i.spore_memory,
+    i.love,
+    i.love,
+    i.love,
+#   i.love, # TODO: Verify that there are in fact 4 of these? I never found a fourth but code suggests yes!
+    i.fishing_rod,
+    i.flower_pot,
+    i.cute_pet,
+    i.broomerang,
+    i.broomerang,
+    i.time_keeper,
+    i.elder_0,
+    i.elder_1,
+    i.elder_2,
+    i.elder_3,
+]
+
 class BabushkaItem(Item):
     game = "Babushka's Glitch Dungeon"
 
 def create_item_with_class(world: BabushkaWorld, name: str, itemclass: ItemClassification|None = None) -> BabushkaItem: 
 
     classification = itemclass if itemclass else DEFAULT_ITEM_CLASSIFICATIONS[name]
-    if name == i.angel_egg and world.options.angel_egg_hunt:
+    if world.options.angel_egg_hunt and name == i.angel_egg:
         classification = ItemClassification.progression
 
     return BabushkaItem(name, classification, ITEM_NAME_TO_ID[name], world.player)
 
 
-# With those two helper functions defined, let's now get to actually creating and submitting our itempool.
 def create_all_items(world: BabushkaWorld) -> None:
-    # This is the function in which we will create all the items that this world submits to the multiworld item pool.
-    # There must be exactly as many items as there are locations.
-    # In our case, there are either six or seven locations.
-    # We must make sure that when there are six locations, there are six items,
-    # and when there are seven locations, there are seven items.
 
-    # Creating items should generally be done via the world's create_item method.
-    # First, we create a list containing all the items that always exist.
+    itempool: list[Item] = []
 
-    itempool: list[Item] = [
-        world.create_item("Key"),
-        world.create_item("Sword"),
-        world.create_item("Shield"),
-        world.create_item("Health Upgrade"),
-        world.create_item("Health Upgrade"),
-    ]
-
-
-    if world.options.hammer:
-        itempool.append(world.create_item("Hammer"))
+    for name in ALWAYS_CREATED_ITEMS:
+        itempool.append(world.create_item(name))
 
     number_of_items = len(itempool)
     number_of_unfilled_locations = len(world.multiworld.get_unfilled_locations(world.player))

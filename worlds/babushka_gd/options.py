@@ -13,6 +13,7 @@ class MusicRando(Choice):
     game are included, so you'll get to listen to all sorts of new stuff!
     Shuffled = Shuffles the music once.
     Chaos = Shuffles the music every time music plays."""
+    display_name = "Music Rando"
     option_false = 0
     option_shuffled = 1
     option_chaos = 2
@@ -22,11 +23,13 @@ class MusicRando(Choice):
 class AngelEggHunt(Toggle):
     """Turns Angel Eggs into MacGuffins! In addition to anything else, you will need to collect Angel
     Eggs to unlock the endgame."""
+    display_name = "Angel Egg Hunt"
     default = False
 
 class AngelEggHuntCountNeeded(Range):
     """How many Angel Eggs are needed in order to fullfill the Angel Egg Hunt? This option does nothing
     if Angel Egg Hunt is not enabled."""
+    display_name = "Angel Eggs Needed"
     range_start = 1
     range_end = 28
     default = 14
@@ -35,12 +38,14 @@ class AngelEggsInPool(Range):
     """How many Angel Eggs are in the item pool? If this number is lower than Angel Eggs Needed and 
     Angel Egg Hunt is on, this number will be brought up to match it automatically. Angel Eggs do 
     nothing if Angel Egg Hunt is not enabled, but you can still add them to the pool if you want."""
+    display_name = "Angel Eggs in Pool"
     range_start = 0
     range_end = 28
     default = 28
 
 class NakedGrandma(Toggle):
     """Removes all costumes from the pool and replaces them with traps."""
+    display_name = "Naked Grandma"
 
 @dataclass
 class BabushkaOptions(PerGameCommonOptions):
