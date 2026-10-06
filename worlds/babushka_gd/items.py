@@ -98,6 +98,13 @@ DEFAULT_ITEM_CLASSIFICATIONS = {
 
 }
 
+TRAPS = [name for (name, itemclass) in DEFAULT_ITEM_CLASSIFICATIONS.items() if itemclass == ItemClassification.trap]
+
+OBTAINABLE_OUTFITS = [
+    i.outfit_1, i.outfit_2, i.outfit_3, i.outfit_4, i.outfit_5, i.outfit_6,
+    i.outfit_7, i.outfit_8, i.outfit_9, i.outfit_10, i.outfit_11
+]
+
 ALWAYS_CREATED_ITEMS = [
     i.feather_fall,
     i.air_walk,
@@ -141,45 +148,17 @@ def create_all_items(world: BabushkaWorld) -> None:
     for name in ALWAYS_CREATED_ITEMS:
         itempool.append(world.create_item(name))
 
+    if world.options.naked_grandma:
+        for _ in range(11):
+            itempool.append(world.create_item(world.random.choice(TRAPS)))
+    else:
+        for name in OBTAINABLE_OUTFITS:
+            itempool.append(world.create_item(name))
+
     number_of_items = len(itempool)
     number_of_unfilled_locations = len(world.multiworld.get_unfilled_locations(world.player))
     needed_number_of_filler_items = number_of_unfilled_locations - number_of_items
-
-    # Finally, we create that many filler items and add them to the itempool.
-    # To create our filler, we could just use world.create_item("Confetti Cannon").
-    # But there is an alternative that works even better for most worlds, including APQuest.
-    # As discussed above, our world must have a get_filler_item_name() function defined,
-    # which must return the name of an infinitely repeatable filler item.
-    # Defining this function enables the use of a helper function called world.create_filler().
-    # You can just use this function directly to create as many filler items as you need to complete your itempool.
     itempool += [world.create_filler() for _ in range(needed_number_of_filler_items)]
 
-    # But... is that the right option for your game? Let's explore that.
-    # For some games, the concepts of "regular itempool filler" and "additionally created filler" are different.
-    # These games might want / require specific amounts of specific filler items in their regular pool.
-    # To achieve this, they will have to intentionally create the correct quantities using world.create_item().
-    # They may still use world.create_filler() to fill up the rest of their itempool with "repeatable filler",
-    # after creating their "specific quantity" filler and still having room left over.
-
-    # But there are many other games which *only* have infinitely repeatable filler items.
-    # They don't care about specific amounts of specific filler items, instead only caring about the proportions.
-    # In this case, world.create_filler() can just be used for the entire filler itempool.
-    # APQuest is one of these games:
-    # Regardless of whether it's filler for the regular itempool or additional filler for item links / etc.,
-    # we always just want a Confetti Cannon or a Math Trap depending on the "trap_chance" option.
-    # We defined this behavior in our get_random_filler_item_name() function, which in world.py,
-    # we'll bind to world.get_filler_item_name(). So, we can just use world.create_filler() for all of our filler.
-
-    # Anyway. With our world's itempool finalized, we now need to submit it to the multiworld itempool.
-    # This is how the generator actually knows about the existence of our items.
     world.multiworld.itempool += itempool
 
-    # Sometimes, you might want the player to start with certain items already in their inventory.
-    # These items are called "precollected items".
-    # They will be sent as soon as they connect for the first time (depending on your client's item handling flag).
-    # Players can add precollected items themselves via the generic "start_inventory" option.
-    # If you want to add your own precollected items, you can do so via world.push_precollected().
-    if world.options.start_with_one_confetti_cannon:
-        # We're adding a filler item, but you can also add progression items to the player's precollected inventory.
-        starting_confetti_cannon = world.create_item("Confetti Cannon")
-        world.push_precollected(starting_confetti_cannon)
