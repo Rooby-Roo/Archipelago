@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 
 from BaseClasses import Item, ItemClassification
 
-from names import ItemNames as i
+from .names import ItemNames as i
 
 if TYPE_CHECKING:
     from .__init__ import BabushkaWorld
@@ -54,9 +54,22 @@ ITEM_NAME_TO_ID = {
     i.outfit_10: 610,
     i.outfit_11: 611,
 
+    # Locks
+    i.key: 700,
+    i.door_tutorial: 701,
+    i.door_tadpole: 702,
+    i.door_moldy_1: 703,
+    i.door_moldy_2: 704,
+    i.door_cricket: 705,
+    i.door_tower_inside: 706,
+    i.door_tadpole_eye: 707,
+    i.door_moldy_eye: 708,
+    i.door_cricket_eye: 709,
+    i.door_tower_exterior: 710,
+
     # Other filler items
-    i.forget_trap: 700,
-    i.shard_bundle: 701
+    i.forget_trap: 800,
+    i.shard_bundle: 801
 }
 
 DEFAULT_ITEM_CLASSIFICATIONS = {
