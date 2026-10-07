@@ -55,6 +55,7 @@ class ItemNames(StrEnum):
     door_moldy_2 = "Moldy Spore Forest Glitched Slammer Room Door"
     door_moldy_eye = "Moldy Spore Forest Eye Door"
     door_cricket = "Cricket Caves Air Walk & Ladder Room Door"
+    door_cricket_eye = "Cricket Caves Eye Door"
     door_tower_exterior = "Elder Tower Exterior Door"  # this is just the 4 elders door. idk if it's worth locking or not
     door_tower_inside = "Elder Tower Interior Door"
 
